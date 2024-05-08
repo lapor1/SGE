@@ -13,3 +13,4 @@ D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
+D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json

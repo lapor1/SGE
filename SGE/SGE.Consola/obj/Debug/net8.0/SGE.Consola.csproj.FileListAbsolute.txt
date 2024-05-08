@@ -18,3 +18,4 @@ D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.pdb
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.genruntimeconfig.cache
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\ref\SGE.Consola.dll
+D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.sourcelink.json
