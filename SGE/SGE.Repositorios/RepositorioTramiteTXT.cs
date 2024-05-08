@@ -1,9 +1,9 @@
 ﻿namespace SGE.Repositorios;
+using SGE.Aplicacion;
 
 using System.Data.Common;
 using Microsoft.VisualBasic;
 using Microsoft.Win32.SafeHandles;
-using SGE.Aplicacion;
 
 public class RepositorioTramiteTXT : ITramiteRepositorio
 {
@@ -11,8 +11,8 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
     readonly string _nombreArch = "tramite.txt";
     public void AgregarTramiteAlta(Tramite tramite)
     {
+        using var sw = new StreamWriter(_nombreArch, true); //agrega al final del archivo
         id++;
-        using var sw = new StreamWriter(_nombreArch, true);
         sw.WriteLine(id);
         sw.WriteLine(tramite.IdExpediente);
         sw.WriteLine(tramite.TipoTramite);
@@ -22,26 +22,72 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         sw.WriteLine(tramite.IdUsuarioModificacion == null ? 0 : tramite.IdUsuarioModificacion);
     }
 
-    public bool EliminarTramiteBaja(int id)
-    {
-        bool eliminated = false;
-        
-        using var sr = new StreamReader(_nombreArch);
-        while ((!sr.EndOfStream) && (!eliminated))
-        {
-            var tramite = obtenerTramiteDelRepositorio(sr);
-            if (tramite.IdTramite == id) {    
-                tramite.IdTramite = 0;      
-                // eliminar tramite
-                // sobre escribir el archivo
-                eliminated = true;
+    public void EliminarTramiteBaja(int id)     //mucha ineficiencia pero bueno
+    {        
+        var listaTramites = new List<Tramite>();
+        listaTramites = ListarTramites();
+        int i = 0;
+        bool encontrado = false;
+        while((listaTramites.Count > i) && (!encontrado)) {
+            if (listaTramites[i].IdTramite == id) {
+                listaTramites.Remove(listaTramites[i]);
+                encontrado = true;
             }
+            i++;
         }
-
-        return eliminated;
+        SobreEscribirArchivo(listaTramites);        
     }
 
-    private Tramite obtenerTramiteDelRepositorio(StreamReader sr) {
+    public void ModificarTramite(Tramite tramite)
+    {
+        var listaTramites = new List<Tramite>();
+        listaTramites = ListarTramites();
+        int i = 0;
+        bool encontrado = false;
+        while((listaTramites.Count > i) && (!encontrado)) {
+            if (listaTramites[i].IdTramite == tramite.IdTramite) {
+                listaTramites[i].IdExpediente = tramite.IdExpediente;
+                listaTramites[i].TipoTramite = tramite.TipoTramite;
+                listaTramites[i].Contenido = tramite.Contenido;
+                listaTramites[i].FechaHoraModificacion = DateTime.Now;
+                listaTramites[i].IdUsuarioModificacion = tramite.IdUsuarioModificacion;
+                encontrado = true;
+            }
+            i++;
+        }
+        SobreEscribirArchivo(listaTramites);
+    }
+
+    public Tramite? GetTramite(int id)
+    {
+        using var sr = new StreamReader(_nombreArch);
+        while (!sr.EndOfStream)
+        {
+            var tramite = obtenerTramiteDelRepositorio(sr); 
+            if (tramite.IdTramite == id) {
+                return tramite;
+            }
+        }
+        return null;
+    }
+
+    public void SobreEscribirArchivo(List<Tramite> listaTramites)
+    {
+        using var sw = new StreamWriter(_nombreArch, false); 
+
+        for (int i = 0; i < listaTramites.Count; i++)
+        {
+            sw.WriteLine(listaTramites[i].IdTramite);
+            sw.WriteLine(listaTramites[i].IdExpediente);
+            sw.WriteLine(listaTramites[i].TipoTramite);
+            sw.WriteLine(listaTramites[i].Contenido);
+            sw.WriteLine(listaTramites[i].FechaHoraCreacion);
+            sw.WriteLine(listaTramites[i].FechaHoraModificacion);
+            sw.WriteLine(listaTramites[i].IdUsuarioModificacion);
+        }
+    }
+
+    public Tramite obtenerTramiteDelRepositorio(StreamReader sr) {
         var tramite = new Tramite();
         tramite.IdTramite = int.Parse(sr.ReadLine() ?? "");
         tramite.IdExpediente = int.Parse(sr.ReadLine() ?? "");

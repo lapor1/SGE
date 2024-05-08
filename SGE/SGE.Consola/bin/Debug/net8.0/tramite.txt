@@ -2,13 +2,27 @@
 1
 ParaResolver
 contenido tramite 1
-8/5/2024 00:45:54
-8/5/2024 00:45:54
+8/5/2024 20:49:36
+8/5/2024 20:49:36
 0
-2
-1
-ParaResolver
-contenido tramite 2
-8/5/2024 00:45:54
-8/5/2024 00:45:54
 3
+2
+ConResolucion
+ddfg
+8/5/2024 20:49:36
+8/5/2024 20:49:36
+4
+4
+2
+ConResolucion
+sjshsg
+8/5/2024 20:49:36
+8/5/2024 20:49:36
+4
+5
+2
+Finalizado
+nuevo contenido
+8/5/2024 20:49:36
+8/5/2024 20:49:37
+7

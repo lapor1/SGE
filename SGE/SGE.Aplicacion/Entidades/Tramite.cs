@@ -12,19 +12,6 @@ public class Tramite
     public int? IdUsuarioModificacion {get; set;}
 
     public override string ToString() {
-        return $"Id Tramite = {IdTramite}\nId Expediente = {IdExpediente}\nTipo de Tramite = {TipoTramite}\nContenido = {Contenido}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {IdUsuarioModificacion:dd/MM/yy HH:mm}\nId Usuario (ultima modificacion) = {IdUsuarioModificacion}";
+        return $"Id Tramite = {IdTramite}\nId Expediente = {IdExpediente}\nTipo de Tramite = {TipoTramite}\nContenido = {Contenido}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario (ultima modificacion) = {IdUsuarioModificacion}";
     }
-
 }
-
-/*
-public Tramite () {}
-public Tramite (int idTramite, int idExpediente, EtiquetaTramite tipoTramite, string contenido, int idUsuarioModificacion) {
-    IdTramite = idTramite;
-    IdExpediente = idExpediente;
-    TipoTramite = tipoTramite;
-    Contenido = contenido;
-    FechaHoraCreacion = DateTime.Now;
-    FechaHoraModificacion = DateTime.Now;
-    IdUsuarioModificacion = idUsuarioModificacion;
-}*/

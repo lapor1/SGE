@@ -2,8 +2,8 @@ namespace SGE.Aplicacion;
 
 public class CasoDeUsoTramiteBaja(ITramiteRepositorio repo)
 {
-    public bool Ejecutar(int id)
+    public void Ejecutar(int id)
     {
-        return repo.EliminarTramiteBaja( id );
+        repo.EliminarTramiteBaja( id );
     }
 }
