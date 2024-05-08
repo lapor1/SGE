@@ -31,8 +31,9 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         {
             var tramite = obtenerTramiteDelRepositorio(sr);
             if (tramite.IdTramite == id) {    
-                // eliminar tramite
                 tramite.IdTramite = 0;      
+                // eliminar tramite
+                // sobre escribir el archivo
                 eliminated = true;
             }
         }

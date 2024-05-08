@@ -24,7 +24,14 @@ tramites[1] = new Tramite() {
 var agregarTramiteAlta = new CasoDeUsoTramiteAlta(repo);
 
 for (int i = 0; i < tramites.Length; i++) {
-    agregarTramiteAlta.Ejecutar(tramites[i]);
+    try
+    {
+        agregarTramiteAlta.Ejecutar(tramites[i]);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
 }
 
 
