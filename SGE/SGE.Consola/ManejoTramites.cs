@@ -29,7 +29,7 @@ public static class ManejoTramites
         tramites.Add(nuevoTramite);
     }
 
-    public static void CasoDeUsoAltaTodosLosTramitos () {
+    public static void CasoDeUsoAltaTodosLosTramites () {
         var agregarTramiteAlta = new CasoDeUsoTramiteAlta(repo, new TramiteValidador());
         for (int i = 0; i < tramites.Count; i++) {
             try
