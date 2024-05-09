@@ -7,19 +7,17 @@ using Microsoft.Win32.SafeHandles;
 
 public class RepositorioTramiteTXT : ITramiteRepositorio
 {
-    private static int id = 0;
     readonly string _nombreArch = "tramite.txt";
     public void AgregarTramiteAlta(Tramite tramite)
     {
-        using var sw = new StreamWriter(_nombreArch, true); //agrega al final del archivo
-        id++;
-        sw.WriteLine(id);
+        using var sw = new StreamWriter(_nombreArch, true);
+        sw.WriteLine(tramite.IdTramite);
         sw.WriteLine(tramite.IdExpediente);
         sw.WriteLine(tramite.TipoTramite);
         sw.WriteLine(tramite.Contenido);
-        sw.WriteLine(DateTime.Now);
-        sw.WriteLine(DateTime.Now);
-        sw.WriteLine(tramite.IdUsuarioModificacion == null ? 0 : tramite.IdUsuarioModificacion);
+        sw.WriteLine(tramite.FechaHoraCreacion);
+        sw.WriteLine(tramite.FechaHoraModificacion);
+        sw.WriteLine(tramite.IdUsuarioModificacion);
     }
 
     public void EliminarTramiteBaja(int id)     //mucha ineficiencia pero bueno
@@ -49,7 +47,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
                 listaTramites[i].IdExpediente = tramite.IdExpediente;
                 listaTramites[i].TipoTramite = tramite.TipoTramite;
                 listaTramites[i].Contenido = tramite.Contenido;
-                listaTramites[i].FechaHoraModificacion = DateTime.Now;
+                listaTramites[i].FechaHoraModificacion = tramite.FechaHoraModificacion;
                 listaTramites[i].IdUsuarioModificacion = tramite.IdUsuarioModificacion;
                 encontrado = true;
             }

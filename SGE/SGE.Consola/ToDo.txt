@@ -1,0 +1,21 @@
+-   Permisos de usuario:
+
+    [ ] ExpedienteAlta: Puede realizar altas de expedientes
+    [ ] ExpedienteBaja: Puede realizar bajas de expedientes
+    [ ] ExpedienteModificacion: Puede realizar modificaciones de expedientes
+    [ ] TramiteAlta: Puede realizar altas de trámites
+    [ ] TramiteBaja: Puede realizar bajas de trámites
+    [ ] TramiteModificacion: Puede realizar modificaciones de trámites
+
+-   Validaciones :
+
+    [ ] Lacarátula de un expediente no puede estar vacía
+    [x] Elcontenido de un trámite no puede estar vacío
+    [ ] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+
+-   Cambio automático del estado de un expediente :
+
+
+
+
+    [ ] falta resolver como ponerlo en mayuscula estadoExpediente

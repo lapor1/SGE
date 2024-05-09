@@ -2,8 +2,9 @@ namespace SGE.Aplicacion;
 
 public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo)
 {
-    public void Ejecutar(Expediente tramite)
+    public void Ejecutar(Expediente expediente)
     {
-        repo.ModificarExpediente( tramite );
+        expediente.FechaHoraModificacion = DateTime.Now;
+        repo.ModificarExpediente( expediente );
     }
 }

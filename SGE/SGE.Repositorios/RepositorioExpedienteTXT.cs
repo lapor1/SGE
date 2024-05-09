@@ -7,17 +7,16 @@ using Microsoft.Win32.SafeHandles;
 
 public class RepositorioExpedienteTXT : IExpedienteRepositorio
 {
-    private static int id = 0;
     readonly string _nombreArch = "expediente.txt";
     public void AgregarExpedienteAlta(Expediente expediente)
     {
         using var sw = new StreamWriter(_nombreArch, true); //agrega al final del archivo
-        id++;
-        sw.WriteLine(id);
+        
+        sw.WriteLine(expediente.IdExpediente);
         sw.WriteLine(expediente.IdTramite);
         sw.WriteLine(expediente.Caratula);
-        sw.WriteLine(DateTime.Now);
-        sw.WriteLine(DateTime.Now);
+        sw.WriteLine(expediente.FechaHoraCreacion);
+        sw.WriteLine(expediente.FechaHoraModificacion);
         sw.WriteLine(expediente.IdUsuario);
         sw.WriteLine(expediente.estadoExpediente);
     }
@@ -48,7 +47,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
             if (listaExpedientes[i].IdExpediente == expediente.IdExpediente) {
                 listaExpedientes[i].IdTramite = expediente.IdTramite;
                 listaExpedientes[i].Caratula = expediente.Caratula;
-                listaExpedientes[i].FechaHoraModificacion = DateTime.Now;
+                listaExpedientes[i].FechaHoraModificacion = expediente.FechaHoraModificacion;
                 listaExpedientes[i].IdUsuario = expediente.IdUsuario;
                 listaExpedientes[i].estadoExpediente = expediente.estadoExpediente;
                 encontrado = true;
