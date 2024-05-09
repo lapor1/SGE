@@ -27,9 +27,10 @@
 
 -   Validaciones :
 
-    [ ] Lacarátula de un expediente no puede estar vacía
+
+    [x] Lacarátula de un expediente no puede estar vacía
     [x] Elcontenido de un trámite no puede estar vacío
-    [ ] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+    [x] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
 
 -   Cambio automático del estado de un expediente :
 
