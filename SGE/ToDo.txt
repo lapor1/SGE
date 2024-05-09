@@ -29,7 +29,7 @@
 
     [ ] Lacarátula de un expediente no puede estar vacía
     [x] Elcontenido de un trámite no puede estar vacío
-    [ ] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+    [-] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
 
 -   Cambio automático del estado de un expediente :
 
@@ -53,11 +53,9 @@
     [] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
     o acceder no existe en el repositorio correspondiente.
 
--   Servicio ??
+-   Servicio
 
-    [ ] entender a que se refiere con servicio y como implementarlos
-
-    [ ] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
+    [x] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
     ServicioAutorizacionProvisorio, que implemente la interfaz IServicioAutorizacion. Este servicio
     siempre debe responder true cuando el IdUsuario sea igual a 1 y false en cualquier otro caso (no hace
     falta realizar ninguna verificación). Utilizaremos este servicio provisional temporalmente hasta que la

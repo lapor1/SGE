@@ -2,10 +2,7 @@
 using SGE.Consola;
 using SGE.Repositorios;
 
+var servicio = new ServicioAutorizacionProvisorio();
+Console.WriteLine(servicio.PoseeElPermiso(1, Permiso.TramiteBaja) + "\n");
+Console.WriteLine(servicio.PoseeElPermiso(0, Permiso.TramiteBaja) + "\n");
 
-ManejoTramites.CrearUnTramiteRandom();
-ManejoTramites.CrearUnTramiteRandom();
-
-ManejoTramites.CasoDeUsoAltaTodosLosTramites();
-
-ManejoTramites.ImprimirTramites();
