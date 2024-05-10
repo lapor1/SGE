@@ -1,22 +1,5 @@
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    * Enterder la arquitectura limpia (clase 7 pag 85 en adelante)
-
-    * Si completaste algo poner [x] , no borrar la tarea.
-    
-    * Calquier duda escribila como punto a parte
-
-    --------------------------------------------------------------------
-    | Yo diria que trates de implementar las 2 validaciones que faltan |
-    | y/o alguna implementacion de algun caso de uso                   |
-    --------------------------------------------------------------------
-
-    te quiero, suerte <3 y no mueras en el intento 
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
--   Permisos de usuario:
+- Permisos de usuario:
 
     [ ] ExpedienteAlta: Puede realizar altas de expedientes
     [ ] ExpedienteBaja: Puede realizar bajas de expedientes
@@ -25,18 +8,13 @@
     [ ] TramiteBaja: Puede realizar bajas de trámites
     [ ] TramiteModificacion: Puede realizar modificaciones de trámites
 
--   Validaciones :
+- Validaciones :
 
-
-    [x] Lacarátula de un expediente no puede estar vacía
-    [x] Elcontenido de un trámite no puede estar vacío
-<<<<<<< HEAD
-    [-] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
-=======
+    [x] La carátula de un expediente no puede estar vacía
+    [x] El contenido de un trámite no puede estar vacío
     [x] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
->>>>>>> 9304ad55a65341e975da8f1d57ac68dea62e43af
 
--   Cambio automático del estado de un expediente :
+- Cambio automático del estado de un expediente :
 
     [x]  Cuandola etiqueta del último trámite es "Resolución", se produce un cambio automático al estado
     "Con resolución".
@@ -47,7 +25,7 @@
     [x]  Cuandola etiqueta del último trámite es "Pase al Archivo", se produce un cambio automático al
     estado "Finalizado".
 
--   Manejo de excepciones : 
+- Manejo de excepciones : 
 
     [x] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
     para la cual no tiene los permisos necesarios.
@@ -58,7 +36,7 @@
     [x] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
     o acceder no existe en el repositorio correspondiente.
 
--   Servicio
+- Servicio
 
     [x] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
     ServicioAutorizacionProvisorio, que implemente la interfaz IServicioAutorizacion. Este servicio
@@ -72,7 +50,7 @@
     debe llevarse a cabo en función de la etiqueta del último trámite. Esta especificación podría ser
     suministrada al servicio mediante la técnica de inyección de dependencias
 
--   Casos de uso !!!!!!!!!!!!
+- Casos de uso !!!!!!!!!!!!
 
     [ ]  Es importante destacar que al eliminar
     un expediente, se deben eliminar también todos los trámites asociados a dicho expediente
@@ -92,10 +70,10 @@
     dicho servicio realizará el cambio de estado del expediente cuando sea necesario. Este servicio podrá ser
     invocado por los casos de uso correspondientes después de agregar, modificar o eliminar un trámite.
 
--   Pequeñas modif.
+- Pequeñas modif.
 
     [ ] falta resolver como ponerlo en mayuscula estadoExpediente
 
--   Dudas
+    [ ] id unico en tramite y expediente (id maximo de la bd)
 
-    [ ] Servicios
+    [ ] IdUsuarioUM puede ser null?

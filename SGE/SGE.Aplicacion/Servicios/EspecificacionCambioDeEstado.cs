@@ -1,20 +1,18 @@
 namespace SGE.Aplicacion;
 
-<<<<<<< HEAD
-public class EspecificacionCambioDeEstado
+public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
 {
-    public void CambiarEstado(Tramite tramite)
+
+    public void ActualizarExpediente(int idExpediente, EstadoExpediente nuevoEstado)
     {
-        
+        Expediente expediente = new Expediente();
+        var consultarPorId = new CasoDeUsoExpedienteConsultarPorId(repo);
+        var modificacion = new CasoDeUsoExpedienteModificacion(repo);
+
+        expediente = consultarPorId.Ejecutar(idExpediente);
+        expediente.estadoExpediente = EstadoExpediente.ConResolucion;
+        modificacion.Ejecutar(expediente);
     }
-}
-=======
-public class EspecificacionCambioDeEstado 
-{
-    //mi unico problema es que no se como cambiar el estado, intente haciendo esto pero me sale en rojo
-    //si encontras la solucion mejor, pero no se como cambiarlo bien, cree tambien el SetTipoTramite
-    //en Tramite.cs, que sirve para cambiar el estado del tramite y poder dejarlo como quiere el enunciado
-    //lo mismo hice con los otros 2, por eso hay 3 errores en total.
 
     //Cuando la etiqueta del último trámite es "Resolución", se produce un cambio automático al estado
     // "Con resolución".
@@ -22,29 +20,27 @@ public class EspecificacionCambioDeEstado
     {
         if(tramite.TipoTramite == EtiquetaTramite.Resolucion)
         {
-            tramite.SetTipoTramite(EstadoExpediente.ConResolucion);
+            ActualizarExpediente(tramite.IdExpediente, EstadoExpediente.ConResolucion);
         }
     }
 
     //Cuando la etiqueta del último trámite es "Pase a estudio", se produce un cambio automático al
     //estado "Para resolver".
-
     public void PaseAEstudioParaResolver(Tramite tramite)
     {
-        if(tramite.TipoTramite == EtiquetaTramite.PaseAEstudio)
+        if(tramite.TipoTramite == EtiquetaTramite.PaseAEstudio) 
         {
-            tramite.SetTipoTramite(EstadoExpediente.ParaResolver);
+            ActualizarExpediente(tramite.IdExpediente, EstadoExpediente.ParaResolver);
         }
     }
 
     //Cuando la etiqueta del último trámite es "Pase al Archivo", se produce un cambio automático al
     //estado "Finalizado".
-
     public void PaseAlArchivoFinalizado(Tramite tramite)
     {
         if(tramite.TipoTramite == EtiquetaTramite.PaseAlArchivo)
         {
-            tramite.SetTipoTramite(EstadoExpediente.Finalizado);
+            ActualizarExpediente(tramite.IdExpediente, EstadoExpediente.Finalizado);
         }
     }
    
@@ -54,5 +50,3 @@ public class EspecificacionCambioDeEstado
 //      de estadodebe llevarse a cabo en función de la etiqueta del último trámite.
 //      Esta especificación podría sernsuministrada al servicio mediante la técnica de 
 //      inyección de dependencias
-
->>>>>>> 9304ad55a65341e975da8f1d57ac68dea62e43af

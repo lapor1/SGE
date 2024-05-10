@@ -13,7 +13,7 @@ public static class ManejoTramites
             IdExpediente = idExpediente,
             TipoTramite = etiquetaTramite,
             Contenido = contenido,
-            IdUsuarioModificacion = idUser
+            IdUsuarioUM = idUser
         };
         tramites.Add(nuevoTramite);
     }
@@ -24,7 +24,7 @@ public static class ManejoTramites
             IdExpediente = rand.Next() % 10,
             TipoTramite = (EtiquetaTramite) (rand.Next() % 5),
             Contenido = rand.Next().ToString(),
-            IdUsuarioModificacion = rand.Next() % 10
+            IdUsuarioUM = rand.Next() % 10
         };
         tramites.Add(nuevoTramite);
     }
@@ -73,7 +73,7 @@ public static class ManejoTramites
         tramites[idTramite].IdExpediente = idExpediente;
         tramites[idTramite].Contenido = contenido;
         tramites[idTramite].TipoTramite = etiquetaTramite;
-        tramites[idTramite].IdUsuarioModificacion = idUser;
+        tramites[idTramite].IdUsuarioUM = idUser;
 
         var modificacionTramite = new CasoDeUsoTramiteModificacion(repo);
         modificacionTramite.Ejecutar(tramites[idTramite]);

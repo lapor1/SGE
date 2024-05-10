@@ -8,11 +8,10 @@ public static class ManejoExpedientes
     public static IExpedienteRepositorio repo = new RepositorioExpedienteTXT();
     public static List<Expediente> expedientes = new List<Expediente>();
 
-    public static void CrearUnExpediente(int _IdTramite, string _Caratula, int _IdUsuario, EstadoExpediente _estadoExpediente) {
+    public static void CrearUnExpediente(string _Caratula, int _IdUsuarioUM, EstadoExpediente _estadoExpediente) {
         Expediente nuevoExpediente = new Expediente() {
-            IdTramite = _IdTramite,
             Caratula = _Caratula,
-            IdUsuario = _IdUsuario,
+            IdUsuarioUM = _IdUsuarioUM,
             estadoExpediente = _estadoExpediente
         };
         expedientes.Add(nuevoExpediente);
@@ -21,9 +20,8 @@ public static class ManejoExpedientes
     public static void CrearUnExpedienteRandom() {
         var rand = new Random();
         Expediente nuevoExpediente = new Expediente() {
-            IdTramite = rand.Next() % 10,
             Caratula = rand.Next().ToString(),
-            IdUsuario = rand.Next() % 10,
+            IdUsuarioUM = rand.Next() % 10,
             estadoExpediente = (EstadoExpediente) (rand.Next() % 5)
         };
         expedientes.Add(nuevoExpediente);
@@ -54,11 +52,10 @@ public static class ManejoExpedientes
         eliminarExpedienteBaja.Ejecutar(id);
     }
 
-    public static void CasoDeUsoModificacionManual (int _IdExpediente, int _IdTramite, string _Caratula, int _IdUsuario, EstadoExpediente _estadoExpediente) {
+    public static void CasoDeUsoModificacionManual (int _IdExpediente, string _Caratula, int _IdUsuario, EstadoExpediente _estadoExpediente) {
         expedientes[_IdExpediente].IdExpediente = _IdExpediente + 1;
-        expedientes[_IdExpediente].IdTramite = _IdTramite;
         expedientes[_IdExpediente].Caratula = _Caratula;
-        expedientes[_IdExpediente].IdUsuario = _IdUsuario;
+        expedientes[_IdExpediente].IdUsuarioUM = _IdUsuario;
         expedientes[_IdExpediente].estadoExpediente = _estadoExpediente;
 
         var modificacionExpediente = new CasoDeUsoExpedienteModificacion(repo);

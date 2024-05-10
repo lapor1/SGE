@@ -17,7 +17,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         sw.WriteLine(tramite.Contenido);
         sw.WriteLine(tramite.FechaHoraCreacion);
         sw.WriteLine(tramite.FechaHoraModificacion);
-        sw.WriteLine(tramite.IdUsuarioModificacion);
+        sw.WriteLine(tramite.IdUsuarioUM);
     }
 
     public void EliminarTramiteBaja(int id)     //mucha ineficiencia pero bueno
@@ -48,7 +48,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
                 listaTramites[i].TipoTramite = tramite.TipoTramite;
                 listaTramites[i].Contenido = tramite.Contenido;
                 listaTramites[i].FechaHoraModificacion = tramite.FechaHoraModificacion;
-                listaTramites[i].IdUsuarioModificacion = tramite.IdUsuarioModificacion;
+                listaTramites[i].IdUsuarioUM = tramite.IdUsuarioUM;
                 encontrado = true;
             }
             i++;
@@ -81,7 +81,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             sw.WriteLine(listaTramites[i].Contenido);
             sw.WriteLine(listaTramites[i].FechaHoraCreacion);
             sw.WriteLine(listaTramites[i].FechaHoraModificacion);
-            sw.WriteLine(listaTramites[i].IdUsuarioModificacion);
+            sw.WriteLine(listaTramites[i].IdUsuarioUM);
         }
     }
 
@@ -93,7 +93,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         tramite.Contenido = sr.ReadLine() ?? "";
         tramite.FechaHoraCreacion = DateTime.Parse(sr.ReadLine() ?? "");
         tramite.FechaHoraModificacion = DateTime.Parse(sr.ReadLine() ?? "");
-        tramite.IdUsuarioModificacion = int.Parse(sr.ReadLine() ?? "");
+        tramite.IdUsuarioUM = int.Parse(sr.ReadLine() ?? "");
         return tramite;
     }
 
@@ -107,5 +107,25 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             resultado.Add(tramite);
         }
         return resultado;
+    }
+
+    public bool TramiteConsultarPorId(out Tramite tramite, int id)
+    {   
+        var listaTramites = new List<Tramite>();
+        listaTramites = ListarTramites();
+        int i = 0;
+        bool encontrado = false;
+        while((listaTramites.Count > i) && (!encontrado)) {
+            if (listaTramites[i].IdExpediente == id) {
+                listaTramites.Remove(listaTramites[i]);
+                encontrado = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        tramite = listaTramites[i];
+        return encontrado;
     }
 }
