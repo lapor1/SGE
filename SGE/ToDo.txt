@@ -45,13 +45,13 @@
 
 -   Manejo de excepciones : 
 
-    [ ] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
+    [x] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
     para la cual no tiene los permisos necesarios.
 
-    [ ] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
+    [x] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
     exigidos y, por lo tanto, no supera la validación establecida.
 
-    [] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
+    [x] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
     o acceder no existe en el repositorio correspondiente.
 
 -   Servicio ??
