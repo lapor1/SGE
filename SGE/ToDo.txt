@@ -10,9 +10,9 @@
 
 - Validaciones :
 
-    [x] La carátula de un expediente no puede estar vacía
-    [x] El contenido de un trámite no puede estar vacío
-    [x] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+    [.] La carátula de un expediente no puede estar vacía
+    [.] El contenido de un trámite no puede estar vacío
+    [.] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
 
 - Cambio automático del estado de un expediente :
 
@@ -27,18 +27,18 @@
 
 - Manejo de excepciones : 
 
-    [x] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
+    [ ] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
     para la cual no tiene los permisos necesarios.
 
-    [x] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
+    [ ] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
     exigidos y, por lo tanto, no supera la validación establecida.
 
-    [x] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
+    [ ] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
     o acceder no existe en el repositorio correspondiente.
 
 - Servicio
 
-    [x] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
+    [?] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
     ServicioAutorizacionProvisorio, que implemente la interfaz IServicioAutorizacion. Este servicio
     siempre debe responder true cuando el IdUsuario sea igual a 1 y false en cualquier otro caso (no hace
     falta realizar ninguna verificación). Utilizaremos este servicio provisional temporalmente hasta que la
@@ -46,13 +46,13 @@
     ServicioAutorizacionProvisorio por un servicio de autorización definitivo que verificará adecuadamente si
     el usuario tiene el permiso por el cual se está consultando.
 
-    [ ] Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio de estado
+    [?] Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio de estado
     debe llevarse a cabo en función de la etiqueta del último trámite. Esta especificación podría ser
     suministrada al servicio mediante la técnica de inyección de dependencias
 
 - Casos de uso !!!!!!!!!!!!
 
-    [ ]  Es importante destacar que al eliminar
+    [x]  Es importante destacar que al eliminar
     un expediente, se deben eliminar también todos los trámites asociados a dicho expediente
 
     [ ]  Se debe garantizar que para las operaciones de alta, baja y modificación se verifique la autorización del
@@ -77,3 +77,5 @@
     [ ] id unico en tramite y expediente (id maximo de la bd)
 
     [ ] IdUsuarioUM puede ser null?
+
+    [ ] usar foreach en listas en vez de whiles

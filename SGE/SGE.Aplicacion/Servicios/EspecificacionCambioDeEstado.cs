@@ -2,7 +2,6 @@ namespace SGE.Aplicacion;
 
 public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
 {
-
     public void ActualizarExpediente(int idExpediente, EstadoExpediente nuevoEstado)
     {
         Expediente expediente = new Expediente();
@@ -13,7 +12,6 @@ public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
         expediente.estadoExpediente = EstadoExpediente.ConResolucion;
         modificacion.Ejecutar(expediente);
     }
-
 
     public void ElegirCambio(EtiquetaTramite tipoTramite, int idExpediente)
     {
@@ -30,5 +28,4 @@ public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
             ActualizarExpediente(idExpediente, EstadoExpediente.Finalizado);
         }
     }
-   
 }

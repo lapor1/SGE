@@ -1,10 +1,13 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo)
+public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo, IServicioAutorizacion autorizacion)
 {
-    public void Ejecutar(Tramite tramite)
+    public void Ejecutar(Tramite tramite, int idUsuario)
     {
-        tramite.FechaHoraModificacion = DateTime.Now;
-        repo.ModificarTramite( tramite );
+        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteModificacion))
+        {
+            tramite.FechaHoraModificacion = DateTime.Now;
+            repo.ModificarTramite( tramite );
+        }
     }
 }
