@@ -34,13 +34,13 @@
 
 -   Cambio automático del estado de un expediente :
 
-    [ ]  Cuandola etiqueta del último trámite es "Resolución", se produce un cambio automático al estado
+    [x]  Cuandola etiqueta del último trámite es "Resolución", se produce un cambio automático al estado
     "Con resolución".
 
-    [ ] Cuandola etiqueta del último trámite es "Pase a estudio", se produce un cambio automático al
+    [x] Cuandola etiqueta del último trámite es "Pase a estudio", se produce un cambio automático al
     estado "Para resolver".
 
-    [ ]  Cuandola etiqueta del último trámite es "Pase al Archivo", se produce un cambio automático al
+    [x]  Cuandola etiqueta del último trámite es "Pase al Archivo", se produce un cambio automático al
     estado "Finalizado".
 
 -   Manejo de excepciones : 
