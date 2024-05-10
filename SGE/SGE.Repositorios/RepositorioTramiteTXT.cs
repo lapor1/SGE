@@ -128,4 +128,19 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         tramite = listaTramites[i];
         return encontrado;
     }
+
+    public List<Tramite> TramiteConsultarListaConIdExpediente(int idExpediente)
+    {
+        List<Tramite> listaTramites = new List<Tramite>();
+        using var sr = new StreamReader(_nombreArch);
+        while (!sr.EndOfStream)
+        {
+            var tramite = obtenerTramiteDelRepositorio(sr); 
+            if(tramite.IdExpediente == idExpediente)
+            {
+                listaTramites.Add(tramite);
+            }
+        }
+        return listaTramites;
+    }
 }

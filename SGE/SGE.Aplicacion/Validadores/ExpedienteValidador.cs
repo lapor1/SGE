@@ -11,7 +11,7 @@ public class ExpedienteValidador
     public bool Validar(Expediente expediente, out string mensajeError)
     {
         mensajeError = "";
-        if (expediente.IdUsuario <= 0)
+        if (expediente.IdUsuarioUM <= 0)
         {
 <<<<<<< HEAD
             mensajeError = "El usuario es invalido.";
