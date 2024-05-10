@@ -7,6 +7,7 @@ public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServi
         if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteModificacion))
         {
             expediente.FechaHoraModificacion = DateTime.Now;
+            expediente.IdUsuarioUM = idUsuario;
             repo.ModificarExpediente( expediente );
         }
     }

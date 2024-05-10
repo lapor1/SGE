@@ -15,7 +15,7 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, TramiteValidador val
             tramite.IdTramite = id;
             tramite.FechaHoraCreacion = DateTime.Now;
             tramite.FechaHoraModificacion = DateTime.Now;
-            tramite.IdUsuarioUM = tramite.IdUsuarioUM == null ? 0 : tramite.IdUsuarioUM;
+            tramite.IdUsuarioUM = tramite.IdUsuarioUM == null ? 0 : tramite.IdUsuarioUM;    // o idUsuario ?
             repo.AgregarTramiteAlta( tramite );
         }
     }

@@ -7,6 +7,7 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo, IServicioAut
         if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteModificacion))
         {
             tramite.FechaHoraModificacion = DateTime.Now;
+            tramite.IdUsuarioUM = idUsuario;
             repo.ModificarTramite( tramite );
         }
     }

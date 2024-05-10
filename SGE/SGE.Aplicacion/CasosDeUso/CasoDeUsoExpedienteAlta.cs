@@ -11,6 +11,7 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutor
             expediente.IdExpediente = id;
             expediente.FechaHoraCreacion = DateTime.Now;
             expediente.FechaHoraModificacion = DateTime.Now;
+            expediente.IdUsuarioUM = idUsuario;
             repo.AgregarExpedienteAlta( expediente );
         }
     }
