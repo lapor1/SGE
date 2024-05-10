@@ -45,8 +45,3 @@ public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
     }
    
 }
-
-// [ ]  Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio 
-//      de estadodebe llevarse a cabo en función de la etiqueta del último trámite.
-//      Esta especificación podría sernsuministrada al servicio mediante la técnica de 
-//      inyección de dependencias
