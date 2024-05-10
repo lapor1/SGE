@@ -1,18 +1,20 @@
 ﻿namespace SGE.Aplicacion;
 
-public class TramiteValidador
+public static class TramiteValidador
 {
-    public bool Validar(Tramite tramite, out string mensajeError)
+     public static void ValidarUsuarioTramite(Tramite tramite)
     {
-        mensajeError = "";
         if (tramite.IdUsuarioUM <= 0) 
         {
-            throw new ValidacionException("Id de Usuario inválido");
+            throw new Exception("Id de Usuario inválido");
         }
-        else if (string.IsNullOrEmpty(tramite.Contenido))
+    }
+
+    public static void ValidarContenido(Tramite tramite)
+    {
+        if (string.IsNullOrEmpty(tramite.Contenido))
         {
-            throw new ValidacionException($"Contenido vacío del trámite {tramite.IdTramite}");
+            throw new Exception("El contenido esta vacio!");
         }
-        return (mensajeError == "");
     }
 }

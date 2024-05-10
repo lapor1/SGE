@@ -5,13 +5,13 @@ class ValidacionException
     // [ ]  La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
     //      exigidos y, por lo tanto, no supera la validación establecida.
 
-    public void ExcepcionUser(Expediente expediente, string mensajeError)
+    public void ExcepcionUser(Expediente expediente)
     {
         try
         {
-            ExpedienteValidador.Validar(expediente, mensajeError);
+            ExpedienteValidador.ValidarUser(expediente);
         }
-        catch (UsuarioNuloException ex)
+        catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
@@ -21,11 +21,36 @@ class ValidacionException
     {
        try
         {
-            ExpedienteValidador.Validar(expediente, mensajeError);
+            ExpedienteValidador.ValidarCaratula(expediente);
         }
-        catch (UsuarioNuloException ex)
+        catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         } 
     }
+
+    public void ExcepcionUsuario(Tramite tramite)
+    {
+        try
+        {
+            TramiteValidador.ValidarUsuarioTramite(tramite);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    public void ExcepcionContenido(Tramite tramite)
+    {
+        try
+        {
+            TramiteValidador.ValidarContenido(tramite);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
 }

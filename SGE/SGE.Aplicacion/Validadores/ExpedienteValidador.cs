@@ -1,17 +1,21 @@
 ﻿namespace SGE.Aplicacion;
 
-public class ExpedienteValidador
+public static class ExpedienteValidador
 {
 
-    public bool Validar(Expediente expediente, out string mensajeError)
+    public static void ValidarUser(Expediente expediente)
     {
-        try
+        if (expediente.IdUsuarioUM <= 0) 
         {
-            ExcepcionUser("Usuario Invalido");
+            throw new Exception("Id de Usuario inválido");
         }
-        catch (Exception e)
+    }
+
+    public static void ValidarCaratula(Expediente expediente)
+    {
+        if (string.IsNullOrEmpty(expediente.Caratula))
         {
-            Console.WriteLine(e.Message);
+            throw new Exception("La caratula esta Vacia!");
         }
     }
 
