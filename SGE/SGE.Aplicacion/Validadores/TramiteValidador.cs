@@ -7,7 +7,7 @@ public class TramiteValidador
     public bool Validar(Tramite tramite, out string mensajeError)
     {
         mensajeError = "";
-        if (tramite.IdUsuarioModificacion <= 0) 
+        if (tramite.IdUsuarioUM <= 0) 
         {
             //mensajeError = $"Id de Usuario invalido";
             throw new ValidacionException(mensajeError);

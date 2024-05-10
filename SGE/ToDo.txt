@@ -46,10 +46,17 @@
         ServicioAutorizacionProvisorio por un servicio de autorización definitivo que verificará adecuadamente si
         el usuario tiene el permiso por el cual se está consultando.
 
-    [?] Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio de estado
-        debe llevarse a cabo en función de la etiqueta del último trámite. Esta especificación podría ser
-        suministrada al servicio mediante la técnica de inyección de dependencias
-
+        
+    [?] Para llevar a cabo el cambio automático del estado de un expediente, se puede emplear la siguiente
+        estrategia: desarrollar un servicio que, a partir del Id de un expediente, recupere la etiqueta de su último
+        trámite. Basándose en esta información y conforme a las especificaciones detalladas en este documento,
+        dicho servicio realizará el cambio de estado del expediente cuando sea necesario. Este servicio podrá ser
+        invocado por los casos de uso correspondientes después de agregar, modificar o eliminar un trámite.
+    
+        [?] Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio de estado
+            debe llevarse a cabo en función de la etiqueta del último trámite. Esta especificación podría ser
+            suministrada al servicio mediante la técnica de inyección de dependencias
+        
 - Casos de uso
 
     [x]  Es importante destacar que al eliminar
@@ -59,27 +66,24 @@
         usuario antes de proceder. Por lo tanto, el método Ejecutar de estos casos de uso deberá recibir también el
         Id del usuario como parámetro.
 
-    [ ] Además, se debe implementar un caso de uso que permita la consulta de un expediente junto con todos
+    [x] Además, se debe implementar un caso de uso que permita la consulta de un expediente junto con todos
         sus trámites, utilizando el Id del expediente como referencia.    
 
-    [ ]  listar todos los trámites en el sistema que posean una etiqueta específica
+    [x]  listar todos los trámites en el sistema que posean una etiqueta específica
 
-    [ ] Para llevar a cabo el cambio automático del estado de un expediente, se puede emplear la siguiente
-        estrategia: desarrollar un servicio que, a partir del Id de un expediente, recupere la etiqueta de su último
-        trámite. Basándose en esta información y conforme a las especificaciones detalladas en este documento,
-        dicho servicio realizará el cambio de estado del expediente cuando sea necesario. Este servicio podrá ser
-        invocado por los casos de uso correspondientes después de agregar, modificar o eliminar un trámite.
 
 - Pequeñas modif. / duditas
 
     [ ] falta resolver como ponerlo en mayuscula estadoExpediente
 
-    [ ] id unico en tramite y expediente (id maximo de la bd)
+    [ ] id unico en tramite y expediente (id maximo de la bd ?)
 
-    [ ] IdUsuarioUM puede ser null?
+    [ ] IdUsuarioUM puede ser null? (no creo, cambiarlo mejor)
 
-    [ ] IdUsuarioUM en alta de Tramite y Expediente
+    [ ] usar el IdUsuarioUM en alta de Tramite y Expediente ?
 
-    [ ] usar foreach en listas en vez de whiles
+    [ ] usar "foreach" en listas en vez de "while"
 
-    [ ] usar => ?
+    [ ] usar "=>" ?
+
+    [ ] Cambiar funcionalidades no basicas de los TXT e implementarlas en los Casos de uso !!! (que interfaz quede minimalista)

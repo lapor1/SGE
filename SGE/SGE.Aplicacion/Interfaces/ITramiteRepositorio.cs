@@ -11,5 +11,4 @@ public interface ITramiteRepositorio
     Tramite? GetTramite(int id);
     Tramite obtenerTramiteDelRepositorio(StreamReader sr);
     bool TramiteConsultarPorId(out Tramite tramite, int id);
-    List<Tramite> TramiteConsultarListaConIdExpediente(int idExpediente);
 }

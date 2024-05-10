@@ -7,7 +7,7 @@ public class ServicioActualizarEstado(ITramiteRepositorio repo, EspecificacionCa
         Tramite ultumoTramite = new Tramite();
         List<Tramite> tramites= new List<Tramite>();
 
-        var consultarPorId = new CasoDeUsoTramiteConsulatarListaConIdExpediente(repo);
+        var consultarPorId = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repo);
         tramites = consultarPorId.Ejecutar(idExpediente);
 
         // recuperar etiqueta de SU ultimo tramite
