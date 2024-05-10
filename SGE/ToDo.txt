@@ -27,30 +27,35 @@
 
 -   Validaciones :
 
-    [ ] Lacarátula de un expediente no puede estar vacía
+
+    [x] Lacarátula de un expediente no puede estar vacía
     [x] Elcontenido de un trámite no puede estar vacío
+<<<<<<< HEAD
     [-] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+=======
+    [x] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+>>>>>>> 9304ad55a65341e975da8f1d57ac68dea62e43af
 
 -   Cambio automático del estado de un expediente :
 
-    [ ]  Cuandola etiqueta del último trámite es "Resolución", se produce un cambio automático al estado
+    [x]  Cuandola etiqueta del último trámite es "Resolución", se produce un cambio automático al estado
     "Con resolución".
 
-    [ ] Cuandola etiqueta del último trámite es "Pase a estudio", se produce un cambio automático al
+    [x] Cuandola etiqueta del último trámite es "Pase a estudio", se produce un cambio automático al
     estado "Para resolver".
 
-    [ ]  Cuandola etiqueta del último trámite es "Pase al Archivo", se produce un cambio automático al
+    [x]  Cuandola etiqueta del último trámite es "Pase al Archivo", se produce un cambio automático al
     estado "Finalizado".
 
 -   Manejo de excepciones : 
 
-    [ ] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
+    [x] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
     para la cual no tiene los permisos necesarios.
 
-    [ ] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
+    [x] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
     exigidos y, por lo tanto, no supera la validación establecida.
 
-    [] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
+    [x] La excepción RepositorioException debe ser lanzada cuando la entidad que se intenta eliminar, modificar
     o acceder no existe en el repositorio correspondiente.
 
 -   Servicio
@@ -93,4 +98,4 @@
 
 -   Dudas
 
-    [ ] Servivios
+    [ ] Servicios
