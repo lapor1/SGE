@@ -1,16 +1,21 @@
 namespace SGE.Aplicacion;
 
-public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
+public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo, RepositorioException excepcion, IServicioAutorizacion autorizacion)
 {
     public void ActualizarExpediente(int idExpediente, EstadoExpediente nuevoEstado)
     {
-        Expediente expediente = new Expediente();
-        var consultarPorId = new CasoDeUsoExpedienteConsultarPorId(repo);
-        var modificacion = new CasoDeUsoExpedienteModificacion(repo);
+        Expediente? expediente = new Expediente();
+        var consultarPorId = new CasoDeUsoExpedienteConsultarPorId(repo, excepcion);
+        var modificacion = new CasoDeUsoExpedienteModificacion(repo, autorizacion, excepcion);
 
         expediente = consultarPorId.Ejecutar(idExpediente);
-        expediente.ExpedienteEstado = EstadoExpediente.ConResolucion;
-        modificacion.Ejecutar(expediente);
+        
+        if (expediente != null)
+        {
+            expediente.ExpedienteEstado = EstadoExpediente.ConResolucion;
+            modificacion.Ejecutar(expediente, 1);
+        }
+
     }
 
     public void ElegirCambio(EtiquetaTramite tipoTramite, int idExpediente)

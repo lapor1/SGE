@@ -12,7 +12,9 @@ public class ServicioAutorizacionProvisorio : IServicioAutorizacion
 
         return false;
         throw new Exception("El usuario no cuenta con los permisos adecuados"); 
-    }*/
+    }
+*/
+    
 
     public bool PoseeElPermiso(int IdUsuario, Permiso permiso) {
 

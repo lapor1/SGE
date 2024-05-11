@@ -90,6 +90,8 @@
 
     [ ] Cambiar funcionalidades no basicas de los TXT e implementarlas en los Casos de uso !!! (que interfaz quede minimalista)
 
+    [ ]  Declaración using pág 52
+
 - Hacer
 
     [ ]  Documento explicativo donde se detalle cómo probar la funcionalidad desarrollada desde

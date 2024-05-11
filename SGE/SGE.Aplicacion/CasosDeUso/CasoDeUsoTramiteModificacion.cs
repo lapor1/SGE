@@ -4,7 +4,7 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo, IServicioAut
 {
     public void Ejecutar(Tramite tramite, int idUsuario)
     {
-        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteModificacion, out string mensajeError))
+        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteModificacion))
         {
             tramite.FechaHoraModificacion = DateTime.Now;
             tramite.IdUsuarioUM = idUsuario;
