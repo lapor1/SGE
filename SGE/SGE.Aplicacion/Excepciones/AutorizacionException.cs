@@ -1,14 +1,15 @@
 namespace SGE.Aplicacion;
 
-public class AutorizacionException(ServicioAutorizacionProvisorio servicio)
+public static class AutorizacionException
 {
-    public void AutorizarExcepciones(int IdUsuario, Permiso permiso) 
+    public static bool AutorizarExcepciones(int IdUsuario, out string mensajeError) 
     {
-        
-        if(!servicio.PoseeElPermiso(IdUsuario, permiso, out string mensajeError))
+        mensajeError = "";
+        if (IdUsuario == 0)
         {
-            throw new Exception(mensajeError);
+            //throw new Exception(mensajeError);
+            mensajeError = "El usuario no cuenta con los permisos adecuados";
         }
-        
+        return (mensajeError=="");
     }
 }
