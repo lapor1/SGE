@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion)
+public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion, RepositorioException excepcion)
 {
     public void Ejecutar(Expediente expediente, int idUsuario)
     {
@@ -8,7 +8,16 @@ public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServi
         {
             expediente.FechaHoraModificacion = DateTime.Now;
             expediente.IdUsuarioUM = idUsuario;
-            repo.ModificarExpediente( expediente );
+            bool encontrado = repo.ModificarExpediente( expediente );
+            
+            try
+            {
+                excepcion.ModificacionExpediente(encontrado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine( ex.Message );
+            }
         }
     }
 }

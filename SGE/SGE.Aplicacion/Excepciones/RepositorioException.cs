@@ -1,13 +1,34 @@
-﻿namespace SGE.Aplicacion;
+﻿using System.Diagnostics;
 
-class RepositorioException
+namespace SGE.Aplicacion;
+
+public class RepositorioException
 {
-    // [ ]  La excepción RepositorioException debe ser lanzada cuando la entidad que 
-    //se intenta eliminar, modificar o acceder no existe en el repositorio correspondiente.
+    public void BajaExpediente(bool encontrado)
+    {
+        if (!encontrado)
+        {
+            throw new Exception("monto demasiado grande");
+        }
+    }
 
-    //aca hay que divir de alguna manera el manejo para que cuando se diga que no se cumple una
-    //validacion, lo pueda decir dependiendo del motivo
+    public void ModificacionExpediente(bool encontrado)
+    {
+        if (!encontrado)
+        {
+            throw new Exception("monto demasiado grande");
+        }
+    }
 
+    public void ConsultarExpediente(Expediente expediente)
+    {
+        if (expediente == null)
+        {
+             throw new Exception("monto demasiado grande");
+        }
+    }
+
+/*
     public RepositorioException (out string mensajeError) {
         
         mensajeError = $"El tramite no se puede modificar porque no existe en el repositorio";
@@ -18,4 +39,5 @@ class RepositorioException
         mensajeError = $"El Expediente no se puede eliminar porque no existe en el respositorio";
         mensajeError = $"El Expediente no se puede accder porque no existe en el respositorio ";
     }
+*/
 }

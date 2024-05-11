@@ -21,7 +21,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         sw.WriteLine(expediente.estadoExpediente);
     }
 
-    public void EliminarExpedienteBaja(int id)     //mucha ineficiencia pero bueno
+    public bool EliminarExpedienteBaja(int id)     //mucha ineficiencia pero bueno
     {        
         var listaExpedientes = new List<Expediente>();
         listaExpedientes = ListarExpedientes();
@@ -34,10 +34,11 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
             }
             i++;
         }
-        SobreEscribirArchivo(listaExpedientes);        
+        SobreEscribirArchivo(listaExpedientes);
+        return encontrado;   
     }
 
-    public void ModificarExpediente(Expediente expediente)
+    public bool ModificarExpediente(Expediente expediente)
     {
         var listaExpedientes = new List<Expediente>();
         listaExpedientes = ListarExpedientes();
@@ -55,6 +56,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
             i++;
         }
         SobreEscribirArchivo(listaExpedientes);
+        return encontrado;
     }
 
     public Expediente? GetExpediente(int id)
@@ -110,7 +112,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         return resultado;
     }
 
-    public void ExpedienteConsultarPorId(out Expediente expediente, int id)
+    public bool ExpedienteConsultarPorId(out Expediente expediente, int id)
     {   
         var listaExpedientes = new List<Expediente>();
         listaExpedientes = ListarExpedientes();
@@ -127,6 +129,6 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
             }
         }
         expediente = listaExpedientes[i];
-        //return encontrado;
+        return encontrado;
     }
 }

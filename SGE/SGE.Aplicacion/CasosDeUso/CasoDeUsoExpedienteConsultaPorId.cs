@@ -1,21 +1,21 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultarPorId(IExpedienteRepositorio repo)
+public class CasoDeUsoExpedienteConsultarPorId(IExpedienteRepositorio repo, RepositorioException excepcion)
 {
-    public Expediente Ejecutar(int id)
-    {
-        Expediente expediente= new Expediente();
-        repo.ExpedienteConsultarPorId(out expediente, id);
-        return expediente;
-    }
-/*  Esta es otra implementacion por si se considera que no encuentra el expediente
     public Expediente? Ejecutar(int id)
     {
-        Expediente expediente= new Expediente();
-        if(repo.ExpedienteConsultarPorId(out expediente, id))
+        try
         {
+            repo.ExpedienteConsultarPorId(out Expediente expediente, id);
+            
+            excepcion.ConsultarExpediente(expediente);
+
             return expediente;
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine( ex.Message );
+        }
         return null;
-    }*/
+    }
 }
