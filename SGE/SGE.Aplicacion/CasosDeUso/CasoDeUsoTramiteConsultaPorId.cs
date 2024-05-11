@@ -1,13 +1,18 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoTramiteConsultarPorId(ITramiteRepositorio repo)
+public class CasoDeUsoTramiteConsultarPorId(ITramiteRepositorio repo, RepositorioException excepcion)
 {
     public Tramite? Ejecutar(int id)
     {
-        Tramite tramite= new Tramite();
-        if(repo.TramiteConsultarPorId(out tramite, id))
+        bool encontrado = repo.TramiteConsultarPorId(out Tramite tramite, id);
+        try
         {
+            excepcion.ConsultarTramite(tramite);
             return tramite;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine( ex.Message );
         }
         return null;
     }

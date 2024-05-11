@@ -20,7 +20,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         sw.WriteLine(tramite.IdUsuarioUM);
     }
 
-    public void EliminarTramiteBaja(int id)     //mucha ineficiencia pero bueno
+    public bool EliminarTramiteBaja(int id)     //mucha ineficiencia pero bueno
     {        
         var listaTramites = new List<Tramite>();
         listaTramites = ListarTramites();
@@ -33,10 +33,11 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             }
             i++;
         }
-        SobreEscribirArchivo(listaTramites);        
+        SobreEscribirArchivo(listaTramites);     
+        return encontrado;   
     }
 
-    public void ModificarTramite(Tramite tramite)
+    public bool ModificarTramite(Tramite tramite)
     {
         var listaTramites = new List<Tramite>();
         listaTramites = ListarTramites();
@@ -54,6 +55,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
             i++;
         }
         SobreEscribirArchivo(listaTramites);
+        return encontrado;
     }
 
     public Tramite? GetTramite(int id)

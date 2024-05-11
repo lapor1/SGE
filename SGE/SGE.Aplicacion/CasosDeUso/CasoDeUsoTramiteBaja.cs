@@ -9,12 +9,11 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repo, IServicioAutorizacio
             bool encontrado = repo.EliminarTramiteBaja( id );
             try
             {
-
-                exception.BajaExpediente(encontrado, out string mensajeError);
+                exception.BajaTramite(encontrado);
             }
             catch (Exception ex)
             {
-                
+                Console.WriteLine( ex.Message );
             }
         }
     }

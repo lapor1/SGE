@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo, IServicioAutorizacion autorizacion)
+public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo, IServicioAutorizacion autorizacion, RepositorioException excepcion)
 {
     public void Ejecutar(Tramite tramite, int idUsuario)
     {
@@ -8,7 +8,18 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repo, IServicioAut
         {
             tramite.FechaHoraModificacion = DateTime.Now;
             tramite.IdUsuarioUM = idUsuario;
-            repo.ModificarTramite( tramite );
+            
+            bool encontrado = repo.ModificarTramite( tramite );
+            
+            try
+            {
+                excepcion.ModificacionTramite( encontrado );
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine( ex.Message );
+            }
         }
+
     }
 }

@@ -8,7 +8,7 @@ public class RepositorioException
     {
         if (!encontrado)
         {
-            throw new Exception("monto demasiado grande");
+            throw new Exception("El Expediente no se puede eliminar porque no existe en el respositorio");
         }
     }
 
@@ -16,7 +16,7 @@ public class RepositorioException
     {
         if (!encontrado)
         {
-            throw new Exception("monto demasiado grande");
+            throw new Exception("El Expediente no se puede modificar porque no existe en el repositorio");
         }
     }
 
@@ -24,20 +24,31 @@ public class RepositorioException
     {
         if (expediente == null)
         {
-             throw new Exception("monto demasiado grande");
+             throw new Exception("El Expediente no se puede accder porque no existe en el respositorio");
         }
     }
 
-/*
-    public RepositorioException (out string mensajeError) {
-        
-        mensajeError = $"El tramite no se puede modificar porque no existe en el repositorio";
-        mensajeError = $"El tramite no se puede eliminar porque no existe en el respositorio";
-        mensajeError = $"El tramite no se puede accder porque no existe en el respositorio ";
-
-        mensajeError = $"El Expediente no se puede modificar porque no existe en el repositorio";
-        mensajeError = $"El Expediente no se puede eliminar porque no existe en el respositorio";
-        mensajeError = $"El Expediente no se puede accder porque no existe en el respositorio ";
+    public void BajaTramite(bool encontrado)
+    {
+        if (!encontrado)
+        {
+            throw new Exception("El tramite no se puede eliminar porque no existe en el respositorio");
+        }
     }
-*/
+
+    public void ModificacionTramite(bool encontrado)
+    {
+        if (!encontrado)
+        {
+            throw new Exception("El tramite no se puede modificar porque no existe en el repositorio");
+        }
+    }
+
+    public void ConsultarTramite(Tramite tramite)
+    {
+        if (tramite == null)
+        {
+             throw new Exception("El tramite no se puede accder porque no existe en el respositorio");
+        }
+    }
 }
