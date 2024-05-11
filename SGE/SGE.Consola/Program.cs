@@ -1,5 +1,4 @@
 ﻿using SGE.Aplicacion;
-using SGE.Consola;
 using SGE.Repositorios;
 
 var servicio = new ServicioAutorizacionProvisorio();
