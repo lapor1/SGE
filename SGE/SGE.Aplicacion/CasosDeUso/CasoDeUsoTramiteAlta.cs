@@ -9,13 +9,13 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, IServicioAutorizacio
         {
             exception.VerificarTramite(tramite);
 
-            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta, out string mensajeError))
+            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta))
             {
                 id++;
                 tramite.IdTramite = id;
                 tramite.FechaHoraCreacion = DateTime.Now;
                 tramite.FechaHoraModificacion = DateTime.Now;
-                tramite.IdUsuarioUM = tramite.IdUsuarioUM == null ? 0 : tramite.IdUsuarioUM;    // o idUsuario ?
+                tramite.IdUsuarioUM = idUsuario;
                 repo.AgregarTramiteAlta( tramite );
             }
         }

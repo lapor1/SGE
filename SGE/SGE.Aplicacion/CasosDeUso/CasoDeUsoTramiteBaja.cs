@@ -4,7 +4,7 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repo, IServicioAutorizacio
 {
     public void Ejecutar(int id, int idUsuario)
     {
-        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteBaja, out string mensajeError))
+        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteBaja))
         {
             bool encontrado = repo.EliminarTramiteBaja( id );
             try
