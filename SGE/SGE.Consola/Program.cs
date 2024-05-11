@@ -1,12 +1,12 @@
 ﻿using SGE.Aplicacion;
 using SGE.Repositorios;
 
-/*
-var servicio = new ServicioAutorizacionProvisorio();
+var excepcion = new AutorizacionException();
+var servicio = new ServicioAutorizacionProvisorio(excepcion);
 Console.WriteLine(servicio.PoseeElPermiso(1, Permiso.TramiteBaja) + "\n");
 Console.WriteLine(servicio.PoseeElPermiso(0, Permiso.TramiteBaja) + "\n");
-*/
 
+/*
 int i = 0;
 
 try
@@ -28,3 +28,4 @@ void DividirExcepcion (int i)
         throw new Exception("no se puede dividir por cero");
     }
 }
+*/
