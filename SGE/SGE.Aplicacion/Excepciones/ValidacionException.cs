@@ -2,11 +2,15 @@
 
 class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador validadorExpediente)
 {
+    /*
     public void ExcepcionUsuarioExpediente(Expediente expediente)
     {
         try
         {
-            validadorExpediente.ValidarUseruarioExpediente(expediente);
+            if (!validadorExpediente.Validar(expediente, out string mensajeError))
+            {
+                throw new Exception(mensajeError);
+            }
         }
         catch (Exception ex)
         {
@@ -24,6 +28,14 @@ class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador
         {
             Console.WriteLine(ex.Message);
         } 
+    }*/
+
+    public void VerificarExpediente(Expediente expediente)
+    {
+        if (!validadorExpediente.Validar(expediente, out string mensajeError))
+        {
+            throw new Exception(mensajeError);
+        }   
     }
 
     public void ExcepcionUsuarioTramite(Tramite tramite)
