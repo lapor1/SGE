@@ -11,7 +11,7 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutor
         {
             exception.VerificarExpediente(expediente);
 
-            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteAlta))
+            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteAlta, out string mensajeError))
             {
                 id++;
                 expediente.IdExpediente = id;

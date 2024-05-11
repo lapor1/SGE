@@ -4,7 +4,7 @@ public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServi
 {
     public void Ejecutar(Expediente expediente, int idUsuario)
     {
-        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteModificacion))
+        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteModificacion, out string mensajeError))
         {
             expediente.FechaHoraModificacion = DateTime.Now;
             expediente.IdUsuarioUM = idUsuario;

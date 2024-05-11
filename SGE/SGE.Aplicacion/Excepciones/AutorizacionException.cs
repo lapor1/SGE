@@ -1,15 +1,14 @@
 namespace SGE.Aplicacion;
 
-class AutorizacionException
+public class AutorizacionException(ServicioAutorizacionProvisorio servicio)
 {
-    // [ ]  La excepción AutorizacionException debe ser lanzada cuando un usuario intenta 
-    //realizar una operación para la cual no tiene los permisos necesarios.
-
-    //el mensaje lo dice todo, y se aplica siempre que el usuario quiera hacer algo 
-    //que no puede por su permiso.
-    public AutorizacionException (out string mensajeError) {
+    public void AutorizarExcepciones(int IdUsuario, Permiso permiso) 
+    {
         
-        mensajeError = $"No posee permiso para realizar esa operacion!";
+        if(!servicio.PoseeElPermiso(IdUsuario, permiso, out string mensajeError))
+        {
+            throw new Exception(mensajeError);
+        }
         
     }
 }

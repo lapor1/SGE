@@ -9,7 +9,7 @@ public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo)
         var modificacion = new CasoDeUsoExpedienteModificacion(repo);
 
         expediente = consultarPorId.Ejecutar(idExpediente);
-        expediente.estadoExpediente = EstadoExpediente.ConResolucion;
+        expediente.ExpedienteEstado = EstadoExpediente.ConResolucion;
         modificacion.Ejecutar(expediente);
     }
 

@@ -9,7 +9,7 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, IServicioAutorizacio
         {
             exception.VerificarTramite(tramite);
 
-            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta))
+            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta, out string mensajeError))
             {
                 id++;
                 tramite.IdTramite = id;
