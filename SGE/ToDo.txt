@@ -78,19 +78,21 @@
 
     [ ] id unico en tramite y expediente (id maximo de la bd ?)
 
-    [ ] cambiar nombre IdTramite a Id, IdExpediente a Id y IdExpediente del tramite a ExpedienteId (como dice en el pdf)
+    [/] cambiar nombre IdTramite a Id, IdExpediente a Id y IdExpediente del tramite a ExpedienteId (como dice en el pdf)
 
     [x] IdUsuarioUM puede ser null? (no creo, cambiarlo mejor)
 
-    [ ] usar el IdUsuarioUM en alta de Tramite y Expediente ?
+    [.] usar el IdUsuarioUM en alta de Tramite y Expediente ?
 
-    [ ] usar "foreach" en listas en vez de "while"
+    [.] usar "foreach" en listas en vez de "while"
 
     [ ] usar "=>" ?
 
     [ ] Cambiar funcionalidades no basicas de los TXT e implementarlas en los Casos de uso !!! (que interfaz quede minimalista)
 
     [ ]  Declaración using pág 52
+
+    [ ] escepcion con mensaje personalizado en vez de unsar un string (pag 98 clase 3)
 
 - Hacer
 
