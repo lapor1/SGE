@@ -27,7 +27,7 @@
 
 - Manejo de excepciones : 
 
-    [ ] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
+    [x] La excepción AutorizacionException debe ser lanzada cuando un usuario intenta realizar una operación
         para la cual no tiene los permisos necesarios.
 
     [?] La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
