@@ -5,10 +5,9 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, TramiteValidador val
     private static int id = 0;  // buscar en el repositorio el id maximo
     public void Ejecutar(Tramite tramite, int idUsuario)
     {
-        if (!validador.Validar(tramite, out string mensajeError))
-        {
-            throw new Exception(mensajeError);
-        }
+        validador.ValidarContenido(tramite);
+        validador.ValidarUsuarioTramite(tramite);
+
         if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta))
         {
             id++;

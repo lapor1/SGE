@@ -1,9 +1,8 @@
 ﻿namespace SGE.Aplicacion;
 
-public static class ExpedienteValidador
+public class ExpedienteValidador
 {
-
-    public static void ValidarUser(Expediente expediente)
+    public void ValidarUseruarioExpediente(Expediente expediente)
     {
         if (expediente.IdUsuarioUM <= 0) 
         {
@@ -11,7 +10,7 @@ public static class ExpedienteValidador
         }
     }
 
-    public static void ValidarCaratula(Expediente expediente)
+    public void ValidarCaratulaExpediente(Expediente expediente)
     {
         if (string.IsNullOrEmpty(expediente.Caratula))
         {

@@ -8,11 +8,11 @@
 
 - Validaciones :
 
-    [.] La carátula de un expediente no puede estar vacía
+    [x] La carátula de un expediente no puede estar vacía
 
-    [.] El contenido de un trámite no puede estar vacío
+    [x] El contenido de un trámite no puede estar vacío
 
-    [.] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
+    [x] El id deusuario (en trámites y expedientes) debe ser un id válido (entero mayor que 0)
 
 - Cambio automático del estado de un expediente :
 
@@ -78,6 +78,8 @@
 
     [ ] id unico en tramite y expediente (id maximo de la bd ?)
 
+    [ ] cambiar nombre IdTramite a Id, IdExpediente a Id y IdExpediente del tramite a ExpedienteId (como dice en el pdf)
+
     [ ] IdUsuarioUM puede ser null? (no creo, cambiarlo mejor)
 
     [ ] usar el IdUsuarioUM en alta de Tramite y Expediente ?
@@ -87,3 +89,8 @@
     [ ] usar "=>" ?
 
     [ ] Cambiar funcionalidades no basicas de los TXT e implementarlas en los Casos de uso !!! (que interfaz quede minimalista)
+
+- Hacer
+
+    [ ]  Documento explicativo donde se detalle cómo probar la funcionalidad desarrollada desde
+         Program.cs. Se debe explicitar código de ejemplo junto con la salida por consola producida.

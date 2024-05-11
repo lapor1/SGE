@@ -1,10 +1,13 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion)
+public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion, ExpedienteValidador validador)
 {
     private static int id = 0;  // buscar en el repositorio el id maximo
     public void Ejecutar(Expediente expediente, int idUsuario)
     {
+        validador.ValidarUseruarioExpediente(expediente);
+        validador.ValidarCaratulaExpediente(expediente);
+
         if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteAlta))
         {
             id++;

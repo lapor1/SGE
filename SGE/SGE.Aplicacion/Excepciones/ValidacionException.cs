@@ -1,15 +1,12 @@
 ﻿namespace SGE.Aplicacion;
 
-class ValidacionException
+class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador validadorExpediente)
 {
-    // [ ]  La excepción ValidacionException debe ser lanzada cuando una entidad no cumple con los requisitos
-    //      exigidos y, por lo tanto, no supera la validación establecida.
-
-    public void ExcepcionUser(Expediente expediente)
+    public void ExcepcionUsuarioExpediente(Expediente expediente)
     {
         try
         {
-            ExpedienteValidador.ValidarUser(expediente);
+            validadorExpediente.ValidarUseruarioExpediente(expediente);
         }
         catch (Exception ex)
         {
@@ -17,11 +14,11 @@ class ValidacionException
         }
     }
 
-    public void ExcepcionCaratula(Expediente expediente, string mensajeError)
+    public void ExcepcionCaratulaExpediente(Expediente expediente, string mensajeError)
     {
        try
         {
-            ExpedienteValidador.ValidarCaratula(expediente);
+            validadorExpediente.ValidarCaratulaExpediente(expediente);
         }
         catch (Exception ex)
         {
@@ -29,11 +26,11 @@ class ValidacionException
         } 
     }
 
-    public void ExcepcionUsuario(Tramite tramite)
+    public void ExcepcionUsuarioTramite(Tramite tramite)
     {
         try
         {
-            TramiteValidador.ValidarUsuarioTramite(tramite);
+            validadorTramite.ValidarUsuarioTramite(tramite);
         }
         catch (Exception ex)
         {
@@ -41,11 +38,11 @@ class ValidacionException
         }
     }
 
-    public void ExcepcionContenido(Tramite tramite)
+    public void ExcepcionContenidoTramite(Tramite tramite)
     {
         try
         {
-            TramiteValidador.ValidarContenido(tramite);
+            validadorTramite.ValidarContenidoTramite(tramite);
         }
         catch (Exception ex)
         {

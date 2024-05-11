@@ -7,7 +7,8 @@ public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoExpediente, ITra
         if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteBaja))
         {
             repoExpediente.EliminarExpedienteBaja( idExpediente );
-            List<Tramite> listaTramite = repoTramite.TramiteConsultarListaConIdExpediente( idExpediente );
+            var consultarTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoTramite);
+            List<Tramite> listaTramite = consultarTramitesAsociados.Ejecutar( idExpediente );
             foreach (Tramite tr in listaTramite)
             {
                 repoTramite.EliminarTramiteBaja(tr.IdTramite);

@@ -1,8 +1,8 @@
 ﻿namespace SGE.Aplicacion;
 
-public static class TramiteValidador
+public class TramiteValidador
 {
-     public static void ValidarUsuarioTramite(Tramite tramite)
+    public void ValidarUsuarioTramite(Tramite tramite)
     {
         if (tramite.IdUsuarioUM <= 0) 
         {
@@ -10,7 +10,7 @@ public static class TramiteValidador
         }
     }
 
-    public static void ValidarContenido(Tramite tramite)
+    public void ValidarContenidoTramite(Tramite tramite)
     {
         if (string.IsNullOrEmpty(tramite.Contenido))
         {
