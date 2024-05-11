@@ -5,12 +5,7 @@ public static class ExpedienteValidador
 
     public static void ValidarUser(Expediente expediente)
     {
-<<<<<<< HEAD
-        mensajeError = "";
-        if (expediente.IdUsuarioUM <= 0)
-=======
         if (expediente.IdUsuarioUM <= 0) 
->>>>>>> rama-pato
         {
             throw new Exception("Id de Usuario inválido");
         }

@@ -4,10 +4,6 @@ public static class TramiteValidador
 {
      public static void ValidarUsuarioTramite(Tramite tramite)
     {
-<<<<<<< HEAD
-        mensajeError = "";
-=======
->>>>>>> rama-pato
         if (tramite.IdUsuarioUM <= 0) 
         {
             throw new Exception("Id de Usuario inválido");
