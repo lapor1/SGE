@@ -1,35 +1,7 @@
 ﻿namespace SGE.Aplicacion;
 
-class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador validadorExpediente)
+public class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador validadorExpediente)
 {
-    /*
-    public void ExcepcionUsuarioExpediente(Expediente expediente)
-    {
-        try
-        {
-            if (!validadorExpediente.Validar(expediente, out string mensajeError))
-            {
-                throw new Exception(mensajeError);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-
-    public void ExcepcionCaratulaExpediente(Expediente expediente, string mensajeError)
-    {
-       try
-        {
-            validadorExpediente.ValidarCaratulaExpediente(expediente);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        } 
-    }*/
-
     public void VerificarExpediente(Expediente expediente)
     {
         if (!validadorExpediente.Validar(expediente, out string mensajeError))
@@ -37,29 +9,11 @@ class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador
             throw new Exception(mensajeError);
         }   
     }
-
-    public void ExcepcionUsuarioTramite(Tramite tramite)
+    public void VerificarTramite(Tramite tramite)
     {
-        try
+        if (!validadorTramite.Validar(tramite, out string mensajeError))
         {
-            validadorTramite.ValidarUsuarioTramite(tramite);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
+            throw new Exception(mensajeError);
         }
     }
-
-    public void ExcepcionContenidoTramite(Tramite tramite)
-    {
-        try
-        {
-            validadorTramite.ValidarContenidoTramite(tramite);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-
 }

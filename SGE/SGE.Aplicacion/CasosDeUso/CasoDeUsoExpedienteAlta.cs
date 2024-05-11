@@ -7,16 +7,6 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutor
     private static int id = 0;  // buscar en el repositorio el id maximo
     public void Ejecutar(Expediente expediente, int idUsuario)
     {
-        //validador.ValidarUseruarioExpediente(expediente);
-        //validador.ValidarCaratulaExpediente(expediente);
-        
-        /*  asi es como esta en la teoria
-        if (!validador.Validar(expediente, out string mensajeError))
-        {
-            throw new Exception(mensajeError);
-        }
-        */
-
         try
         {
             exception.VerificarExpediente(expediente);
