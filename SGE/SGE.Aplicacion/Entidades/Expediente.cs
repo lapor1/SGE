@@ -8,9 +8,9 @@ public class Expediente
     public DateTime FechaHoraCreacion {get; set;}
     public DateTime FechaHoraModificacion {get; set;}
     public int IdUsuarioUM {get; set;}
-    public EstadoExpediente estadoExpediente {get; set;}
+    public EstadoExpediente ExpedienteEstado {get; set;}
 
     public override string ToString() {
-        return $"Expediente = {IdExpediente}\nCaratula = {Caratula}\nEstado del Expediente = {estadoExpediente}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario = {IdUsuarioUM}";
+        return $"Expediente = {IdExpediente}\nCaratula = {Caratula}\nEstado del Expediente = {ExpedienteEstado}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario = {IdUsuarioUM}";
     }
 }

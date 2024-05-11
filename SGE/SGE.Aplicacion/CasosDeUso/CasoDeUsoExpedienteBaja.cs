@@ -4,7 +4,7 @@ public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoExpediente, ITra
 {
     public void Ejecutar(int idExpediente, int idUsuario)
     {
-        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteBaja))
+        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteBaja, out string mensajeError))
         {
             bool encontrado = repoExpediente.EliminarExpedienteBaja( idExpediente );
             

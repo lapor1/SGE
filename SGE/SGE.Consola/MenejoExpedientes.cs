@@ -12,7 +12,7 @@ public static class ManejoExpedientes
         Expediente nuevoExpediente = new Expediente() {
             Caratula = _Caratula,
             IdUsuarioUM = _IdUsuarioUM,
-            estadoExpediente = _estadoExpediente
+            ExpedienteEstado = _estadoExpediente
         };
         expedientes.Add(nuevoExpediente);
     }
@@ -22,7 +22,7 @@ public static class ManejoExpedientes
         Expediente nuevoExpediente = new Expediente() {
             Caratula = rand.Next().ToString(),
             IdUsuarioUM = rand.Next() % 10,
-            estadoExpediente = (EstadoExpediente) (rand.Next() % 5)
+            ExpedienteEstado = (EstadoExpediente) (rand.Next() % 5)
         };
         expedientes.Add(nuevoExpediente);
     }
@@ -56,7 +56,7 @@ public static class ManejoExpedientes
         expedientes[_IdExpediente].IdExpediente = _IdExpediente + 1;
         expedientes[_IdExpediente].Caratula = _Caratula;
         expedientes[_IdExpediente].IdUsuarioUM = _IdUsuario;
-        expedientes[_IdExpediente].estadoExpediente = _estadoExpediente;
+        expedientes[_IdExpediente].ExpedienteEstado = _estadoExpediente;
 
         var modificacionExpediente = new CasoDeUsoExpedienteModificacion(repo);
         modificacionExpediente.Ejecutar(expedientes[_IdExpediente]);

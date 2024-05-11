@@ -18,7 +18,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         sw.WriteLine(expediente.FechaHoraCreacion);
         sw.WriteLine(expediente.FechaHoraModificacion);
         sw.WriteLine(expediente.IdUsuarioUM);
-        sw.WriteLine(expediente.estadoExpediente);
+        sw.WriteLine(expediente.ExpedienteEstado);
     }
 
     public bool EliminarExpedienteBaja(int id)     //mucha ineficiencia pero bueno
@@ -50,7 +50,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
                 listaExpedientes[i].Caratula = expediente.Caratula;
                 listaExpedientes[i].FechaHoraModificacion = expediente.FechaHoraModificacion;
                 listaExpedientes[i].IdUsuarioUM = expediente.IdUsuarioUM;
-                listaExpedientes[i].estadoExpediente = expediente.estadoExpediente;
+                listaExpedientes[i].ExpedienteEstado = expediente.ExpedienteEstado;
                 encontrado = true;
             }
             i++;
@@ -84,7 +84,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
             sw.WriteLine(listaExpedientes[i].FechaHoraCreacion);
             sw.WriteLine(listaExpedientes[i].FechaHoraModificacion);
             sw.WriteLine(listaExpedientes[i].IdUsuarioUM);
-            sw.WriteLine(listaExpedientes[i].estadoExpediente);
+            sw.WriteLine(listaExpedientes[i].ExpedienteEstado);
         }
     }
 
@@ -96,7 +96,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         expediente.FechaHoraCreacion = DateTime.Parse(sr.ReadLine() ?? "");
         expediente.FechaHoraModificacion = DateTime.Parse(sr.ReadLine() ?? "");
         expediente.IdUsuarioUM = int.Parse(sr.ReadLine() ?? "");
-        expediente.estadoExpediente = (EstadoExpediente) Enum.Parse(typeof(EstadoExpediente), sr.ReadLine() ?? "");
+        expediente.ExpedienteEstado = (EstadoExpediente) Enum.Parse(typeof(EstadoExpediente), sr.ReadLine() ?? "");
         return expediente;
     }
 
