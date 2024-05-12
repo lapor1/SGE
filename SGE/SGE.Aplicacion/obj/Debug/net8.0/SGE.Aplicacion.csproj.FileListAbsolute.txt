@@ -10,3 +10,15 @@ D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.sourcelink.json
+C:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.deps.json
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfoInputs.cache
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.AssemblyInfo.cs
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.csproj.CoreCompileInputs.cache
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.sourcelink.json
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\refint\SGE.Aplicacion.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Aplicacion\obj\Debug\net8.0\ref\SGE.Aplicacion.dll

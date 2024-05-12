@@ -19,3 +19,24 @@ D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.genruntimeconfig.cache
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\ref\SGE.Consola.dll
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.sourcelink.json
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Consola.exe
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Consola.deps.json
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Consola.runtimeconfig.json
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Consola.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Consola.pdb
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Aplicacion.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Repositorios.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Aplicacion.pdb
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\bin\Debug\net8.0\SGE.Repositorios.pdb
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.csproj.AssemblyReference.cache
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.AssemblyInfoInputs.cache
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.AssemblyInfo.cs
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.csproj.CoreCompileInputs.cache
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.sourcelink.json
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Cons.1669A3FB.Up2Date
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\refint\SGE.Consola.dll
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.pdb
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\SGE.Consola.genruntimeconfig.cache
+c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Consola\obj\Debug\net8.0\ref\SGE.Consola.dll
