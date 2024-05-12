@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj": {}
+    "C:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj": {}
   },
   "projects": {
     "C:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj": {
@@ -62,14 +62,14 @@
         }
       }
     },
-    "c:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj": {
+    "C:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj",
+        "projectUniqueName": "C:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj",
         "projectName": "SGE.Consola",
-        "projectPath": "c:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj",
+        "projectPath": "C:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\SGE.Consola.csproj",
         "packagesPath": "C:\\Users\\pjcor\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\obj\\",
+        "outputPath": "C:\\Users\\pjcor\\OneDrive\\Escritorio\\NET\\SGE\\SGE\\SGE.Consola\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pjcor\\AppData\\Roaming\\NuGet\\NuGet.Config"

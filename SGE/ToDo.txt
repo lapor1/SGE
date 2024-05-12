@@ -86,7 +86,7 @@
 
     [.] usar "foreach" en listas en vez de "while"
 
-    [ ] usar "=>" ?
+    [x] usar "=>" ?
 
     [ ] Cambiar funcionalidades no basicas de los TXT e implementarlas en los Casos de uso !!! (que interfaz quede minimalista)
 
