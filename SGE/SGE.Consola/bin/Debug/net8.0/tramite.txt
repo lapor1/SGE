@@ -1,21 +1,28 @@
-0
+4
+2
+EscritoPresentado
+contenido tramite
+13/5/2024 19:08:36
+13/5/2024 19:08:36
+1
+5
 1
 Notificacion
 contenido tramite
-13/5/2024 17:17:56
-13/5/2024 17:17:56
+13/5/2024 19:15:47
+13/5/2024 19:15:47
 1
-1
+6
 2
-PaseAlArchivo
+Despachado
 contenido tramite
-13/5/2024 17:17:56
-13/5/2024 17:17:56
+13/5/2024 19:15:47
+13/5/2024 19:15:47
 1
-2
+7
 3
-PaseAlArchivo
+Notificacion
 contenido tramite
-13/5/2024 17:17:56
-13/5/2024 17:17:56
+13/5/2024 19:15:47
+13/5/2024 19:15:47
 1
