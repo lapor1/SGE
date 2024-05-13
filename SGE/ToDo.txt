@@ -47,7 +47,7 @@
         el usuario tiene el permiso por el cual se está consultando.
 
         
-    [x] Para llevar a cabo el cambio automático del estado de un expediente, se puede emplear la siguiente
+    [ ] Para llevar a cabo el cambio automático del estado de un expediente, se puede emplear la siguiente
         estrategia: desarrollar un servicio que, a partir del Id de un expediente, recupere la etiqueta de su último
         trámite. Basándose en esta información y conforme a las especificaciones detalladas en este documento,
         dicho servicio realizará el cambio de estado del expediente cuando sea necesario. Este servicio podrá ser

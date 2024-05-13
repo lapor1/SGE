@@ -1,19 +1,33 @@
 namespace SGE.Aplicacion;
 
-public class ServicioActualizarEstado(ITramiteRepositorio repo, EspecificacionCambioDeEstado especificacion)
+public class ServicioActualizarEstado(ITramiteRepositorio repoT, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, IServicioAutorizacion autorizacion)
 {
     public void Ejecutar(int idExpediente)
     {
-        Tramite ultumoTramite = new Tramite();
-        List<Tramite> tramites= new List<Tramite>();
+        var excepcion = new RepositorioException();
 
-        var consultarPorId = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repo);
-        tramites = consultarPorId.Ejecutar(idExpediente);
+        var consultarPorIdTramite = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
 
-        // recuperar etiqueta de SU ultimo tramite
-        ultumoTramite = tramites[tramites.Count];
+        List<Tramite> tramites = consultarPorIdTramite.Ejecutar(idExpediente);
+        Tramite ultumoTramite = tramites[tramites.Count - 1]; // recupera ultimo tramite
 
-        // realiza cambio estado
-        especificacion.ElegirCambio(ultumoTramite.TipoTramite, idExpediente);
+        //Verifica que cambio debe hacer segun el tipo de tramite     
+        EstadoExpediente? nuevoEstado;
+        especificacion.Ejecutar(ultumoTramite.TipoTramite, out nuevoEstado);
+
+        if(nuevoEstado != null)
+        {
+            //Busca el expedeinte asociado del ultimo tramite
+            var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE, excepcion);
+            Expediente? expediente = consultarPorIdExpediente.Ejecutar(ultumoTramite.IdExpediente);
+
+            if(expediente != null){
+                // Realiza en cambio
+                var modificacion = new CasoDeUsoExpedienteModificacion(repoE, autorizacion, excepcion);
+                expediente.ExpedienteEstado = (EstadoExpediente) nuevoEstado;
+                modificacion.Ejecutar( (Expediente) expediente, 1);
+                // ¿ El cambio siempre se hace con el usuario 1 ya que tiene permiso ? ¿ o deberia ser el usuario del ultimo tramite ?
+            }
+        }
     }
 }
