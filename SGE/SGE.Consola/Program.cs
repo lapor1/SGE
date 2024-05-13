@@ -3,6 +3,7 @@ using SGE.Repositorios;
 
 class Programa
 {
+    //Es el Main el que inicia todo el programa 
     static void Main(string[] args)
     {
         var excepcion = new AutorizacionException();
