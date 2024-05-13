@@ -5,7 +5,7 @@ public class EspecificacionCambioDeEstado(IExpedienteRepositorio repo, Repositor
     public void ActualizarExpediente(int idExpediente, EstadoExpediente nuevoEstado)
     {
         Expediente? expediente = new Expediente();
-        var consultarPorId = new CasoDeUsoExpedienteConsultarPorId(repo, excepcion);
+        var consultarPorId = new CasoDeUsoExpedienteConsultaPorId(repo, excepcion);
         var modificacion = new CasoDeUsoExpedienteModificacion(repo, autorizacion, excepcion);
 
         expediente = consultarPorId.Ejecutar(idExpediente);

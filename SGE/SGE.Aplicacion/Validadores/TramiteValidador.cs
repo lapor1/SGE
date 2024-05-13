@@ -8,12 +8,12 @@ public class TramiteValidador
         //valida si el usuario es valido 
         if (tramite.IdUsuarioUM <= 0) 
         {
-            throw new Exception("Id de Usuario inválido");
+            throw new Exception("No se puede agregar el Tramite al repositorio ya que Id de Usuario inválido.");
         }
         //valida si el contenido del expediente no esta vacio
         if (string.IsNullOrEmpty(tramite.Contenido))
         {
-            throw new Exception("El contenido esta vacio!");
+            throw new Exception("No se puede agregar el Tramite al repositorio ya que el Contenido esta Vacio.");
         }
         return (mensajeError == "");
     }

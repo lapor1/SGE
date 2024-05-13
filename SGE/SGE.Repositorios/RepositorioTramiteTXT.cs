@@ -101,6 +101,9 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
 
     public List<Tramite> ListarTramites()
     {
+        using var sw = new StreamWriter(_nombreArch, true); //Por si intenta listar cuando no esta creado el archivo
+        sw.Close();
+
         var resultado = new List<Tramite>();
         using var sr = new StreamReader(_nombreArch);
         while (!sr.EndOfStream)

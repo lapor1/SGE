@@ -8,6 +8,7 @@ using Microsoft.Win32.SafeHandles;
 public class RepositorioExpedienteTXT : IExpedienteRepositorio
 {
     readonly string _nombreArch = "expediente.txt";
+
     public void AgregarExpedienteAlta(Expediente expediente)
     {
         using var sw = new StreamWriter(_nombreArch, true); //agrega al final del archivo
@@ -102,6 +103,9 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
 
     public List<Expediente> ListarExpedientes()
     {
+        using var sw = new StreamWriter(_nombreArch, true); //Escribe archivo si no esta creado
+        sw.Close();
+
         var resultado = new List<Expediente>();
         using var sr = new StreamReader(_nombreArch);
         while (!sr.EndOfStream)

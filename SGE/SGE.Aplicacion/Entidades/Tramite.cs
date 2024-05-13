@@ -11,6 +11,6 @@ public class Tramite
     public DateTime FechaHoraModificacion {get; set;}
     public int IdUsuarioUM {get; set;}
 
-    public override string ToString() => $"Id Tramite = {IdTramite}\nId Expediente = {IdExpediente}\nTipo de Tramite = {TipoTramite}\nContenido = {Contenido}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario (ultima modificacion) = {IdUsuarioUM}";
+    public override string ToString() => $"Id Tramite = {IdTramite}\nId Expediente Asociado = {IdExpediente}\nTipo de Tramite = {TipoTramite}\nContenido = {Contenido}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario (ultima modificacion) = {IdUsuarioUM}\n";
 
 }

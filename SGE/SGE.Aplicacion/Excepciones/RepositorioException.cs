@@ -25,7 +25,7 @@ public class RepositorioException
     {
         if (expediente == null)
         {
-             throw new Exception("El Expediente no se puede accder porque no existe en el respositorio");
+             throw new Exception("El Expediente no se puede acceder porque no existe en el respositorio");
         }
     }
 
@@ -49,7 +49,7 @@ public class RepositorioException
     {
         if (tramite == null)
         {
-             throw new Exception("El tramite no se puede accder porque no existe en el respositorio");
+             throw new Exception("El tramite no se puede acceder porque no existe en el respositorio");
         }
     }
 }

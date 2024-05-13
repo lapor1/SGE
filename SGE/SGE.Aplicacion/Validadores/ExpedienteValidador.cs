@@ -8,12 +8,12 @@ public class ExpedienteValidador
         //valida si el usuario es valido
         if (expediente.IdUsuarioUM <= 0) 
         {
-            throw new Exception("Id de Usuario inválido");
+            throw new Exception("No se puede agregar el Expediente al repositorio ya que Id de Usuario inválido.");
         }
         //valida si la caratula del expediente no esta vacio
         if (string.IsNullOrEmpty(expediente.Caratula))
         {
-            throw new Exception("La caratula esta Vacia!");
+            throw new Exception("No se puede agregar el Expediente al repositorio ya que la Caratula esta Vacia.");
         }
         return (mensajeError == "");
     }

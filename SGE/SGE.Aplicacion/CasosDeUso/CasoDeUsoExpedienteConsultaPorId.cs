@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultarPorId(IExpedienteRepositorio repo, RepositorioException excepcion)
+public class CasoDeUsoExpedienteConsultaPorId(IExpedienteRepositorio repo, RepositorioException excepcion)
 {
     public Expediente? Ejecutar(int id)
     {

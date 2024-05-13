@@ -7,7 +7,7 @@ public class AutorizacionException
         //si el ID del usuario es 0, arroja una excepcion 
         if (IdUsuario == 0)
         {
-            throw new Exception("El usuario no cuenta con los permisos adecuados");
+            throw new Exception("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
         }
     }
 }

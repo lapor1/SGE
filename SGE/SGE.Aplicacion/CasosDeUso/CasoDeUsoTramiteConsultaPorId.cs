@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoTramiteConsultarPorId(ITramiteRepositorio repo, RepositorioException excepcion)
+public class CasoDeUsoTramiteConsultaPorId(ITramiteRepositorio repo, RepositorioException excepcion)
 {
     public Tramite? Ejecutar(int id)
     {

@@ -76,7 +76,7 @@
 
     [x] falta resolver como ponerlo en mayuscula estadoExpediente
 
-    [ ] id unico en tramite y expediente (id maximo de la bd ?)
+    [x] id unico en tramite y expediente (id maximo de la bd ?)
 
     [/] cambiar nombre IdTramite a Id, IdExpediente a Id y IdExpediente del tramite a ExpedienteId (como dice en el pdf)
 
@@ -84,7 +84,7 @@
 
     [.] usar el IdUsuarioUM en alta de Tramite y Expediente ?
 
-    [.] usar "foreach" en listas en vez de "while"
+    [x] usar "foreach" en listas en vez de "while"
 
     [x] usar "=>" ?
 
