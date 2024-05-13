@@ -39,7 +39,7 @@ var consExpedienteTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramit
 Console.WriteLine(servicio.PoseeElPermiso(1, Permiso.TramiteBaja) + "\n");
 Console.WriteLine(servicio.PoseeElPermiso(0, Permiso.TramiteBaja) + "\n");
 
-/******************************** Doy de alta algunos expedientes *********************************************/
+/******************************** Doy de alta algunos expedientes *********************************************
 
 Console.WriteLine("Se intentan agregar 4 expedientes al repositorio expediente.txt:\n");
 
@@ -78,7 +78,7 @@ altaExpediente.Ejecutar(
     1 // id usuario
 );
 
-/*********************** Hago un listado de todos los Expedientes en el repositorio *************************/
+/*********************** Hago un listado de todos los Expedientes en el repositorio *************************
 
 Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
 
@@ -86,7 +86,7 @@ foreach (Expediente e in listExpediente.Ejecutar()){
     Console.WriteLine(e.ToString());
 }
 
-/******************************** Doy de alta algunos tramites *********************************************/
+/******************************** Doy de alta algunos tramites *********************************************
 
 Console.WriteLine("Se intentan agregar 5 tramites al repositorio tramite.txt:\n");
 
@@ -148,7 +148,7 @@ altaTramite.Ejecutar(
     1   // id usuario
 );
 
-/***************************** Hago un listado de todos los Tramites en el repositorio *************************/
+/***************************** Hago un listado de todos los Tramites en el repositorio *************************
 
 
 Console.WriteLine("\n********** Listado de todos los Tramites: **********\n");
@@ -304,6 +304,3 @@ foreach (Tramite t in consTramitePorEtiqueta.Ejecutar(EtiquetaTramite.Despachado
 }
 
 /***************************************************************************************************************/
-//
-//                              Especificacion cambio de estado 
-//
