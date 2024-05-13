@@ -1,30 +1,96 @@
+0
+caratula expedietne
+13/5/2024 15:20:39
+13/5/2024 15:20:39
+1
+Finalizado
 1
 caratula expedietne
-13/5/2024 13:23:00
-13/5/2024 13:23:00
-1
-EnNotificacion
-2
-caratula expedietne
-13/5/2024 13:23:19
-13/5/2024 13:23:19
-1
-EnNotificacion
-2
-caratula expedietne
-13/5/2024 13:41:18
-13/5/2024 13:41:18
+13/5/2024 15:20:39
+13/5/2024 15:20:39
 1
 EnNotificacion
 2
 caratula expedietne
-13/5/2024 13:42:21
-13/5/2024 13:42:21
+13/5/2024 15:24:21
+13/5/2024 15:24:21
 1
 EnNotificacion
-2
+3
 caratula expedietne
-13/5/2024 13:43:41
-13/5/2024 13:43:41
+13/5/2024 15:24:21
+13/5/2024 15:24:21
+1
+EnNotificacion
+4
+caratula expedietne
+13/5/2024 15:26:21
+13/5/2024 15:26:21
+1
+EnNotificacion
+5
+caratula expedietne
+13/5/2024 15:26:21
+13/5/2024 15:26:21
+1
+EnNotificacion
+6
+caratula expedietne
+13/5/2024 15:27:56
+13/5/2024 15:27:56
+1
+RecienIniciado
+7
+caratula expedietne
+13/5/2024 15:27:56
+13/5/2024 15:27:56
+1
+EnNotificacion
+8
+caratula expedietne
+13/5/2024 15:29:52
+13/5/2024 15:29:52
+1
+ParaResolver
+9
+caratula expedietne
+13/5/2024 15:29:52
+13/5/2024 15:29:52
+1
+EnNotificacion
+10
+caratula expedietne
+13/5/2024 15:32:00
+13/5/2024 15:32:00
+1
+Finalizado
+11
+caratula expedietne
+13/5/2024 15:32:00
+13/5/2024 15:32:00
+1
+EnNotificacion
+12
+caratula expedietne
+13/5/2024 15:34:03
+13/5/2024 15:34:03
+1
+RecienIniciado
+13
+caratula expedietne
+13/5/2024 15:34:03
+13/5/2024 15:34:03
+1
+EnNotificacion
+14
+caratula expedietne
+13/5/2024 15:35:20
+13/5/2024 15:35:20
+1
+RecienIniciado
+15
+caratula expedietne
+13/5/2024 15:35:20
+13/5/2024 15:35:20
 1
 EnNotificacion

@@ -116,7 +116,7 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         return resultado;
     }
 
-    public bool ExpedienteConsultarPorId(out Expediente expediente, int id)
+    public bool ExpedienteConsultarPorId(out Expediente? expediente, int id)
     {   
         var listaExpedientes = new List<Expediente>();
         listaExpedientes = ListarExpedientes();
@@ -124,7 +124,6 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
         bool encontrado = false;
         while((listaExpedientes.Count > i) && (!encontrado)) {
             if (listaExpedientes[i].IdExpediente == id) {
-                listaExpedientes.Remove(listaExpedientes[i]);
                 encontrado = true;
             }
             else
@@ -132,7 +131,12 @@ public class RepositorioExpedienteTXT : IExpedienteRepositorio
                 i++;
             }
         }
-        expediente = listaExpedientes[i];
+        if (encontrado) {
+            expediente = listaExpedientes[i];
+        }
+        else {
+            expediente = null;
+        }
         return encontrado;
     }
 }

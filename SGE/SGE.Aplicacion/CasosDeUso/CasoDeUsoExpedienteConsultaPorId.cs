@@ -7,7 +7,7 @@ public class CasoDeUsoExpedienteConsultaPorId(IExpedienteRepositorio repo, Repos
         try
         {
             // Llama al método del repositorio para consultar un expediente por su id
-            repo.ExpedienteConsultarPorId(out Expediente expediente, id);
+            repo.ExpedienteConsultarPorId(out Expediente? expediente, id);
             // Verifica si el expediente consultado es válido
             excepcion.ConsultarExpediente(expediente);
             // Devuelve el expediente consultado

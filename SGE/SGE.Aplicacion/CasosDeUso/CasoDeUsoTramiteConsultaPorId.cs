@@ -5,7 +5,7 @@ public class CasoDeUsoTramiteConsultaPorId(ITramiteRepositorio repo, Repositorio
     public Tramite? Ejecutar(int id)
     {
         // Consulta el trámite por su id en el repositorio y guarda si fue encontrado correctamente
-        bool encontrado = repo.TramiteConsultarPorId(out Tramite tramite, id);
+        bool encontrado = repo.TramiteConsultarPorId(out Tramite? tramite, id);
         try
         {
             // Verifica si se encontró el trámite correctamente

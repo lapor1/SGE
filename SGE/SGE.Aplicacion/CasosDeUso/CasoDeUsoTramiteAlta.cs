@@ -17,6 +17,8 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, IServicioAutorizacio
     {
         try
         {
+            tramite.IdUsuarioUM = idUsuario; // Asigna el id del usuario que realiza la modificación al trámite
+
             // Verifica si el trámite es válido
             exception.VerificarTramite(tramite);
 
@@ -28,16 +30,12 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repo, IServicioAutorizacio
                 } else {
                     id++;   //incrementa el Id del expediente
                 }
-                // Asigna el nuevo id al trámite
-                tramite.IdTramite = id;
-                // Establece la fecha y hora de creación del trámite como la fecha y hora actuales
-                tramite.FechaHoraCreacion = DateTime.Now;
-                // Establece la fecha y hora de modificación del trámite como la fecha y hora actuales
-                tramite.FechaHoraModificacion = DateTime.Now;
-                // Asigna el id del usuario que realiza la modificación al trámite
-                tramite.IdUsuarioUM = idUsuario;
-                // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
-                repo.AgregarTramiteAlta( tramite );
+                tramite.IdTramite = id; // Asigna el nuevo id al trámite
+                
+                tramite.FechaHoraCreacion = DateTime.Now;  // Establece la fecha y hora de creación del trámite como la fecha y hora actuales
+                tramite.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del trámite como la fecha y hora actuales
+                
+                repo.AgregarTramiteAlta( tramite ); // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
             }
         }
         catch (Exception ex)

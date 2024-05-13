@@ -114,7 +114,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         return resultado;
     }
 
-    public bool TramiteConsultarPorId(out Tramite tramite, int id)
+    public bool TramiteConsultarPorId(out Tramite? tramite, int id)
     {   
         var listaTramites = new List<Tramite>();
         listaTramites = ListarTramites();
@@ -122,7 +122,6 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         bool encontrado = false;
         while((listaTramites.Count > i) && (!encontrado)) {
             if (listaTramites[i].IdExpediente == id) {
-                listaTramites.Remove(listaTramites[i]);
                 encontrado = true;
             }
             else
@@ -130,7 +129,12 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
                 i++;
             }
         }
-        tramite = listaTramites[i];
+        if (encontrado) {
+            tramite = listaTramites[i];
+        }
+        else {
+            tramite = null;
+        }
         return encontrado;
     }
 }

@@ -8,5 +8,5 @@ public interface IExpedienteRepositorio
     List<Expediente> ListarExpedientes();
     Expediente? GetExpediente(int id);
     Expediente obtenerExpedienteDelRepositorio(StreamReader sr);
-    bool ExpedienteConsultarPorId(out Expediente expediente, int id);
+    bool ExpedienteConsultarPorId(out Expediente? expediente, int id);
 }

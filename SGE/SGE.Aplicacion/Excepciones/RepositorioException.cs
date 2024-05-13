@@ -21,7 +21,7 @@ public class RepositorioException
         }
     }
 
-    public void ConsultarExpediente(Expediente expediente)
+    public void ConsultarExpediente(Expediente? expediente)
     {
         if (expediente == null)
         {
@@ -45,7 +45,7 @@ public class RepositorioException
         }
     }
 
-    public void ConsultarTramite(Tramite tramite)
+    public void ConsultarTramite(Tramite? tramite)
     {
         if (tramite == null)
         {

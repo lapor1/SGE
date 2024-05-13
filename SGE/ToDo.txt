@@ -1,7 +1,7 @@
 
 - Permisos de usuario:
 
-    [?] A modo de ejemplo, un usuario podría tener permiso para eliminar trámites sin tenerlo para eliminar
+    [x] A modo de ejemplo, un usuario podría tener permiso para eliminar trámites sin tenerlo para eliminar
         expedientes. Sin embargo, se asume que aquellos usuarios con permisos para eliminar expedientes
         también tendrán la capacidad para eliminar trámites. La razón es que al dar de baja un expediente, se
         deben eliminar también todos los trámites asociados.
@@ -38,7 +38,7 @@
 
 - Servicio
 
-    [?] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
+    [x] Para esta primera entrega, desarrollar un servicio de autorización provisional llamado
         ServicioAutorizacionProvisorio, que implemente la interfaz IServicioAutorizacion. Este servicio
         siempre debe responder true cuando el IdUsuario sea igual a 1 y false en cualquier otro caso (no hace
         falta realizar ninguna verificación). Utilizaremos este servicio provisional temporalmente hasta que la
@@ -47,13 +47,13 @@
         el usuario tiene el permiso por el cual se está consultando.
 
         
-    [?] Para llevar a cabo el cambio automático del estado de un expediente, se puede emplear la siguiente
+    [x] Para llevar a cabo el cambio automático del estado de un expediente, se puede emplear la siguiente
         estrategia: desarrollar un servicio que, a partir del Id de un expediente, recupere la etiqueta de su último
         trámite. Basándose en esta información y conforme a las especificaciones detalladas en este documento,
         dicho servicio realizará el cambio de estado del expediente cuando sea necesario. Este servicio podrá ser
         invocado por los casos de uso correspondientes después de agregar, modificar o eliminar un trámite.
     
-        [?] Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio de estado
+        [x] Además, resultaría beneficioso desacoplar el servicio de la especificación que define qué cambio de estado
             debe llevarse a cabo en función de la etiqueta del último trámite. Esta especificación podría ser
             suministrada al servicio mediante la técnica de inyección de dependencias
         
@@ -72,7 +72,7 @@
     [x]  listar todos los trámites en el sistema que posean una etiqueta específica
 
 
-- Pequeñas modif. / duditas
+- Pequeñas modificaciones
 
     [x] falta resolver como ponerlo en mayuscula estadoExpediente
 
@@ -86,15 +86,21 @@
 
     [x] usar "foreach" en listas en vez de "while"
 
-    [x] usar "=>" ?
+    [x] usar "=>"
 
-    [ ] Cambiar funcionalidades no basicas de los TXT e implementarlas en los Casos de uso !!! (que interfaz quede minimalista)
+    [.] Cambiar funcionalidades no basicas de los repoTXT e implementarlas en los Casos de uso
 
-    [ ]  Declaración using pág 52
+    [ ]  using (pag 52)
 
-    [ ] escepcion con mensaje personalizado en vez de unsar un string (pag 98 clase 3)
+    [ ] escepcion con mensaje personalizado en vez de usar un string (pag 98 clase 3)
 
 - Hacer
 
     [ ]  Documento explicativo donde se detalle cómo probar la funcionalidad desarrollada desde
          Program.cs. Se debe explicitar código de ejemplo junto con la salida por consola producida.
+
+    [x] Chequear desde Program.cs todos los casos de uso
+            
+            [ ] No funciona Excepcion al consultar un expediente/tramite que no esté en su repo !!
+
+    [ ] Chequear desde Program.cs EspecificaciónCambioDeEstado.cs
