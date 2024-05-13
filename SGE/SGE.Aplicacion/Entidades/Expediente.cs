@@ -1,5 +1,6 @@
 ﻿namespace SGE.Aplicacion;
 
+//Atributos de Expediente
 public class Expediente
 {
     public int IdExpediente {get; set;}

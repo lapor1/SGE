@@ -2,6 +2,7 @@
 
 namespace SGE.Aplicacion;
 
+//todas las excepciones para todos los casos de uso, tanto de alta, baja, modificacion y consulta
 public class RepositorioException
 {
     public void BajaExpediente(bool encontrado)

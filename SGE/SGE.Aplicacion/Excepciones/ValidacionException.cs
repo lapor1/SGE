@@ -4,6 +4,7 @@ public class ValidacionException(TramiteValidador validadorTramite, ExpedienteVa
 {
     public void VerificarExpediente(Expediente expediente)
     {
+        //la excepcion que da el mensaje de error de la caratula vacia 
         if (!validadorExpediente.Validar(expediente, out string mensajeError))
         {
             throw new Exception(mensajeError);
@@ -11,6 +12,7 @@ public class ValidacionException(TramiteValidador validadorTramite, ExpedienteVa
     }
     public void VerificarTramite(Tramite tramite)
     {
+        //la excepcion que da el mensaje de error de el contenido vacio
         if (!validadorTramite.Validar(tramite, out string mensajeError))
         {
             throw new Exception(mensajeError);
