@@ -150,7 +150,6 @@ altaTramite.Ejecutar(
 
 /***************************** Hago un listado de todos los Tramites en el repositorio *************************/
 
-
 Console.WriteLine("\n********** Listado de todos los Tramites: **********\n");
 
 foreach (Tramite t in listTramite.Ejecutar()){
