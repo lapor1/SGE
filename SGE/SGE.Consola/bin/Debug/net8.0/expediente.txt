@@ -46,3 +46,21 @@ caratula expedietne
 13/5/2024 19:15:47
 1
 EnNotificacion
+10
+caratula expedietne
+7/6/2024 18:36:36
+7/6/2024 18:36:36
+1
+RecienIniciado
+11
+caratula expedietne
+7/6/2024 18:36:36
+7/6/2024 18:36:36
+1
+EnNotificacion
+12
+caratula expedietne
+7/6/2024 18:37:17
+7/6/2024 18:37:17
+1
+ParaResolver

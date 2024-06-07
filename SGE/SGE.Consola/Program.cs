@@ -4,7 +4,7 @@ using SGE.Repositorios;
 /******************** Instancio los servivios, excepciones, repositorios y casos de uso ***********************/
 
 // Servicios
-var servicio = new ServicioAutorizacionProvisorio(new AutorizacionException());
+var servicio = new ServicioAutorizacionProvisorio();
 
 // Especificador de cambio de estado
 var especificacion = new EspecificacionCambioDeEstado();
@@ -33,13 +33,13 @@ var listExpediente = new CasoDeUsoListarExpedientes(repoE);
 var consExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE, excepcionRepo);
 var consExpedienteTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
 
-/**************************************************************************************************************/
+/**************************************************************************************************************
 
 // Pequeño testeo de los permisos de usuario
 Console.WriteLine(servicio.PoseeElPermiso(1, Permiso.TramiteBaja) + "\n");
 Console.WriteLine(servicio.PoseeElPermiso(0, Permiso.TramiteBaja) + "\n");
 
-/******************************** Doy de alta algunos expedientes *********************************************/
+/******************************** Doy de alta algunos expedientes *********************************************
 
 Console.WriteLine("Se intentan agregar 4 expedientes al repositorio expediente.txt:\n");
 
@@ -78,7 +78,7 @@ altaExpediente.Ejecutar(
     1 // id usuario
 );
 
-/*********************** Hago un listado de todos los Expedientes en el repositorio *************************/
+/*********************** Hago un listado de todos los Expedientes en el repositorio *************************
 
 Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
 
@@ -86,7 +86,7 @@ foreach (Expediente e in listExpediente.Ejecutar()){
     Console.WriteLine(e.ToString());
 }
 
-/******************************** Doy de alta algunos tramites *********************************************/
+/******************************** Doy de alta algunos tramites *********************************************
 
 Console.WriteLine("Se intentan agregar 5 tramites al repositorio tramite.txt:\n");
 
@@ -148,7 +148,7 @@ altaTramite.Ejecutar(
     1   // id usuario
 );
 
-/***************************** Hago un listado de todos los Tramites en el repositorio *************************/
+/***************************** Hago un listado de todos los Tramites en el repositorio *************************
 
 Console.WriteLine("\n********** Listado de todos los Tramites: **********\n");
 
@@ -156,7 +156,7 @@ foreach (Tramite t in listTramite.Ejecutar()){
     Console.WriteLine(t.ToString());
 }
 
-/************************************ Eliminar algunos Tramites *************************************************/
+/************************************ Eliminar algunos Tramites *************************************************
 
 Console.WriteLine("Se intentan eliminar tramites dal repositorio tramite.txt:\n");
 
@@ -170,7 +170,7 @@ bajaTramite.Ejecutar(1, 1);
 // Invalidacion ya que usuario 0 no tiene permiso
 bajaTramite.Ejecutar(2, 0);
 
-/***************************** Eliminar algunos Expedientes (y sus tramites asociados) **************************/
+/***************************** Eliminar algunos Expedientes (y sus tramites asociados) **************************
 
 Console.WriteLine("Se intentan eliminar Expedientes dal repositorio expediente.txt:\n");
 
@@ -185,7 +185,7 @@ bajaExpediente.Ejecutar(1, 1);
 // Invalidacion ya que usuario 0 no tiene permiso
 bajaExpediente.Ejecutar(2, 0);
 
-/*********************** Hago un listado de todos los Expedientes en el repositorio *****************************/
+/*********************** Hago un listado de todos los Expedientes en el repositorio *****************************
 
 Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
 
@@ -193,7 +193,7 @@ foreach (Expediente e in listExpediente.Ejecutar()){
     Console.WriteLine(e.ToString());
 }
 
-/***************************** Hago un listado de todos los Tramites en el repositorio ***************************/
+/***************************** Hago un listado de todos los Tramites en el repositorio ***************************
 
 Console.WriteLine("\n********** Listado de todos los Tramites: **********\n");
 
@@ -201,7 +201,7 @@ foreach (Tramite t in listTramite.Ejecutar()){
     Console.WriteLine(t.ToString());
 }
 
-/*************************** Hago una modificacion de algunos Tramites en el repositorio **************************/
+/*************************** Hago una modificacion de algunos Tramites en el repositorio **************************
 
 // Id usuario sin permiso
 modTramite.Ejecutar(
@@ -229,7 +229,7 @@ foreach (Tramite t in listTramite.Ejecutar()){
     Console.WriteLine(t.ToString());
 }
 
-/*************************** Hago una modificacion de algunos Expedeintes en el repositorio ************************/
+/*************************** Hago una modificacion de algunos Expedeintes en el repositorio ************************
 
 // Expediente no encontrado
 modExpediente.Ejecutar(
@@ -267,7 +267,7 @@ if (expedienteAux != null) {
 }
 
 
-/*********************** Hago un listado de todos los Expedientes en el repositorio ****************************/
+/*********************** Hago un listado de todos los Expedientes en el repositorio ****************************
 
 Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
 
@@ -275,7 +275,7 @@ foreach (Expediente e in listExpediente.Ejecutar()){
     Console.WriteLine(e.ToString());
 }
 
-/******************************** Tramites Asociados un Expedeiente *******************************************/
+/******************************** Tramites Asociados un Expedeiente *******************************************
 
 Console.WriteLine("\n********** Todos Los Tramites Asociados al Expedeiente 2: **********\n");
 
@@ -289,7 +289,7 @@ foreach (Tramite t in consExpedienteTramitesAsociados.Ejecutar(10)){
     Console.WriteLine( t.ToString() );
 }
 
-/******************************** Consulta de Tramites por Etiqueta *******************************************/
+/******************************** Consulta de Tramites por Etiqueta *******************************************
 
 Console.WriteLine("\n********** Todos Los Tramites con etiqueta 'Notificacion': **********\n");
 
@@ -301,6 +301,24 @@ Console.WriteLine("\n********** Todos Los Tramites con etiqueta 'Despachado': **
 
 foreach (Tramite t in consTramitePorEtiqueta.Ejecutar(EtiquetaTramite.Despachado)){
     Console.WriteLine( t.ToString() );
+}
+
+/***************************************************************************************************************/
+
+// Expediente con id de usuario invalido
+
+try {
+
+    altaExpediente.Ejecutar(
+        new Expediente(){ 
+            Caratula = "caratula expedietne",
+            ExpedienteEstado = EstadoExpediente.ParaResolver
+        },
+        0 // id usuario
+    );
+
+} catch ( AutorizacionException e){
+    Console.WriteLine(e.Message);
 }
 
 /***************************************************************************************************************/

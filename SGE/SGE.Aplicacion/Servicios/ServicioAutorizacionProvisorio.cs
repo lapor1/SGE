@@ -1,17 +1,15 @@
 ﻿namespace SGE.Aplicacion;
 
-public class ServicioAutorizacionProvisorio(AutorizacionException autorizacion) : IServicioAutorizacion
+public class ServicioAutorizacionProvisorio : IServicioAutorizacion
 {
     public bool PoseeElPermiso(int IdUsuario, Permiso permiso) {
-        try
-        {
-            autorizacion.AutorizarExcepciones(IdUsuario);
+        
+        if ( IdUsuario == 1 ) {
             return true;
         }
-        catch (Exception ex) 
-        {
-            Console.WriteLine( ex.Message );
+        else {
+            return false;
         }
-        return false;  
+        
     }
 }

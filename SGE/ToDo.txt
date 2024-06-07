@@ -1,12 +1,12 @@
 * Prints en Consola: 
     
-    [ ] SGE.Aplicacion/Servicios/ServicioAutorizacionProvisorio.cs
+    [x] SGE.Aplicacion/Servicios/ServicioAutorizacionProvisorio.cs
          Console.WriteLine( ex.Message );
     
     [ ] SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteAlta.cs
         Console.WriteLine(ex.Message);
 
-* Excepciones :
+* Excepciones y Validaciones :
     
     [ ] Al igual que en el Alta en la modificacion tambien se debe validar el expediente:
         SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteModificacion.cs
