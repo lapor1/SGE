@@ -1,13 +1,25 @@
 namespace SGE.Aplicacion;
 
-public class AutorizacionException
+public class AutorizacionException : Exception  // Notar que ahora hereda de "Exception"
 {
-    public void AutorizarExcepciones(int IdUsuario) 
+
+    // Ahora :
+
+    public AutorizacionException(string message) :  base(message)
     {
-        //si el ID del usuario es 0, arroja una excepcion 
-        if (IdUsuario == 0)
-        {
-            throw new Exception("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
-        }
+        
     }
+
+
+    // Antes : 
+    /*
+        public void AutorizarExcepciones(int IdUsuario) 
+        {
+            //si el ID del usuario es 0, arroja una excepcion 
+            if (IdUsuario == 0)
+            {
+                throw new Exception("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
+            }
+    }
+    */
 }
