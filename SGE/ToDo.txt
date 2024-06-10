@@ -10,19 +10,19 @@
 
 * Excepciones y Validaciones :
 
-    [ ] Al igual que en el Alta en la modificacion tambien se debe validar el expediente:
+    [x] Al igual que en el Alta en la modificacion tambien se debe validar el expediente:
         SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteModificacion.cs
         excepcion.VerificarExpediente(expediente);
 
-    [ ] Al igual que en el Alta en la modificacion tambien se debe validar el tramite
+    [x] Al igual que en el Alta en la modificacion tambien se debe validar el tramite
         SGE.Aplicacion/CasosDeUso/CasoDeUsoTramiteModificacion.cs
         excepcion.VerificarTramite(tramite);
 
-    la idea es que las excepciones sean lanzadas desde los casos de uso, servicios,
-    etc pero solo sean captadas desde el program, siendo este el unico que interactua con la consola
+    [x] la idea es que las excepciones sean lanzadas desde los casos de uso, servicios,
+        etc pero solo sean captadas desde el program, siendo este el unico que interactua con la consola
 
-    no implementa correctamente, las lanza como excepciones. Se esperaba que estas 
-    clases extiendan de la clase “Exception”.
+    [x] no implementa correctamente, las lanza como excepciones. Se esperaba que estas 
+        clases extiendan de la clase “Exception”.
 
 * Expediente : 
 
@@ -30,8 +30,6 @@
 
 - Nuevas cosas para hacer
 
-    [ ] ValidacionException hace mal el trow
-
-    [ ] Expediente modificacion (no hace la modificacion)
+    [ ] ValidacionException hace mal el trow <---
 
 - Entrega 2

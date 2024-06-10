@@ -24,7 +24,7 @@ var validadorExpediente = new ExpedienteValidador();
 // Casos de uso Tramite
 var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
 var bajaTramite = new CasoDeUsoTramiteBaja(repoT, servicio, repoE, especificacion);
-var modTramite = new CasoDeUsoTramiteModificacion(repoT, servicio, repoE, especificacion);
+var modTramite = new CasoDeUsoTramiteModificacion(repoT, servicio, repoE, especificacion, validadorTramite);
 var listTramite = new CasoDeUsoListarTramites(repoT);
 var consTramite = new CasoDeUsoTramiteConsultaPorId(repoT);
 var consTramitePorEtiqueta = new CasoDeUsoConsultaPorEtiqueta(repoT);
@@ -32,7 +32,7 @@ var consTramitePorEtiqueta = new CasoDeUsoConsultaPorEtiqueta(repoT);
 // Casos de uso Expediente
 var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
 var bajaExpediente = new CasoDeUsoExpedienteBaja(repoE, repoT, servicio);
-var modExpediente = new CasoDeUsoExpedienteModificacion(repoE, servicio);
+var modExpediente = new CasoDeUsoExpedienteModificacion(repoE, servicio, validadorExpediente);
 var listExpediente = new CasoDeUsoListarExpedientes(repoE);
 var consExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE);
 var consExpedienteTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
