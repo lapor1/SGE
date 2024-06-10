@@ -13,12 +13,16 @@ var especificacion = new EspecificacionCambioDeEstado();
 ITramiteRepositorio repoT = new RepositorioTramiteTXT();
 IExpedienteRepositorio repoE = new RepositorioExpedienteTXT();
 
+//Validadores
+var validadorTramite = new TramiteValidador();
+var validadorExpediente = new ExpedienteValidador();
+
 // Excepciones
-var excepcionVal = new ValidacionException(new TramiteValidador(), new ExpedienteValidador());
+//var excepcionVal = new ValidacionException(new TramiteValidador(), new ExpedienteValidador());
 var excepcionRepo = new RepositorioException();
 
 // Casos de uso Tramite
-var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, excepcionVal, repoE, especificacion);
+var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
 var bajaTramite = new CasoDeUsoTramiteBaja(repoT, servicio, excepcionRepo, repoE, especificacion);
 var modTramite = new CasoDeUsoTramiteModificacion(repoT, servicio, excepcionRepo, repoE, especificacion);
 var listTramite = new CasoDeUsoListarTramites(repoT);
@@ -26,7 +30,7 @@ var consTramite = new CasoDeUsoTramiteConsultaPorId(repoT, excepcionRepo);
 var consTramitePorEtiqueta = new CasoDeUsoConsultaPorEtiqueta(repoT);
 
 // Casos de uso Expediente
-var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, excepcionVal);
+var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
 var bajaExpediente = new CasoDeUsoExpedienteBaja(repoE, repoT, servicio, excepcionRepo);
 var modExpediente = new CasoDeUsoExpedienteModificacion(repoE, servicio, excepcionRepo);
 var listExpediente = new CasoDeUsoListarExpedientes(repoE);
@@ -305,19 +309,19 @@ foreach (Tramite t in consTramitePorEtiqueta.Ejecutar(EtiquetaTramite.Despachado
 
 /***************************************************************************************************************/
 
-// Expediente con id de usuario invalido
-
 try {
 
-    altaExpediente.Ejecutar(
-        new Expediente(){ 
-            Caratula = "caratula expedietne",
-            ExpedienteEstado = EstadoExpediente.ParaResolver
+    altaTramite.Ejecutar(
+        new Tramite(){
+            Contenido = "contenido tramite",
+            TipoTramite = EtiquetaTramite.PaseAEstudio,
+            IdExpediente = 2   // expediente asociado
         },
-        0 // id usuario
+        0   // id usuario
     );
 
-} catch ( AutorizacionException e){
+}
+catch ( AutorizacionException e ){
     Console.WriteLine(e.Message);
 }
 

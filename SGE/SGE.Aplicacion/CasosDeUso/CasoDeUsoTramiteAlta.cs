@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, ValidacionException excepcion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion)
+public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, TramiteValidador validador)
 {
     private static int id = 0;  // buscar en el repositorio el id maximo
 
@@ -19,7 +19,12 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
         tramite.IdUsuarioUM = idUsuario; // Asigna el id del usuario que realiza la modificación al trámite
 
         // Verifica si el trámite es válido
-        excepcion.VerificarTramite(tramite);
+        if (!validador.Validar(tramite, out string mensajeError))
+        {
+            throw new ValidacionException(mensajeError);
+        }
+
+        //excepcion.VerificarTramite(tramite);
 
         // Verifica si el usuario tiene el permiso necesario para dar de alta un trámite
         if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta))

@@ -1,21 +1,34 @@
 ﻿namespace SGE.Aplicacion;
 
-public class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador validadorExpediente)
+public class ValidacionException : Exception
 {
-    public void VerificarExpediente(Expediente expediente)
+    public ValidacionException() {}
+    public ValidacionException(string message) : base(message) {}
+
+    public ValidacionException(string message, Exception inner) : base(message, inner) {}
+    
+}
+
+// Antes: 
+/*
+    public class ValidacionException(TramiteValidador validadorTramite, ExpedienteValidador validadorExpediente)
     {
-        //la excepcion que da el mensaje de error de la caratula vacia 
-        if (!validadorExpediente.Validar(expediente, out string mensajeError))
+        public void VerificarExpediente(Expediente expediente)
         {
-            throw new Exception(mensajeError);
-        }   
-    }
-    public void VerificarTramite(Tramite tramite)
-    {
-        //la excepcion que da el mensaje de error de el contenido vacio
-        if (!validadorTramite.Validar(tramite, out string mensajeError))
+            //la excepcion que da el mensaje de error de la caratula vacia 
+            if (!validadorExpediente.Validar(expediente, out string mensajeError))
+            {
+                throw new Exception(mensajeError);
+            }   
+        }
+        public void VerificarTramite(Tramite tramite)
         {
-            throw new Exception(mensajeError);
+            //la excepcion que da el mensaje de error de el contenido vacio
+            if (!validadorTramite.Validar(tramite, out string mensajeError))
+            {
+                throw new Exception(mensajeError);
+            }
         }
     }
-}
+
+*/
