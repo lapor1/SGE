@@ -28,13 +28,12 @@
 
 * Expediente : 
 
-    [ ] Debe contar con una lista de sus tramites.
-        
-        [ ] Declaracion lista nullable ? get y set ?
-        [ ] Y si no se encuentra id Expediente al agregar un Tramite?
-        [ ] faltan set y get en ListaTramite
+    [x] Debe contar con una lista de sus tramites.
+        [x] cambiar tramites en Alta Baja y Modificacion
 
-        [ ] cambiar tramites al dar de baja
+        [?] Declaracion lista nullable ? get y set ?
+        [?] Y si no se encuentra id Expediente al agregar un Tramite?
+
 
 * Nuevos problemas/errores
 

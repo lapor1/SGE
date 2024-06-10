@@ -307,7 +307,7 @@ foreach (Tramite t in consTramitePorEtiqueta.Ejecutar(EtiquetaTramite.Despachado
     Console.WriteLine( t.ToString() );
 }
 
-/***************************************************************************************************************
+/***************************************************************************************************************/
 
 try {
 
@@ -317,11 +317,11 @@ try {
             TipoTramite = EtiquetaTramite.PaseAEstudio,
             IdExpediente = 2   // expediente asociado
         },
-        0   // id usuario
+        1   // id usuario
     );
 
 }
-catch ( AutorizacionException e ){
+catch ( Exception e ){
     Console.WriteLine(e.Message);
 }
 
