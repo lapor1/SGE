@@ -1,12 +1,12 @@
 namespace SGE.Aplicacion;
 
-public class ServicioActualizarEstado(ITramiteRepositorio repoT, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, IServicioAutorizacion autorizacion)
+public class ServicioActualizarEstado(IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, IServicioAutorizacion autorizacion)
 {
     public void Ejecutar(int idExpediente)
     {
 
         var excepcion = new RepositorioException();
-        var consultarPorIdTramite = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
+        var consultarPorIdTramite = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoE);
 
         List<Tramite> tramites = consultarPorIdTramite.Ejecutar(idExpediente);
 

@@ -8,6 +8,8 @@
     [x] SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteAlta.cs
         Console.WriteLine(ex.Message);
 
+        [x] Idem para todos los casos de uso
+
 * Excepciones y Validaciones :
 
     [x] Al igual que en el Alta en la modificacion tambien se debe validar el expediente:
@@ -27,9 +29,13 @@
 * Expediente : 
 
     [ ] Debe contar con una lista de sus tramites.
+        
+        [ ] Declaracion lista nullable ? get y set ?
+        [ ] Y si no se encuentra id Expediente al agregar un Tramite?
+        [ ] faltan set y get en ListaTramite
 
-- Nuevas cosas para hacer
+        [ ] cambiar tramites al dar de baja
 
-    [ ] ValidacionException hace mal el trow <---
+* Nuevos problemas/errores
 
-- Entrega 2
+    [ ] ValidacionException hace mal el trow

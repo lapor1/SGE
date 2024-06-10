@@ -13,27 +13,24 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IServicioAutorizaci
         {
             // Elimina el trámite del repositorio y guarda si fue encontrado y eliminado correctamente
             bool encontrado = repoT.EliminarTramiteBaja( id );
-            //try
-            //{
-                //excepcion.BajaTramite(encontrado);
 
-                if (!encontrado) {
-                    throw new RepositorioException("El tramite no se puede eliminar porque no existe en el respositorio");
-                }
-                else {
-                    if(tramite != null){
-                        // Modifica el estado del expediente asociado
-                        var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoT, repoE, especificacion, autorizacion);
-                        cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
+            //excepcion.BajaTramite(encontrado);
+
+            if (!encontrado) {
+                throw new RepositorioException("El tramite no se puede eliminar porque no existe en el respositorio");
+            }
+            else {
+                if(tramite != null){
+                    // Modifica el estado del expediente asociado
+                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, especificacion, autorizacion);
+                    cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
+
+                    Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
+                    if ( expediente != null ){
+                        expediente.ListaTramites.Remove(tramite);
                     }
                 }
-/*
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine( ex.Message );
-            }
-*/
         }
     }
 }

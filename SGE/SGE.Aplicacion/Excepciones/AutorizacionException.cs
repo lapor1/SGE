@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class AutorizacionException : Exception  // Notar que ahora hereda de "Exception"
+public class AutorizacionException : Exception
 {
     public AutorizacionException() {}
 

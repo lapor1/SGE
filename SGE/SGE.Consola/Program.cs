@@ -35,7 +35,7 @@ var bajaExpediente = new CasoDeUsoExpedienteBaja(repoE, repoT, servicio);
 var modExpediente = new CasoDeUsoExpedienteModificacion(repoE, servicio, validadorExpediente);
 var listExpediente = new CasoDeUsoListarExpedientes(repoE);
 var consExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE);
-var consExpedienteTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
+var consExpedienteTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoE);
 
 /**************************************************************************************************************
 
@@ -313,11 +313,11 @@ try {
 
     altaTramite.Ejecutar(
         new Tramite(){
-            //Contenido = "contenido tramite",
+            Contenido = "contenido tramite",
             TipoTramite = EtiquetaTramite.PaseAEstudio,
             IdExpediente = 2   // expediente asociado
         },
-        1   // id usuario
+        0   // id usuario
     );
 
 }

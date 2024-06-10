@@ -1,13 +1,16 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultaTodosTramitesAscociados(ITramiteRepositorio repo)
+public class CasoDeUsoExpedienteConsultaTodosTramitesAscociados(IExpedienteRepositorio repoE)
 {
     public List<Tramite> Ejecutar(int idExpediente)
     {
+        /*
         // Obtiene la lista completa de todos los trámites
         List<Tramite> tramitesTotal = repo.ListarTramites();
+
         // Lista para almacenar los trámites asociados al expediente específico
         List<Tramite> tramitesAsociados = new List<Tramite>();
+
         // Itera sobre todos los trámites para encontrar los asociados al expediente específico
         foreach (Tramite t in tramitesTotal)
         {
@@ -20,5 +23,16 @@ public class CasoDeUsoExpedienteConsultaTodosTramitesAscociados(ITramiteReposito
         }
         // Devuelve la lista de trámites asociados al expediente
         return tramitesAsociados;
+        */
+
+        Expediente? expediente = repoE.GetExpediente( idExpediente );
+
+        if ( expediente != null ){           
+            return expediente.ListaTramites;
+        }
+        else
+        {
+            return new List<Tramite>(); //lista vacia
+        }        
     }
 }
