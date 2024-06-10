@@ -15,39 +15,38 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
 
     public void Ejecutar(Tramite tramite, int idUsuario)
     {
- 
         tramite.IdUsuarioUM = idUsuario; // Asigna el id del usuario que realiza la modificación al trámite
 
         // Verifica si el trámite es válido
-        if (!validador.Validar(tramite, out string mensajeError))
+        if (validador.Validar(tramite, out string mensajeError))
         {
-            throw new ValidacionException(mensajeError);
-        }
+            // Verifica si el usuario tiene el permiso necesario para dar de alta un trámite
+            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta))
+            {
+                if (id == 0){
+                    IniciarId();   //lee del repositorio cual es el ultimo IdTramte para que no se sobre-escriba
+                } else {
+                    id++;   //incrementa el Id del expediente
+                }
+                tramite.IdTramite = id; // Asigna el nuevo id al trámite
+                
+                tramite.FechaHoraCreacion = DateTime.Now;  // Establece la fecha y hora de creación del trámite como la fecha y hora actuales
+                tramite.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del trámite como la fecha y hora actuales
 
-        //excepcion.VerificarTramite(tramite);
+                var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoT, repoE, especificacion, autorizacion);
+                cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
 
-        // Verifica si el usuario tiene el permiso necesario para dar de alta un trámite
-        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.TramiteAlta))
-        {
-            if (id == 0){
-                IniciarId();   //lee del repositorio cual es el ultimo IdTramte para que no se sobre-escriba
-            } else {
-                id++;   //incrementa el Id del expediente
+                repoT.AgregarTramiteAlta( tramite ); // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
             }
-            tramite.IdTramite = id; // Asigna el nuevo id al trámite
-            
-            tramite.FechaHoraCreacion = DateTime.Now;  // Establece la fecha y hora de creación del trámite como la fecha y hora actuales
-            tramite.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del trámite como la fecha y hora actuales
-
-            var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoT, repoE, especificacion, autorizacion);
-            cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
-
-            repoT.AgregarTramiteAlta( tramite ); // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
+            else
+            {
+                throw new AutorizacionException("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
+            }
         }
         else
         {
-            throw new AutorizacionException("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
+            //excepcion.VerificarTramite(tramite);
+            throw new ValidacionException(mensajeError);
         }
-
     }
 }

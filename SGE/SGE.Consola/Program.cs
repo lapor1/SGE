@@ -313,11 +313,11 @@ try {
 
     altaTramite.Ejecutar(
         new Tramite(){
-            Contenido = "contenido tramite",
+            //Contenido = "contenido tramite",
             TipoTramite = EtiquetaTramite.PaseAEstudio,
             IdExpediente = 2   // expediente asociado
         },
-        0   // id usuario
+        1   // id usuario
     );
 
 }

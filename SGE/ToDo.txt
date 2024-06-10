@@ -3,7 +3,7 @@
     [x] SGE.Aplicacion/Servicios/ServicioAutorizacionProvisorio.cs
          Console.WriteLine( ex.Message );
     
-    [ ] SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteAlta.cs
+    [x] SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteAlta.cs
         Console.WriteLine(ex.Message);
 
 * Excepciones y Validaciones :
