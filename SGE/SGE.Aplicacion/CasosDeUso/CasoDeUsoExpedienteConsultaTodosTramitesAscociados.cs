@@ -27,12 +27,9 @@ public class CasoDeUsoExpedienteConsultaTodosTramitesAscociados(IExpedienteRepos
 
         Expediente? expediente = repoE.GetExpediente( idExpediente );
 
-        if ( expediente != null ){           
-            return expediente.ListaTramites;
-        }
-        else
-        {
-            return new List<Tramite>(); //lista vacia
-        }        
+        if ( expediente != null )
+            if (expediente.ListaTramites != null)       
+                return expediente.ListaTramites;
+        return new List<Tramite>(); //lista vacia     
     }
 }

@@ -30,11 +30,11 @@
 
     [x] Debe contar con una lista de sus tramites.
         [x] cambiar tramites en Alta Baja y Modificacion
+        [x] Declaracion lista nullable + get y set
 
-        [?] Declaracion lista nullable ? get y set ?
-        [?] Y si no se encuentra id Expediente al agregar un Tramite?
+        [?] Y si no se encuentra id Expediente al agregar un Tramite? -> tirar excepcion?
 
 
 * Nuevos problemas/errores
 
-    [ ] ValidacionException hace mal el trow
+    [x] ValidacionException hace mal el trow

@@ -40,7 +40,8 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
 
                 Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
                 if ( expediente != null ){
-                    expediente.ListaTramites.Add(tramite);
+                    if ( expediente.ListaTramites != null )
+                        expediente.ListaTramites.Add(tramite);
                 }
                 else {
                     //throw new Exception( "No existe expediente" );
