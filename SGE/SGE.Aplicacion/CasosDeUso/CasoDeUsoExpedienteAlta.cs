@@ -26,23 +26,25 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutor
         {
             throw new ValidacionException(mensajeError);
         }
-        
-        // Verifica si el usuario tiene el permiso necesario para dar de alta un expediente
-        if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteAlta))
-        {
-            if (id == 0){
-                IniciarId();   //lee del repositorio cual es el ultimo IdExpediente para que no se sobre-escriba
-            } else {
-                id++;   //incrementa el Id del expediente
+        else {
+            // Verifica si el usuario tiene el permiso necesario para dar de alta un expediente
+            if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteAlta))
+            {
+                if (id == 0){
+                    IniciarId();   //lee del repositorio cual es el ultimo IdExpediente para que no se sobre-escriba
+                } else {
+                    id++;   //incrementa el Id del expediente
+                }
+                expediente.IdExpediente = id; //Asigna el nuevo id al expediente
+                expediente.FechaHoraCreacion = DateTime.Now; // Establece la fecha y hora de creación del expediente como la fecha y hora actuales
+                expediente.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del expediente como la fecha y hora actuales
+                repo.AgregarExpedienteAlta( expediente );// Agrega el expediente al repositorio llamando al método AgregarExpedienteAlta del objeto repo
             }
-            expediente.IdExpediente = id; //Asigna el nuevo id al expediente
-            expediente.FechaHoraCreacion = DateTime.Now; // Establece la fecha y hora de creación del expediente como la fecha y hora actuales
-            expediente.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del expediente como la fecha y hora actuales
-            repo.AgregarExpedienteAlta( expediente );// Agrega el expediente al repositorio llamando al método AgregarExpedienteAlta del objeto repo
+            else
+            {
+                throw new AutorizacionException("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
+            }
         }
-        else
-        {
-            throw new AutorizacionException("El usuario no cuenta con los permisos adecuados para ejecutar esta accion");
-        }
+
     }
 }

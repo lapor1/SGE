@@ -19,22 +19,22 @@ var validadorExpediente = new ExpedienteValidador();
 
 // Excepciones
 //var excepcionVal = new ValidacionException(new TramiteValidador(), new ExpedienteValidador());
-var excepcionRepo = new RepositorioException();
+//var excepcionRepo = new RepositorioException();
 
 // Casos de uso Tramite
 var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
-var bajaTramite = new CasoDeUsoTramiteBaja(repoT, servicio, excepcionRepo, repoE, especificacion);
-var modTramite = new CasoDeUsoTramiteModificacion(repoT, servicio, excepcionRepo, repoE, especificacion);
+var bajaTramite = new CasoDeUsoTramiteBaja(repoT, servicio, repoE, especificacion);
+var modTramite = new CasoDeUsoTramiteModificacion(repoT, servicio, repoE, especificacion);
 var listTramite = new CasoDeUsoListarTramites(repoT);
-var consTramite = new CasoDeUsoTramiteConsultaPorId(repoT, excepcionRepo);
+var consTramite = new CasoDeUsoTramiteConsultaPorId(repoT);
 var consTramitePorEtiqueta = new CasoDeUsoConsultaPorEtiqueta(repoT);
 
 // Casos de uso Expediente
 var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
-var bajaExpediente = new CasoDeUsoExpedienteBaja(repoE, repoT, servicio, excepcionRepo);
-var modExpediente = new CasoDeUsoExpedienteModificacion(repoE, servicio, excepcionRepo);
+var bajaExpediente = new CasoDeUsoExpedienteBaja(repoE, repoT, servicio);
+var modExpediente = new CasoDeUsoExpedienteModificacion(repoE, servicio);
 var listExpediente = new CasoDeUsoListarExpedientes(repoE);
-var consExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE, excepcionRepo);
+var consExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE);
 var consExpedienteTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
 
 /**************************************************************************************************************

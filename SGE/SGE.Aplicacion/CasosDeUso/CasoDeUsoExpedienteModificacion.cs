@@ -1,6 +1,6 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion, RepositorioException excepcion)
+public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion)
 {
     public void Ejecutar(Expediente expediente, int idUsuario)
     {
@@ -14,6 +14,12 @@ public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServi
              // Intenta modificar el expediente en el repositorio y guarda si fue encontrado y modificado correctamente
             bool encontrado = repo.ModificarExpediente( expediente );
             
+            if (!encontrado)
+            {
+                throw new Exception("El Expediente no se puede modificar porque no existe en el repositorio");
+            }
+
+/*
             try
             {
                 excepcion.ModificacionExpediente(encontrado);
@@ -22,6 +28,7 @@ public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServi
             {
                 Console.WriteLine( ex.Message );
             }
+            */
         }
     }
 }

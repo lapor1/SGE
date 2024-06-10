@@ -3,8 +3,16 @@
 namespace SGE.Aplicacion;
 
 //todas las excepciones para todos los casos de uso, tanto de alta, baja, modificacion y consulta
-public class RepositorioException
+public class RepositorioException : Exception
 {
+
+    public RepositorioException() {}
+
+    public RepositorioException(string? message) : base(message) {}
+
+    public RepositorioException(string? message, Exception? innerException) : base(message, innerException) {}
+
+/*
     public void BajaExpediente(bool encontrado)
     {
         if (!encontrado)
@@ -52,4 +60,5 @@ public class RepositorioException
              throw new Exception("El tramite no se puede acceder porque no existe en el respositorio");
         }
     }
+    */
 }

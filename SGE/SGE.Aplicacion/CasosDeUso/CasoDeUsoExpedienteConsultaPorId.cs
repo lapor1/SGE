@@ -1,17 +1,24 @@
 namespace SGE.Aplicacion;
 
-public class CasoDeUsoExpedienteConsultaPorId(IExpedienteRepositorio repo, RepositorioException excepcion)
+public class CasoDeUsoExpedienteConsultaPorId(IExpedienteRepositorio repo)
 {
     public Expediente? Ejecutar(int id)
     {
-        try
-        {
+        //try
+        //{
             // Llama al método del repositorio para consultar un expediente por su id
             repo.ExpedienteConsultarPorId(out Expediente? expediente, id);
             // Verifica si el expediente consultado es válido
-            excepcion.ConsultarExpediente(expediente);
+
+            if ( expediente == null )
+            {
+                //excepcion.ConsultarExpediente(expediente);
+                throw new RepositorioException("El Expediente no se puede acceder porque no existe en el respositorio");
+            }
+    
             // Devuelve el expediente consultado
             return expediente;
+        /*
         }
         catch (Exception ex)
         {
@@ -19,5 +26,6 @@ public class CasoDeUsoExpedienteConsultaPorId(IExpedienteRepositorio repo, Repos
         }
         // Si hay algún error, devuelve null
         return null;
+        */
     }
 }
