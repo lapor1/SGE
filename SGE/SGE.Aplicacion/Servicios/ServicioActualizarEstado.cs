@@ -21,12 +21,12 @@ public class ServicioActualizarEstado(ITramiteRepositorio repoT, IExpedienteRepo
             if(nuevoEstado != null)
             {
                 //Busca el expedeinte asociado del ultimo tramite
-                var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE, excepcion);
+                var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE);
                 Expediente? expediente = consultarPorIdExpediente.Ejecutar(ultumoTramite.IdExpediente);
 
                 if(expediente != null){
                     // Realiza en cambio
-                    var modificacion = new CasoDeUsoExpedienteModificacion(repoE, autorizacion, excepcion);
+                    var modificacion = new CasoDeUsoExpedienteModificacion(repoE, autorizacion, new ExpedienteValidador());
                     expediente.ExpedienteEstado = (EstadoExpediente) nuevoEstado;
                     modificacion.Ejecutar( (Expediente) expediente, 1);
                     // ¿ El cambio siempre se hace con el usuario 1 ya que tiene permiso ? ¿ o deberia ser el usuario del ultimo tramite ?
