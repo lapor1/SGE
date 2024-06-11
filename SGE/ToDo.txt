@@ -24,11 +24,11 @@
 
     ● Definir los repositorios y casos de uso que se consideren necesarios
 
-        [ ] Crear repositorio de Usuarios (provisional o esperar a crear la bd)
+        [-] Crear repositorio de Usuarios (provisional o esperar a crear la bd)
 
         [ ] Caso de uso: 
-            [ ] Alta
-            [ ] Baja
+            [x] Alta
+            [x] Baja
             [ ] Modificacion
             [ ] Consulta
             [?] Listado
