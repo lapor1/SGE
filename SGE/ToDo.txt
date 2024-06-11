@@ -1,40 +1,139 @@
-- Entrega 1
+- Dudas
 
-* Prints en Consola: 
+    [ ] Y si no se encuentra id Expediente al agregar un Tramite? -> tirar excepcion?
 
-    [x] SGE.Aplicacion/Servicios/ServicioAutorizacionProvisorio.cs
-         Console.WriteLine( ex.Message );
+    [ ] Crear entidad Usiario?
 
-    [x] SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteAlta.cs
-        Console.WriteLine(ex.Message);
+- Hacer
 
-        [x] Idem para todos los casos de uso
+* Gestión de Usuarios:
 
-* Excepciones y Validaciones :
+    ● Desarrollar la funcionalidad necesaria para la gestión de usuarios. Cada usuario
+    debe tener nombre, apellido, correo electrónico, contraseña y una lista de permisos.
 
-    [x] Al igual que en el Alta en la modificacion tambien se debe validar el expediente:
-        SGE.Aplicacion/CasosDeUso/CasoDeUsoExpedienteModificacion.cs
-        excepcion.VerificarExpediente(expediente);
+        [ ] Crear una entidad Usuario con esos campos
+            
 
-    [x] Al igual que en el Alta en la modificacion tambien se debe validar el tramite
-        SGE.Aplicacion/CasosDeUso/CasoDeUsoTramiteModificacion.cs
-        excepcion.VerificarTramite(tramite);
+    ● Los usuarios pueden tener múltiples permisos. Sólo el Administrador tendrá los
+    permisos necesarios para listar, dar de baja y modificar cualquier usuario o sus
+    permisos.
 
-    [x] la idea es que las excepciones sean lanzadas desde los casos de uso, servicios,
-        etc pero solo sean captadas desde el program, siendo este el unico que interactua con la consola
+        [ ] Crear una clase Admin que hereda de Usuario ??
 
-    [x] no implementa correctamente, las lanza como excepciones. Se esperaba que estas 
-        clases extiendan de la clase “Exception”.
+    ● El primer usuario que se registre en el sistema será el Administrador, quien contará
+    con todos los permisos del sistema, incluyendo la capacidad exclusiva para realizar
+    las tareas mencionadas sobre otros usuarios.
 
-* Expediente : 
+    ● Definir los repositorios y casos de uso que se consideren necesarios
 
-    [x] Debe contar con una lista de sus tramites.
-        [x] cambiar tramites en Alta Baja y Modificacion
-        [x] Declaracion lista nullable + get y set
+        [ ] Crear repositorio de Usuarios (provisional o esperar a crear la bd)
 
-        [?] Y si no se encuentra id Expediente al agregar un Tramite? -> tirar excepcion?
+        [ ] Caso de uso: 
+            [ ] Alta
+            [ ] Baja
+            [ ] Modificacion
+            [ ] Listado
 
+* Servicio de Autorización:
 
-* Nuevos problemas/errores
+    ● Desarrollar el servicio de autorización ServicioAutorizacion que implemente la
+    interfaz IServicioAutorizacion, reemplazando al servicio de autorización provisorio
+    de la entrega inicial
+    
+    ● Este servicio debe verificar realmente si el usuario tiene el permiso requerido.
 
-    [x] ValidacionException hace mal el trow
+        [ ] Eliminar ServicioAutorizacionProvisorio
+        
+        [ ] Crear ServicioAutorizacion
+            [ ] verificar permisos de usuario
+
+* Persistencia de Datos:
+
+    ● En el proyecto SGE.Repositorios, emplear Entity Framework Core para persistir
+    datos en una base de datos SQLite, siguiendo la metodología “code first”.
+
+        [ ] ... (practicar en un archivo auxiliar por las dudas)
+
+* Interfaz de Usuario:
+    
+    ● Descartar el proyecto SGE.Consola de la primera entrega.
+
+        [ ] Copiar lineas importantes en un archivo auxiliar
+        [ ] Eliminar SGE.Consola 
+
+    ● Desarrollar una nueva interfaz de usuario en un proyecto llamado SGE.UI utilizando
+    Blazor. Diseñar libremente esta interfaz de manera que toda la funcionalidad
+    desarrollada en la primera entrega sea accesible desde esta interfaz, agregando la
+    gestión de usuarios requerida.
+
+        [ ] Crear SGE.UI con Blazor
+        [ ] ...
+
+* Flujo de Gestión:
+
+    ● Al iniciar la aplicación, se presentará una pantalla de bienvenida que permitirá a los
+    usuarios iniciar sesión o registrarse.
+
+    ● En caso de registro, se proporcionará un formulario para ingresar los datos
+    personales y establecer una contraseña.
+
+    ● Los usuarios tendrán la libertad de modificar sus datos personales y contraseña en
+    cualquier momento.
+
+    ● Por simplicidad no se implementará ningún mecanismo de recuperación de
+    contraseña. En caso de olvido de contraseña, el usuario deberá contactar al
+    Administrador para restablecerla.
+
+    ● Las contraseñas no se almacenarán directamente en la base de datos; en su lugar,
+    se utilizará una función de hash para mayor seguridad.
+
+* Almacenamiento del hash
+   
+    ● El hash de la contraseña debe almacenarse en la base de datos, nunca la
+    contraseña en sí. Para verificar la identidad del usuario al iniciar sesión, se vuelve a
+    calcular el hash de la contraseña ingresada y se compara con el hash almacenado.
+    Si los hashes coinciden, el usuario ha ingresado la contraseña correcta y se le
+    permite acceder al sistema.
+
+*  Permisos de Usuario:
+    
+    ● Los usuarios nuevos contarán inicialmente solo con permisos de lectura.
+
+    ● Solo el Administrador podrá asignar permisos adicionales.
+
+* Acceso Administrativo:
+
+    ● El menú de gestión de usuarios será visible exclusivamente para el Administrador tras
+    iniciar sesión con sus credenciales.
+
+* EsquemadePermisos:
+
+    Mantener el mismo esquema de permisos definido en la primera entrega,con algunas
+    modificaciones:
+
+        ● En esta entrega,se considerará la posibilidad de que un usuario tenga permiso para
+        eliminar expedientes pero no para eliminar trámites individuales.Al eliminar un
+        expediente, todos los trámites asociados se eliminarán automáticamente, incluso si
+        el usuario no tiene el permiso para dar debaja trámites (permisoTramiteBaja).
+
+        ● De manera similar,unusuario puede tener permiso para modificar trámites pero no
+        para modificar expedientes.Los cambios automáticos en el estado del expediente al
+        modificar,eliminar o agregar un trámite se realizarán de la misma manera, incluso si
+        el usuario no tiene permisos para modificar expedientes (permisoExpedienteModificacion).
+
+* NOTA:
+
+    ● Es conveniente establecer la propiedad journal_mode de la base de datos sqlite en DELETE.
+    Se puede establecer por código de la siguient emanera:
+
+    [
+        context.Database.EnsureCreated();
+        var connection = context.Database.GetDbConnection();
+        connection.Open();
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = "PRAGMA journal_mode=DELETE;";
+            command.ExecuteNonQuery();
+        }
+
+    ]
