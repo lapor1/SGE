@@ -2,8 +2,6 @@
 
     [ ] Y si no se encuentra id Expediente al agregar un Tramite? -> tirar excepcion?
 
-    [ ] Crear entidad Usiario?
-
 - Hacer
 
 * Gestión de Usuarios:
@@ -106,7 +104,7 @@
     ● El menú de gestión de usuarios será visible exclusivamente para el Administrador tras
     iniciar sesión con sus credenciales.
 
-* EsquemadePermisos:
+* Esquema de Permisos:
 
     Mantener el mismo esquema de permisos definido en la primera entrega,con algunas
     modificaciones:

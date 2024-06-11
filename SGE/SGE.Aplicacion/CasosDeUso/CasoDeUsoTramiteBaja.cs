@@ -27,7 +27,7 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IServicioAutorizaci
 
                     Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
                     if ( expediente != null ){
-                        if ( expediente.ListaTramites != null )
+                        //if ( expediente.ListaTramites != null )
                             expediente.ListaTramites.Remove(tramite);
                     }
                 }
