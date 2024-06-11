@@ -9,7 +9,7 @@
     ● Desarrollar la funcionalidad necesaria para la gestión de usuarios. Cada usuario
     debe tener nombre, apellido, correo electrónico, contraseña y una lista de permisos.
 
-        [ ] Crear una entidad Usuario con esos campos
+        [X] Crear una entidad Usuario con esos campos
             
 
     ● Los usuarios pueden tener múltiples permisos. Sólo el Administrador tendrá los
@@ -30,7 +30,8 @@
             [ ] Alta
             [ ] Baja
             [ ] Modificacion
-            [ ] Listado
+            [ ] Consulta
+            [?] Listado
 
 * Servicio de Autorización:
 
