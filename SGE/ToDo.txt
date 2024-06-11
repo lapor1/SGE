@@ -29,8 +29,8 @@
         [ ] Caso de uso: 
             [x] Alta
             [x] Baja
-            [ ] Modificacion
-            [ ] Consulta
+            [x] Modificacion
+            [x] Consulta
             [?] Listado
 
 * Servicio de Autorización:
