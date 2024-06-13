@@ -3,6 +3,7 @@
 public class Tramite
 {
     // atributos de tramites con propiedades auto-implementadas
+    public int Id { get; set; }
     public int IdTramite {get; set;}
     public int IdExpediente {get; set;}
     public EtiquetaTramite TipoTramite {get; set;}

@@ -335,12 +335,12 @@ using (var context = new SGEContext())
     Console.WriteLine("-- Tabla Tramites --");
     foreach (var t in context.Tramites)
     {
-        Console.WriteLine($"{t.IdTramite} {t.Contenido}");
+        Console.WriteLine($"{t.Id} {t.Contenido}");
     }
 
     Console.WriteLine("-- Tabla Expedientes --");
     foreach (var ex in context.Expedientes)
     {
-        Console.WriteLine($"{ex.IdExpediente} {ex.Caratula}");
+        Console.WriteLine($"{ex.Id} {ex.Caratula}");
     }
 }

@@ -9,5 +9,9 @@ public class SGESqlite
         {
             Console.WriteLine("Se creó base de datos");
         }
+        else
+        {
+            Console.WriteLine("No se creó base de datos");
+        }
     }
 }
