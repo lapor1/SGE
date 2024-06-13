@@ -60,7 +60,7 @@
     
     ● Descartar el proyecto SGE.Consola de la primera entrega.
 
-        [ ] Copiar lineas importantes en un archivo auxiliar
+        [-] Copiar lineas importantes en un archivo auxiliar
         [ ] Eliminar SGE.Consola 
 
     ● Desarrollar una nueva interfaz de usuario en un proyecto llamado SGE.UI utilizando
