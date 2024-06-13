@@ -330,6 +330,9 @@ catch ( Exception e ){
 
 SGESqlite.Inicializar();
 
+
+
+
 using (var context = new SGEContext())
 {
     Console.WriteLine("-- Tabla Tramites --");

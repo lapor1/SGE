@@ -15,4 +15,6 @@ public class SGEContext : DbContext
     {
         optionsBuilder.UseSqlite("data source=SGE.sqlite");
     }
+
+    
 }

@@ -4,6 +4,7 @@
 public class Expediente
 {
     public int Id { get; set; }
+    
     public int IdExpediente {get; set;}
     public string? Caratula {get; set;}
     public DateTime FechaHoraCreacion {get; set;}

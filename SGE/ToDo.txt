@@ -4,6 +4,7 @@
 
 - Hacer
 
+
 * Gestión de Usuarios:
 
     ● Desarrollar la funcionalidad necesaria para la gestión de usuarios. Cada usuario
@@ -16,11 +17,11 @@
     permisos necesarios para listar, dar de baja y modificar cualquier usuario o sus
     permisos.
 
-        [ ] Crear una clase Admin que hereda de Usuario ??
-
     ● El primer usuario que se registre en el sistema será el Administrador, quien contará
     con todos los permisos del sistema, incluyendo la capacidad exclusiva para realizar
     las tareas mencionadas sobre otros usuarios.
+
+        [ ]
 
     ● Definir los repositorios y casos de uso que se consideren necesarios
 
@@ -32,6 +33,8 @@
             [x] Modificacion
             [x] Consulta
             [?] Listado
+
+        [ ] Clases abstractas mejor??
 
 * Servicio de Autorización:
 
@@ -51,7 +54,7 @@
     ● En el proyecto SGE.Repositorios, emplear Entity Framework Core para persistir
     datos en una base de datos SQLite, siguiendo la metodología “code first”.
 
-        [ ] ... (practicar en un archivo auxiliar por las dudas)
+        [x]
 
 * Interfaz de Usuario:
     
@@ -65,7 +68,7 @@
     desarrollada en la primera entrega sea accesible desde esta interfaz, agregando la
     gestión de usuarios requerida.
 
-        [ ] Crear SGE.UI con Blazor
+        [x] Crear SGE.UI con Blazor
         [ ] ...
 
 * Flujo de Gestión:
@@ -123,9 +126,8 @@
 * NOTA:
 
     ● Es conveniente establecer la propiedad journal_mode de la base de datos sqlite en DELETE.
-    Se puede establecer por código de la siguient emanera:
+    Se puede establecer por código de la siguiente manera:
 
-    [
         context.Database.EnsureCreated();
         var connection = context.Database.GetDbConnection();
         connection.Open();
@@ -135,4 +137,4 @@
             command.ExecuteNonQuery();
         }
 
-    ]
+        [x]
