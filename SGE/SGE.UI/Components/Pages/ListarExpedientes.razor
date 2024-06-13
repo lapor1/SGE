@@ -1,0 +1,16 @@
+﻿@page "/expedientes"
+@using SGE.UI.Entidades
+
+<h3>Listado de Expedientes</h3>
+<ul>
+@foreach (var ex in lista)
+{
+    <li>
+        @ex.Id, @ex.Caratula
+    </li>
+}
+</ul>
+
+@code {
+    List<Expediente> lista = Expediente.GetLista();
+}
