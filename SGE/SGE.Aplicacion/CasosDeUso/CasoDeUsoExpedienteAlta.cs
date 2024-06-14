@@ -1,6 +1,10 @@
-using System.Linq.Expressions;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Validadores;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
+using SGE.Aplicacion.Excepciones;
 
-namespace SGE.Aplicacion;
+namespace SGE.Aplicacion.CasosDeUso;
 
 public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion, ExpedienteValidador validador)
 {

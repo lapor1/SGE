@@ -1,4 +1,9 @@
-namespace SGE.Aplicacion;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Excepciones;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
+
+namespace SGE.Aplicacion.CasosDeUso;
 
 // Constructor que recibe instancias de repositorios y servicios necesarios
 public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepositorio repoT, IServicioAutorizacion autorizacion)

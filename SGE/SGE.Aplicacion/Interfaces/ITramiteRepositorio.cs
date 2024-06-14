@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using SGE.Aplicacion.Entidades;
 
-namespace SGE.Aplicacion;
+namespace SGE.Aplicacion.Interfaces;
 
 public interface ITramiteRepositorio
 {

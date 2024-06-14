@@ -1,4 +1,8 @@
-namespace SGE.Aplicacion;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
+
+namespace SGE.Aplicacion.CasosDeUso;
 
 public class CasoDeUsoConsultaPorEtiqueta(ITramiteRepositorio repo)
 {

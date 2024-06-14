@@ -1,4 +1,4 @@
-namespace SGE.Aplicacion;
+namespace SGE.Aplicacion.Enumerativos;
 
 // Definición de la enumeración para los tipos de permisos
 public enum Permiso

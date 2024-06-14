@@ -1,4 +1,6 @@
-﻿namespace SGE.Aplicacion;
+﻿using SGE.Aplicacion.Enumerativos;
+
+namespace SGE.Aplicacion.Entidades;
 
 //Atributos de Expediente
 public class Expediente

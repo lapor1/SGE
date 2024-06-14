@@ -1,4 +1,11 @@
-namespace SGE.Aplicacion;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Enumerativos;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Excepciones;
+using SGE.Aplicacion.Servicios;
+using SGE.Aplicacion.Validadores;
+
+namespace SGE.Aplicacion.CasosDeUso;
 
 public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, TramiteValidador validador)
 {

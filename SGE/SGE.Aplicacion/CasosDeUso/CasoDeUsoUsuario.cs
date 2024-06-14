@@ -1,4 +1,6 @@
-namespace SGE.Aplicacion;
+using SGE.Aplicacion.Interfaces;
+
+namespace SGE.Aplicacion.CasosDeUso;
 
 public abstract class CasosDeUso (IUsuarioRepositorio repoU)
 {

@@ -1,13 +1,24 @@
 using SGE.UI.Components;
-using SGE.Aplicacion;
-using SGE.Repositorios;
 
+// Directivas
+using SGE.Aplicacion.CasosDeUso;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Excepciones;
+using SGE.Aplicacion.Validadores;
+using SGE.Aplicacion.Servicios;
+using SGE.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Agregamos servicios (casos de uso)
+builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
+builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteTXT>();
 
 var app = builder.Build();
 
@@ -23,9 +34,11 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-app.Run();
 
-/**********************************************************************/
+/**********************************************************************
+// Como quedarian los repositorios si es una unica BD ??
+
+// Donde deberia hacer esto?
 
 SGESqlite.Inicializar();
 
@@ -44,4 +57,17 @@ using (var context = new SGEContext())
     }
 }
 
+/**********************************************************************
+// Pq no me los lista en la consola?
+
+var listExpediente = new CasoDeUsoListarExpedientes(new RepositorioExpedienteTXT());
+
+Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
+
+foreach (Expediente e in listExpediente.Ejecutar()){
+    Console.WriteLine(e.ToString());
+}
+
 /**********************************************************************/
+
+app.Run();

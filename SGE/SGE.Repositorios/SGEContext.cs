@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SGE.Aplicacion;
+using SGE.Aplicacion.Entidades;
 
 namespace SGE.Repositorios;
 

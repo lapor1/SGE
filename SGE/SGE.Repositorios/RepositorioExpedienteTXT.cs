@@ -1,9 +1,8 @@
-﻿namespace SGE.Repositorios;
-using SGE.Aplicacion;
+﻿using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
 
-using System.Data.Common;
-using Microsoft.VisualBasic;
-using Microsoft.Win32.SafeHandles;
+namespace SGE.Repositorios;
 
 public class RepositorioExpedienteTXT : IExpedienteRepositorio
 {

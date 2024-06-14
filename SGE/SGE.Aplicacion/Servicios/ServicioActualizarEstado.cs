@@ -1,4 +1,11 @@
-namespace SGE.Aplicacion;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Excepciones;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
+using SGE.Aplicacion.CasosDeUso;
+using SGE.Aplicacion.Validadores;
+
+namespace SGE.Aplicacion.Servicios;
 
 public class ServicioActualizarEstado(IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, IServicioAutorizacion autorizacion)
 {

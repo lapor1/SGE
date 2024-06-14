@@ -1,4 +1,8 @@
-﻿using SGE.Aplicacion;
+﻿using SGE.Aplicacion.Servicios;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Validadores;
+using SGE.Aplicacion.CasosDeUso;
+using SGE.Aplicacion.Entidades;
 using SGE.Repositorios;
 
 /******************** Instancio los servivios, excepciones, repositorios y casos de uso ***********************/
@@ -271,7 +275,7 @@ if (expedienteAux != null) {
 }
 
 
-/*********************** Hago un listado de todos los Expedientes en el repositorio ****************************
+/*********************** Hago un listado de todos los Expedientes en el repositorio ****************************/
 
 Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
 
@@ -325,7 +329,7 @@ catch ( Exception e ){
     Console.WriteLine(e.Message);
 }
 
-/***************************************************************************************************************/
+/***************************************************************************************************************
 
 
 SGESqlite.Inicializar();
@@ -344,3 +348,5 @@ using (var context = new SGEContext())
         Console.WriteLine($"{ex.Id} {ex.Caratula}");
     }
 }
+
+*/

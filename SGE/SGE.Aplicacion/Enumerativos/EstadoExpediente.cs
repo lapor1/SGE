@@ -1,4 +1,4 @@
-﻿namespace SGE.Aplicacion;
+﻿namespace SGE.Aplicacion.Enumerativos;
 
 // Definición de la enumeración para los tipos de estados posibles de los expedientes
 public enum EstadoExpediente

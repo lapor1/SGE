@@ -1,4 +1,7 @@
-﻿namespace SGE.Aplicacion;
+﻿using SGE.Aplicacion.Enumerativos;
+using SGE.Aplicacion.Interfaces;
+
+namespace SGE.Aplicacion.Servicios;
 
 public class ServicioAutorizacionProvisorio : IServicioAutorizacion
 {

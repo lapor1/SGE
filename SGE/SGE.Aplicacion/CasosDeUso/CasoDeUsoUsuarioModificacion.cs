@@ -1,6 +1,7 @@
-﻿using System.Runtime.InteropServices;
+﻿using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Interfaces;
 
-namespace SGE.Aplicacion;
+namespace SGE.Aplicacion.CasosDeUso;
 
 public class CasoDeUsoUsuarioModificacion(IUsuarioRepositorio repoU)
 {

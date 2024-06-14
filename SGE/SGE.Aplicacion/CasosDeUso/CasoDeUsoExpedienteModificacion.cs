@@ -1,4 +1,10 @@
-namespace SGE.Aplicacion;
+using SGE.Aplicacion.Interfaces;
+using SGE.Aplicacion.Validadores;
+using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Excepciones;
+using SGE.Aplicacion.Enumerativos;
+
+namespace SGE.Aplicacion.CasosDeUso;
 
 public class CasoDeUsoExpedienteModificacion(IExpedienteRepositorio repo, IServicioAutorizacion autorizacion, ExpedienteValidador validador)
 {
