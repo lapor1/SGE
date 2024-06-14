@@ -18,7 +18,7 @@ builder.Services.AddRazorComponents()
 
 // Agregamos servicios (casos de uso)
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
-builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteTXT>();
+builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
 
 var app = builder.Build();
 
@@ -35,11 +35,15 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 
-/**********************************************************************
 // Como quedarian los repositorios si es una unica BD ??
+
+// 4 tablas : usuarios, tramites, expedientes, permisos
+
+// warnings 
 
 // Donde deberia hacer esto?
 
+/**********************************************************************/
 SGESqlite.Inicializar();
 
 using (var context = new SGEContext())
@@ -47,19 +51,17 @@ using (var context = new SGEContext())
     Console.WriteLine("-- Tabla Tramites --");
     foreach (var t in context.Tramites)
     {
-        Console.WriteLine($"{t.Id} {t.Contenido}");
+        Console.WriteLine($"{t.IdTramite} {t.Contenido}");
     }
 
     Console.WriteLine("-- Tabla Expedientes --");
     foreach (var ex in context.Expedientes)
     {
-        Console.WriteLine($"{ex.Id} {ex.Caratula}");
+        Console.WriteLine($"{ex.IdExpediente} {ex.Caratula}");
     }
 }
 
 /**********************************************************************
-// Pq no me los lista en la consola?
-
 var listExpediente = new CasoDeUsoListarExpedientes(new RepositorioExpedienteTXT());
 
 Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
@@ -67,7 +69,6 @@ Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n")
 foreach (Expediente e in listExpediente.Ejecutar()){
     Console.WriteLine(e.ToString());
 }
-
 /**********************************************************************/
 
 app.Run();

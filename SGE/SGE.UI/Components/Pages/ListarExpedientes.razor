@@ -1,17 +1,34 @@
 ﻿@page "/expedientes"
 @rendermode InteractiveServer
-@inject IExpedienteRepositorio repoE
 @inject CasoDeUsoListarExpedientes listarExpedientes
 
 <h3>Listado de Expedientes</h3>
 
+<table class="table">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>NOMBRE</th>
+           <th>APELLIDO</th>
+       </tr>
+   </thead>
+   <tbody>
+       @foreach (var ex in lista)
+       {
+            <tr>
+               <td>@ex.IdExpediente</td>
+               <td>@ex.Caratula</td>
+               <td>@ex.FechaHoraCreacion</td>
+           </tr>
+       }
+   </tbody>
+</table>
+
 @code {
     List<Expediente> lista = new List<Expediente>();
 
-    //lista = listarExpedientes.Ejecutar();
-
     protected override void OnInitialized()
-   {
-       //lista = listarExpedientes.Ejecutar();
-   }
+    {
+        lista = listarExpedientes.Ejecutar();
+    }
 }
