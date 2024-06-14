@@ -30,3 +30,19 @@ c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0
 c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
 c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
 c:\Users\pjcor\OneDrive\Escritorio\NET\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.deps.json
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.dll
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\bin\Debug\net8.0\SGE.Aplicacion.pdb
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.AssemblyReference.cache
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfoInputs.cache
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.AssemblyInfo.cs
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.csproj.CoreCompileInputs.cache
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.sourcelink.json
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repo.5B6658F4.Up2Date
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.dll
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\refint\SGE.Repositorios.dll
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\SGE.Repositorios.pdb
+C:\Users\pjcor\OneDrive\Escritorio\THE END of C#\SGE\SGE\SGE.Repositorios\obj\Debug\net8.0\ref\SGE.Repositorios.dll
