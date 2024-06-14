@@ -43,7 +43,7 @@ app.MapRazorComponents<App>()
 
 // Donde deberia hacer esto?
 
-/**********************************************************************/
+/**********************************************************************
 SGESqlite.Inicializar();
 
 using (var context = new SGEContext())

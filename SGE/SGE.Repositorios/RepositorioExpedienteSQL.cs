@@ -25,14 +25,18 @@ public class RepositorioExpedienteSQL : IExpedienteRepositorio
 
         List<Expediente> lista = new List<Expediente>();
 
-        var query = context.Expedientes;
-        int i=0;
-
-
-        foreach (var expediente in query)
+        foreach (var ex in context.Expedientes)
         {
-            lista[i] = expediente;
-            i++;
+            Expediente e = new Expediente();
+            e.Id = ex.Id;
+            e.IdExpediente = ex.IdExpediente;
+            e.Caratula = ex.Caratula;
+            e.FechaHoraCreacion = ex.FechaHoraCreacion;
+            e.FechaHoraModificacion = ex.FechaHoraModificacion;
+            e.IdUsuarioUM = ex.IdUsuarioUM;
+            e.ExpedienteEstado = ex.ExpedienteEstado;
+            
+            lista.Add(e);
         }
 
         return lista;
