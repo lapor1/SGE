@@ -6,10 +6,11 @@ namespace SGE.Repositorios;
 public class SGEContext : DbContext
 {
     #nullable disable
-    //public DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Tramite> Tramites {get; set; }
     public DbSet<Expediente> Expedientes {get; set; }
-    #nullable restore
+    public object Usuario { get; internal set; }
+#nullable restore
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

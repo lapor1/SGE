@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
 
 namespace SGE.Repositorios;
 
@@ -25,9 +26,13 @@ public class SGESqlite
             context.Expedientes.Add(new Expediente() {Id = 5, IdExpediente = 21, Caratula = "wert", FechaHoraCreacion = DateTime.Now});
             context.Expedientes.Add(new Expediente() {Id = 6, IdExpediente = 22, Caratula = "qwerertyty", FechaHoraCreacion = DateTime.Now});
 
-            context.Tramites.Add(new Tramite() {Id = 1, IdTramite = 4, Contenido = "qwerertyty", FechaHoraCreacion = DateTime.Now});
+            context.Tramites.Add(new Tramite() {Id = 1, IdTramite = 4, IdExpediente = 20, TipoTramite = Aplicacion.Enumerativos.EtiquetaTramite.EscritoPresentado, Contenido = "qwerertyty", FechaHoraCreacion = DateTime.Now, FechaHoraModificacion = DateTime.Now});
+            context.Tramites.Add(new Tramite() {Id = 2, IdTramite = 5, IdExpediente = 22, TipoTramite = Aplicacion.Enumerativos.EtiquetaTramite.Notificacion, Contenido = "algo de algo", FechaHoraCreacion = DateTime.Now, FechaHoraModificacion = DateTime.Now});
+
+            //context.Usuarios.Add(new Usuario() {IdUsuario = 1, Nombre = "Patricio", Apellido = "Corbelleri", CorreoElectrónico = "pato@hotmail.com", Contraseña = "1234"});
 
             context.SaveChanges();
+
 
             Console.WriteLine("Se agregaron algunas tuplas a Expedientes y Tramites en la base de datos");
             
