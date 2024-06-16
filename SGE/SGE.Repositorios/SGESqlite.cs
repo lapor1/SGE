@@ -29,7 +29,7 @@ public class SGESqlite
             context.Tramites.Add(new Tramite() {Id = 1, IdTramite = 4, IdExpediente = 20, TipoTramite = Aplicacion.Enumerativos.EtiquetaTramite.EscritoPresentado, Contenido = "qwerertyty", FechaHoraCreacion = DateTime.Now, FechaHoraModificacion = DateTime.Now});
             context.Tramites.Add(new Tramite() {Id = 2, IdTramite = 5, IdExpediente = 22, TipoTramite = Aplicacion.Enumerativos.EtiquetaTramite.Notificacion, Contenido = "algo de algo", FechaHoraCreacion = DateTime.Now, FechaHoraModificacion = DateTime.Now});
 
-            //context.Usuarios.Add(new Usuario() {IdUsuario = 1, Nombre = "Patricio", Apellido = "Corbelleri", CorreoElectrónico = "pato@hotmail.com", Contraseña = "1234"});
+            context.Usuarios.Add(new Usuario() {IdUsuario = 1, Nombre = "Admin", Apellido = "Admin", CorreoElectrónico = "Admin@hotmail.com", Contraseña = "1234"});
 
             context.SaveChanges();
 

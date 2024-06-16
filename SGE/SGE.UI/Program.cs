@@ -1,13 +1,13 @@
-using SGE.UI.Components;
+//using SGE.UI.Components;
 
 // Directivas
 using SGE.Aplicacion.CasosDeUso;
-using SGE.Aplicacion.Entidades;
-using SGE.Aplicacion.Enumerativos;
+//using SGE.Aplicacion.Entidades;
+//using SGE.Aplicacion.Enumerativos;
 using SGE.Aplicacion.Interfaces;
-using SGE.Aplicacion.Excepciones;
-using SGE.Aplicacion.Validadores;
-using SGE.Aplicacion.Servicios;
+//using SGE.Aplicacion.Excepciones;
+//using SGE.Aplicacion.Validadores;
+//using SGE.Aplicacion.Servicios;
 using SGE.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);

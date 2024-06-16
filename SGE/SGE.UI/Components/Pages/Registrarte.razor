@@ -1,0 +1,41 @@
+@page "/registroUsuario"
+@rendermode InteractiveServer
+@inject CasoDeUsoUsuarioAlta resgistroUsuario
+
+<h3>Bienvenido al sistema de Registro</h3>
+
+Por favor introduzca sus datos acontinuacion
+
+<h3>Registro de Usuario</h3>
+
+<EditForm Model="@usuario" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <InputText id="nombre" class="form-control" @bind-Value="usuario.Nombre" />
+    </div>
+
+    <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <InputText id="apellido" class="form-control" @bind-Value="usuario.Apellido" />
+    </div>
+
+    <div class="form-group">
+        <label for="correo">Correo Electrónico</label>
+        <InputText id="correo" class="form-control" @bind-Value="usuario.CorreoElectrónico" />
+    </div>
+
+    <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <InputText id="contrasena" type="password" class="form-control" @bind-Value="usuario.Contraseña" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <button type="button" class="btn btn-secondary" @onclick="NavigateToHome">Volver al Inicio</button>
+</EditForm>
+
+@code{
+    
+}

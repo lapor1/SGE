@@ -22,16 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/IniciarSesion.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmljaWFyU2VzaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/ListarExpedientes.razor]
@@ -42,8 +42,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YXJUcmFtaXRlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+[C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Pages/Registrarte.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RyYXJ0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pjcor/OneDrive/Escritorio/THE END of C\#/SGE/SGE/SGE.UI/Components/Routes.razor]

@@ -27,18 +27,18 @@ public class RepositorioUsuarioSQL : IUsuarioRepositorio
     {
         using var context = new SGEContext();
 
-        var usu = context.Usuario.SingleOrDefault(); //MODIFICAR
+        //var usu = context.Usuario.SingleOrDefault(e => e.IdUsuario == IdUsuario); //MODIFICAR
 
-        if (usu != null)
-        {
-            context.Usuario.Remove(usu);
-            context.SaveChanges();
-            return true;
-        }
-        else
-        {
+       // if (usu != null)
+       // {
+       //     context.Usuario.Remove(usu);
+       //     context.SaveChanges();
+       //     return true;
+      //  }
+       // else
+       // {
             return false;
-        }
+       // }
     }
 
     public bool ModificarUsuario(Usuario usuario)
