@@ -1,3 +1,22 @@
+/* _content/SGE.UI/Components/DialogoConfirmacion.razor.rz.scp.css */
+.dialogo-contenedor[b-uz9ff9pls7] {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogo-contenido[b-uz9ff9pls7]{
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+}
 /* _content/SGE.UI/Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-k716zha75e] {
     position: relative;

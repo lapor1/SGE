@@ -22,10 +22,12 @@ builder.Services.AddRazorComponents()
 
 // Casos De Uso Expedientes
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
+builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
 
 // Casos De Uso Tramite
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
 builder.Services.AddTransient<CasoDeUsoListarTramites>();
+builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
 
 // Casos De Uso Usuarios
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();

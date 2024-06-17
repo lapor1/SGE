@@ -1,6 +1,7 @@
 ﻿@page "/listarExpedientes"
 @rendermode InteractiveServer
 @inject CasoDeUsoListarExpedientes listarExpedientes
+@inject CasoDeUsoExpedienteBaja expedienteBaja
 
 <h3>Listado de Expedientes</h3>
 
@@ -10,15 +11,19 @@
            <th>ID</th>
            <th>Caratula</th>
            <th>Fecha ultima modificaSao</th>
+           <th>Editar</th>
+           <th>Eliminar</th>
        </tr>
    </thead>
    <tbody>
-       @foreach (var ex in lista)
+       @foreach (var e in lista)
        {
             <tr>
-               <td>@ex.Id</td>
-               <td>@ex.Caratula</td>
-               <td>@ex.FechaHoraCreacion</td>
+                <td>@e.Id</td>
+                <td>@e.Caratula</td>
+                <td>@e.FechaHoraCreacion</td>
+                <td><button class="btn btn-primary">Editar</button></td>
+                <td><button class="btn btn-danger" @onclick="()=>Eliminar(e)">Eliminar</button></td>
            </tr>
        }
    </tbody>
@@ -29,6 +34,12 @@
 
     protected override void OnInitialized()
     {
+        lista = listarExpedientes.Ejecutar();
+    }
+
+    private void Eliminar(Expediente e)
+    {
+        expedienteBaja.Ejecutar(e.Id, 1);
         lista = listarExpedientes.Ejecutar();
     }
 }

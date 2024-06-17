@@ -63,3 +63,4 @@ D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\bin\Debug\net8.0\SGE.Repositorios.pdb
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.AssemblyReference.cache
 D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.csproj.CopyComplete
+D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\DialogoConfirmacion.razor.rz.scp.css
