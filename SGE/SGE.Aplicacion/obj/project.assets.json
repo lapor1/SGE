@@ -8,26 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\franc\\.nuget\\packages\\": {}
+    "C:\\Users\\pjcor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Datos backUp\\Facultad\\2024 I\\Net - Taller de Lenguaje dotNet\\tp1 SGE\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+      "projectUniqueName": "C:\\Users\\pjcor\\OneDrive\\Escritorio\\Dotnet final ahora si\\SGE\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
       "projectName": "SGE.Aplicacion",
-      "projectPath": "D:\\Datos backUp\\Facultad\\2024 I\\Net - Taller de Lenguaje dotNet\\tp1 SGE\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
-      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "D:\\Datos backUp\\Facultad\\2024 I\\Net - Taller de Lenguaje dotNet\\tp1 SGE\\SGE\\SGE.Aplicacion\\obj\\",
+      "projectPath": "C:\\Users\\pjcor\\OneDrive\\Escritorio\\Dotnet final ahora si\\SGE\\SGE\\SGE.Aplicacion\\SGE.Aplicacion.csproj",
+      "packagesPath": "C:\\Users\\pjcor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pjcor\\OneDrive\\Escritorio\\Dotnet final ahora si\\SGE\\SGE\\SGE.Aplicacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\pjcor\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -40,6 +38,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -61,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
