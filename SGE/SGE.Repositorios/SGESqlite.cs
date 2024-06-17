@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
+
 using SGE.Aplicacion.Entidades;
+using SGE.Aplicacion.Enumerativos;
 
 namespace SGE.Repositorios;
 
 public class SGESqlite
 {
+    
+
     public static void Inicializar()
     {
         using var context = new SGEContext();
@@ -46,7 +49,26 @@ public class SGESqlite
 
     public static void CrearAdmin()
     {
+        using var context = new SGEContext();
         
+        List<Permiso> permisosAdmin = new List<Permiso>();
+
+        foreach (Permiso p in Enum.GetValues(typeof(Permiso)))
+        {
+            permisosAdmin.Add(p);
+        }
+
+        Usuario admin = new Usuario() {
+            Id = 1,
+            Nombre = "Admin",
+            Apellido = "Admin",
+            CorreoElectrónico = "Admin@gmail.com",
+            Contraseña = "1234",
+            ListaPermisos = permisosAdmin
+        };
+
+        context.Usuarios.Add(admin);
+        context.SaveChanges();
     }
 
 }

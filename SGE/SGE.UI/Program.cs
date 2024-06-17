@@ -43,4 +43,6 @@ SGESqlite.Inicializar();
 
 SGESqlite.AgregarUnosTramitesYExpedientes();
 
+SGESqlite.CrearAdmin();
+
 app.Run();

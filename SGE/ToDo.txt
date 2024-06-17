@@ -16,8 +16,9 @@
         
     [ ] Entender Listas en SQL, como hacer una lista (con inner join y eso...)
 
-    [ ] Crear al usuario Admin con todos los permisos
+    [x] Crear al usuario Admin con todos los permisos
         (al crear la base de datos)
+        [ ] hash a la contraseña de admin
 
     [ ] Servico de Autorizacion 
         [ ] Reemplazar ServicioAutorizacionProvisorio por ServicioAutorizacion
