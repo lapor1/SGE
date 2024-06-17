@@ -10,6 +10,8 @@
 
 * Hacer 
 
+    [x] Eliminar consola
+
     [x] IdTramite e IdExpediente como Id Primario 
         [x] Cambiar los nombre en cada archivo que utilice estos atributos a "Id"
         [-] O hacer que sean clave primaria (buscar en internet, creo q es @algo antes de "public int IdTramite")
@@ -20,9 +22,9 @@
         (al crear la base de datos)
         [ ] hash a la contraseña de admin
 
-    [ ] Servico de Autorizacion 
+    [x] Servico de Autorizacion 
         [ ] Reemplazar ServicioAutorizacionProvisorio por ServicioAutorizacion
-        [ ] Hacer funcionalidad de verificar si el usuario tiene el permiso requerido
+        [x] Hacer funcionalidad de verificar si el usuario tiene el permiso requerido
 
 * Mostrar en Blazor
 
