@@ -41,7 +41,7 @@
                 [ ] cartel con confirmacion de eliminacion
                 [ ] cartel con informacion de si se eliminó correctamente y error en caso contrario
         
-        [ ] Agregar Un Tramite (segun los permisos del usuario)
+    --> [ ] Agregar Un Tramite (segun los permisos del usuario)
             [ ] Formulario de agregar un tramite
             [ ] cartel con confirmacion de agregacion
             [ ] cartel con informacion si se agregó correctamente y el error en caso contrario

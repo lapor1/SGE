@@ -9,6 +9,6 @@ public interface IExpedienteRepositorio
     bool ModificarExpediente(Expediente expediente);
     List<Expediente> ListarExpedientes();
     Expediente? GetExpediente(int id);
-    Expediente obtenerExpedienteDelRepositorio(StreamReader sr);
+    //Expediente obtenerExpedienteDelRepositorio(StreamReader sr);
     bool ExpedienteConsultarPorId(out Expediente? expediente, int id);
 }

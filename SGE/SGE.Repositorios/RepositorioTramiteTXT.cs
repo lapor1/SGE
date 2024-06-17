@@ -86,7 +86,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         }
     }
 
-    public Tramite obtenerTramiteDelRepositorio(StreamReader sr) {
+    private Tramite obtenerTramiteDelRepositorio(StreamReader sr) {
         var tramite = new Tramite();
         tramite.Id = int.Parse(sr.ReadLine() ?? "");
         tramite.IdExpediente = int.Parse(sr.ReadLine() ?? "");

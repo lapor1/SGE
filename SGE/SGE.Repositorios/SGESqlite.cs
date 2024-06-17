@@ -7,8 +7,6 @@ namespace SGE.Repositorios;
 
 public class SGESqlite
 {
-    
-
     public static bool Inicializar()
     {
         bool creada = false;

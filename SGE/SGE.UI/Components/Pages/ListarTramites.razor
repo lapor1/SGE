@@ -18,16 +18,16 @@
        </tr>
    </thead>
     <tbody>
-       @foreach (var ex in lista)
+       @foreach (var t in lista)
        {
             <tr>
-               <td>@ex.Id</td>
-               <td>@ex.IdExpediente</td>
-               <td>@ex.TipoTramite</td>
-               <td>@ex.Contenido</td>
-               <td>@ex.FechaHoraCreacion</td>
-               <td>@ex.FechaHoraModificacion</td>
-               <!-- <td> ex.IdUsuarioUM</td> -->
+               <td>@t.Id</td>
+               <td>@t.IdExpediente</td>
+               <td>@t.TipoTramite</td>
+               <td>@t.Contenido</td>
+               <td>@t.FechaHoraCreacion</td>
+               <td>@t.FechaHoraModificacion</td>
+               <!-- <td> t.IdUsuarioUM</td> -->
            </tr>
        }
    </tbody>

@@ -18,18 +18,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// Agregamos servicios (casos de uso, repositorios, servicios)
+// ------------------ Agregamos servicios (casos de uso, repositorios, servicios)
+
+// Casos De Uso Expedientes
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
-builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
 
-builder.Services.AddTransient<CasoDeUsoListarTramites>();
+// Casos De Uso Tramite
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
+builder.Services.AddTransient<CasoDeUsoListarTramites>();
 
-builder.Services.AddScoped<EspecificacionCambioDeEstado>();
+// Casos De Uso Usuarios
+builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
+
+// Servicios
 builder.Services.AddScoped<TramiteValidador>();
-
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacionProvisorio>();
+builder.Services.AddScoped<EspecificacionCambioDeEstado>();
+
+// Repositorios
+builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
 builder.Services.AddScoped<ITramiteRepositorio, RepositorioTramiteSQL>();
+builder.Services.AddScoped<IUsuarioRepositorio, RepositorioUsuarioSQL>();
 
 var app = builder.Build();
 

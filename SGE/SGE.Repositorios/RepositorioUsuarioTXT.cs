@@ -4,7 +4,7 @@ using SGE.Aplicacion.Enumerativos;
 
 namespace SGE.Repositorios;
 
-public class RepositorioUsuarioTXT : IUsuarioRepositorio
+public class RepositorioUsuarioTXT
 {
     readonly string _nombreArch = "usuario.txt";
 
