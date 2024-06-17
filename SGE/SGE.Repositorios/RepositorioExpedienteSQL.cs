@@ -1,6 +1,7 @@
 ﻿using SGE.Aplicacion.Interfaces;
 using SGE.Aplicacion.Entidades;
 using SGE.Aplicacion.Enumerativos;
+using Microsoft.EntityFrameworkCore;
 
 namespace SGE.Repositorios;
 
@@ -10,14 +11,61 @@ public class RepositorioExpedienteSQL : IExpedienteRepositorio
     {
         using var context = new SGEContext();
 
+        Expediente n = new Expediente();
+        {
+            n.Id = expediente.Id;
+            n.Caratula = expediente.Caratula;
+            n.FechaHoraCreacion = expediente.FechaHoraCreacion;
+            n.FechaHoraModificacion = expediente.FechaHoraModificacion;
+            n.IdUsuarioUM = expediente.IdUsuarioUM;
+            n.ExpedienteEstado = expediente.ExpedienteEstado;
+        }
+
+        context.Add(n);
+        context.SaveChanges();
+
     }
     public bool EliminarExpedienteBaja(int id)
     {
-        return false;
+        using var context = new SGEContext();
+
+        var exp = context.Expedientes.SingleOrDefault(e => e.Id == id);
+
+        if (exp != null)
+        {
+            context.Expedientes.Remove(exp);
+            context.SaveChanges();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public bool ModificarExpediente(Expediente expediente)
     {
-        return false;
+        using var context = new SGEContext();
+
+        var modi = context.Expedientes.SingleOrDefault(); //MODIFICAR
+
+        if (modi != null)
+        {
+            foreach (var ex in context.Expedientes)
+            {
+                Expediente e = new Expediente();
+                e.Id = ex.Id;
+                e.Caratula = ex.Caratula;
+                e.FechaHoraCreacion = ex.FechaHoraCreacion;
+                e.FechaHoraModificacion = ex.FechaHoraModificacion;
+                e.IdUsuarioUM = ex.IdUsuarioUM;
+                e.ExpedienteEstado = ex.ExpedienteEstado;
+            }
+
+            context.SaveChanges();
+            return true;
+        }
+            return false;
+        
     }
     public List<Expediente> ListarExpedientes()
     {
@@ -29,7 +77,6 @@ public class RepositorioExpedienteSQL : IExpedienteRepositorio
         {
             Expediente e = new Expediente();
             e.Id = ex.Id;
-            e.IdExpediente = ex.IdExpediente;
             e.Caratula = ex.Caratula;
             e.FechaHoraCreacion = ex.FechaHoraCreacion;
             e.FechaHoraModificacion = ex.FechaHoraModificacion;

@@ -13,7 +13,7 @@ public class RepositorioTramiteSQL : ITramiteRepositorio
         Tramite n = new Tramite();
         {
             n.Id = tramite.Id;
-            n.IdTramite = tramite.IdTramite;
+            n.Id = tramite.Id;
             n.IdExpediente = tramite.IdExpediente;
             n.TipoTramite = tramite.TipoTramite;
             n.Contenido = tramite.Contenido;
@@ -56,7 +56,7 @@ public class RepositorioTramiteSQL : ITramiteRepositorio
             {
                 Tramite t = new Tramite();
                 t.Id = tr.Id;
-                t.IdTramite = tr.IdTramite;
+                t.Id = tr.Id;
                 t.IdExpediente = tr.IdExpediente;
                 t.TipoTramite = tr.TipoTramite;
                 t.Contenido = tr.Contenido;
@@ -81,7 +81,7 @@ public class RepositorioTramiteSQL : ITramiteRepositorio
         {
             Tramite t = new Tramite();
             t.Id = tr.Id;
-            t.IdTramite = tr.IdTramite;
+            t.Id = tr.Id;
             t.IdExpediente = tr.IdExpediente;
             t.TipoTramite = tr.TipoTramite;
             t.Contenido = tr.Contenido;

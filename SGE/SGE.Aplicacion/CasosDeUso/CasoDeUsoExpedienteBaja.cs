@@ -33,7 +33,7 @@ public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepos
                 // Elimina cada trámite asociado al expediente
                 foreach (Tramite tr in listaTramite)
                 {
-                    repoT.EliminarTramiteBaja(tr.IdTramite);
+                    repoT.EliminarTramiteBaja(tr.Id);
                 }
             }
         }

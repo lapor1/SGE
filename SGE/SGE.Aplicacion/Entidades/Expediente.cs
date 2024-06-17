@@ -7,7 +7,7 @@ public class Expediente
 {
     public int Id { get; set; }
     
-    public int IdExpediente {get; set;}
+    //public int IdExpediente {get; set;}
     public string? Caratula {get; set;}
     public DateTime FechaHoraCreacion {get; set;}
     public DateTime FechaHoraModificacion {get; set;}
@@ -16,5 +16,5 @@ public class Expediente
 
     public List<Tramite> ListaTramites {get; set;} = new List<Tramite>();
 
-    public override string ToString() => $"Expediente = {IdExpediente}\nCaratula = {Caratula}\nEstado del Expediente = {ExpedienteEstado}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario = {IdUsuarioUM}\n";
+    public override string ToString() => $"Expediente = {Id}\nCaratula = {Caratula}\nEstado del Expediente = {ExpedienteEstado}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario = {IdUsuarioUM}\n";
 }

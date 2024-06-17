@@ -1,6 +1,5 @@
 ﻿@page "/listarTramites"
 @rendermode InteractiveServer
-@inject SGE.Aplicacion.CasosDeUso.CasoDeUsoListarTramites listarTramites
 @inject CasoDeUsoListarTramites listarTramites
 
 
@@ -9,12 +8,12 @@
 <table class="table">
    <thead>
        <tr>
-           <th>ID</th>
-           <th>ID Tramites</th>
+           <th>Id</th>
+           <th>IdExp Asociado</th>
            <th>Tipo de tramite</th>
            <th>Contenido</th>
-           <th>Fecha y hora de creacion</th>
-           <th>Fecha y hora de modificacion</th>
+           <th>FyH creacion</th>
+           <th>FyH modificacion</th>
            <!-- <th>Id del usuario</th> -->
        </tr>
    </thead>
@@ -22,7 +21,7 @@
        @foreach (var ex in lista)
        {
             <tr>
-               <td>@ex.IdTramite</td>
+               <td>@ex.Id</td>
                <td>@ex.IdExpediente</td>
                <td>@ex.TipoTramite</td>
                <td>@ex.Contenido</td>

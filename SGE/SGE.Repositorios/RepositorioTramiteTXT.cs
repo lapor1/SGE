@@ -10,7 +10,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
     public void AgregarTramiteAlta(Tramite tramite)
     {
         using var sw = new StreamWriter(_nombreArch, true);
-        sw.WriteLine(tramite.IdTramite);
+        sw.WriteLine(tramite.Id);
         sw.WriteLine(tramite.IdExpediente);
         sw.WriteLine(tramite.TipoTramite);
         sw.WriteLine(tramite.Contenido);
@@ -26,7 +26,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         int i = 0;
         bool encontrado = false;
         while((listaTramites.Count > i) && (!encontrado)) {
-            if (listaTramites[i].IdTramite == id) {
+            if (listaTramites[i].Id == id) {
                 listaTramites.Remove(listaTramites[i]);
                 encontrado = true;
             }
@@ -43,7 +43,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         int i = 0;
         bool encontrado = false;
         while((listaTramites.Count > i) && (!encontrado)) {
-            if (listaTramites[i].IdTramite == tramite.IdTramite) {
+            if (listaTramites[i].Id == tramite.Id) {
                 listaTramites[i].IdExpediente = tramite.IdExpediente;
                 listaTramites[i].TipoTramite = tramite.TipoTramite;
                 listaTramites[i].Contenido = tramite.Contenido;
@@ -63,7 +63,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
         while (!sr.EndOfStream)
         {
             var tramite = obtenerTramiteDelRepositorio(sr); 
-            if (tramite.IdTramite == id) {
+            if (tramite.Id == id) {
                 return tramite;
             }
         }
@@ -76,7 +76,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
 
         for (int i = 0; i < listaTramites.Count; i++)
         {
-            sw.WriteLine(listaTramites[i].IdTramite);
+            sw.WriteLine(listaTramites[i].Id);
             sw.WriteLine(listaTramites[i].IdExpediente);
             sw.WriteLine(listaTramites[i].TipoTramite);
             sw.WriteLine(listaTramites[i].Contenido);
@@ -88,7 +88,7 @@ public class RepositorioTramiteTXT : ITramiteRepositorio
 
     public Tramite obtenerTramiteDelRepositorio(StreamReader sr) {
         var tramite = new Tramite();
-        tramite.IdTramite = int.Parse(sr.ReadLine() ?? "");
+        tramite.Id = int.Parse(sr.ReadLine() ?? "");
         tramite.IdExpediente = int.Parse(sr.ReadLine() ?? "");
         tramite.TipoTramite = (EtiquetaTramite) Enum.Parse(typeof(EtiquetaTramite), sr.ReadLine() ?? "");
         tramite.Contenido = sr.ReadLine() ?? "";

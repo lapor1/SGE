@@ -16,7 +16,7 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
         var listTramite = new CasoDeUsoListarTramites(repoT);
         List<Tramite> tramites = listTramite.Ejecutar();
         if (tramites.Count > 0){
-            id = tramites[tramites.Count - 1].IdTramite + 1;
+            id = tramites[tramites.Count - 1].Id + 1;
         }
     }
 
@@ -35,7 +35,7 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
                 } else {
                     id++;   //incrementa el Id del expediente
                 }
-                tramite.IdTramite = id; // Asigna el nuevo id al trámite
+                tramite.Id = id; // Asigna el nuevo id al trámite
                 
                 tramite.FechaHoraCreacion = DateTime.Now;  // Establece la fecha y hora de creación del trámite como la fecha y hora actuales
                 tramite.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del trámite como la fecha y hora actuales

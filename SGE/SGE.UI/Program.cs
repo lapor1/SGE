@@ -39,31 +39,8 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-//SGESqlite.Inicializar();
+SGESqlite.Inicializar();
 
-/**********************************************************************
-using (var context = new SGEContext())
-{
-    Console.WriteLine("-- Tabla Tramites --");
-    foreach (var t in context.Tramites)
-    {
-        Console.WriteLine($"{t.IdTramite} {t.Contenido}");
-    }
-
-    Console.WriteLine("-- Tabla Expedientes --");
-    foreach (var ex in context.Expedientes)
-    {
-        Console.WriteLine($"{ex.IdExpediente} {ex.Caratula}");
-    }
-}
-/**********************************************************************
-var listExpediente = new CasoDeUsoListarExpedientes(new RepositorioExpedienteTXT());
-
-Console.WriteLine("\n********** Listado de todos los Expedientes: **********\n");
-
-foreach (Expediente e in listExpediente.Ejecutar()){
-    Console.WriteLine(e.ToString());
-}
-/**********************************************************************/
+SGESqlite.AgregarUnosTramitesYExpedientes();
 
 app.Run();

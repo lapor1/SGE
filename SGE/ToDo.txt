@@ -10,11 +10,11 @@
 
 * Hacer 
 
-    [ ] IdTramite e IdExpediente como Id Primario 
-        - Cambiar los nombre en cada archivo que utilice estos atributos a "Id"
-        - Hacer que sean clave primaria
+    [x] IdTramite e IdExpediente como Id Primario 
+        [x] Cambiar los nombre en cada archivo que utilice estos atributos a "Id"
+        [-] O hacer que sean clave primaria (buscar en internet, creo q es @algo antes de "public int IdTramite")
         
-    [ ] Entender Listas en SQL, como hacer una lista 
+    [ ] Entender Listas en SQL, como hacer una lista (con inner join y eso...)
 
     [ ] Crear al usuario Admin con todos los permisos
         (al crear la base de datos)

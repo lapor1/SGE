@@ -35,7 +35,7 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repoT, IServicioAu
                 }
                 else{    
                     var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, especificacion, autorizacion);
-                    cambioEsatodoAutomatico.Ejecutar( tramite.IdTramite );
+                    cambioEsatodoAutomatico.Ejecutar( tramite.Id );
 
                     if ( expediente != null )
                         //if ( expediente.ListaTramites != null )

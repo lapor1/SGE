@@ -16,7 +16,7 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutor
         var listExpediente = new CasoDeUsoListarExpedientes(repo);
         List<Expediente> expedientes = listExpediente.Ejecutar();
         if (expedientes.Count > 0){
-            id = expedientes[expedientes.Count - 1].IdExpediente + 1;
+            id = expedientes[expedientes.Count - 1].Id + 1;
         }
     }
 
@@ -35,11 +35,11 @@ public class CasoDeUsoExpedienteAlta(IExpedienteRepositorio repo, IServicioAutor
             if (autorizacion.PoseeElPermiso(idUsuario, Permiso.ExpedienteAlta))
             {
                 if (id == 0){
-                    IniciarId();   //lee del repositorio cual es el ultimo IdExpediente para que no se sobre-escriba
+                    IniciarId();   //lee del repositorio cual es el ultimo Id para que no se sobre-escriba
                 } else {
                     id++;   //incrementa el Id del expediente
                 }
-                expediente.IdExpediente = id; //Asigna el nuevo id al expediente
+                expediente.Id = id; //Asigna el nuevo id al expediente
                 expediente.FechaHoraCreacion = DateTime.Now; // Establece la fecha y hora de creación del expediente como la fecha y hora actuales
                 expediente.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del expediente como la fecha y hora actuales
                

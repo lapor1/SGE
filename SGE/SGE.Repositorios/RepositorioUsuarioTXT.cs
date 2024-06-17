@@ -11,7 +11,7 @@ public class RepositorioUsuarioTXT : IUsuarioRepositorio
     public void AgregarUsuarioAlta(Usuario usuario)
     {
         using var sw = new StreamWriter(_nombreArch, true);
-        sw.WriteLine(usuario.IdUsuario);
+        sw.WriteLine(usuario.Id);
         sw.WriteLine(usuario.Nombre);
         sw.WriteLine(usuario.Apellido);
         sw.WriteLine(usuario.CorreoElectrónico);
@@ -30,7 +30,7 @@ public class RepositorioUsuarioTXT : IUsuarioRepositorio
         int i = 0;
         bool encontrado = false;
         while((listaUsuarios.Count > i) && (!encontrado)) {
-            if (listaUsuarios[i].IdUsuario == id) {
+            if (listaUsuarios[i].Id == id) {
                 listaUsuarios.Remove(listaUsuarios[i]);
                 encontrado = true;
             }
@@ -47,7 +47,7 @@ public class RepositorioUsuarioTXT : IUsuarioRepositorio
         int i = 0;
         bool encontrado = false;
         while((listaUsuarios.Count > i) && (!encontrado)) {
-            if (listaUsuarios[i].IdUsuario == usuario.IdUsuario) {
+            if (listaUsuarios[i].Id == usuario.Id) {
                 listaUsuarios[i].Nombre = usuario.Nombre;
                 listaUsuarios[i].Apellido = usuario.Apellido;
                 listaUsuarios[i].CorreoElectrónico = usuario.CorreoElectrónico;
@@ -67,7 +67,7 @@ public class RepositorioUsuarioTXT : IUsuarioRepositorio
         while (!sr.EndOfStream)
         {
             var usuario = obtenerUsuarioDelRepositorio(sr); 
-            if (usuario.IdUsuario == id) {
+            if (usuario.Id == id) {
                 return usuario;
             }
         }
@@ -80,7 +80,7 @@ public class RepositorioUsuarioTXT : IUsuarioRepositorio
 
         for (int i = 0; i < listaUsuarios.Count; i++)
         {
-            sw.WriteLine(listaUsuarios[i].IdUsuario);
+            sw.WriteLine(listaUsuarios[i].Id);
             sw.WriteLine(listaUsuarios[i].Nombre);
             sw.WriteLine(listaUsuarios[i].Apellido);
             sw.WriteLine(listaUsuarios[i].CorreoElectrónico);
@@ -110,7 +110,7 @@ public class RepositorioUsuarioTXT : IUsuarioRepositorio
 
     public Usuario obtenerUsuarioDelRepositorio(StreamReader sr) {
         var usuario = new Usuario();
-        usuario.IdUsuario = int.Parse(sr.ReadLine() ?? "");
+        usuario.Id = int.Parse(sr.ReadLine() ?? "");
         usuario.Nombre = sr.ReadLine() ?? "";
         usuario.Apellido = sr.ReadLine() ?? "";
         usuario.CorreoElectrónico = sr.ReadLine() ?? "";
