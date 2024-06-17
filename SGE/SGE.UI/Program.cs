@@ -23,6 +23,7 @@ builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
 
 builder.Services.AddTransient<CasoDeUsoListarTramites>();
+builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
 
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();

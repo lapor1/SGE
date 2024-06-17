@@ -1,6 +1,7 @@
 ﻿@page "/listarTramites"
 @rendermode InteractiveServer
 @inject CasoDeUsoListarTramites listarTramites
+@inject CasoDeUsoTramiteBaja borrar
 
 
 <h3>Listado de Tramites</h3>
@@ -14,7 +15,9 @@
            <th>Contenido</th>
            <th>FyH creacion</th>
            <th>FyH modificacion</th>
-           <!-- <th>Id del usuario</th> -->
+           <th>Id del usuario</th>
+           <th>Editar</th>
+           <th>Eliminar</th>
        </tr>
    </thead>
     <tbody>
@@ -27,7 +30,9 @@
                <td>@ex.Contenido</td>
                <td>@ex.FechaHoraCreacion</td>
                <td>@ex.FechaHoraModificacion</td>
-               <!-- <td> ex.IdUsuarioUM</td> -->
+               <td>@ex.IdUsuarioUM</td>
+               <td><button class="btn btn-primary">Editar</button></td>
+                <td><button class="btn btn-danger" @onclick="()=>Eliminar(ex)">Eliminar</button></td> 
            </tr>
        }
    </tbody>
@@ -36,11 +41,18 @@
 @code {
     List<Tramite> lista = new List<Tramite>();
 
+
     protected override void OnInitialized()
     {
         if (listarTramites != null)
         {
             lista = listarTramites.Ejecutar();
         }
+    }
+
+    private void Eliminar(Tramite tra)
+    {
+        borrar.Ejecutar(tra.Id, 1);
+        lista = listarTramites.Ejecutar();
     }
 }
