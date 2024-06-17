@@ -9,8 +9,10 @@ public class SGESqlite
 {
     
 
-    public static void Inicializar()
+    public static bool Inicializar()
     {
+        bool creada = false;
+
         using var context = new SGEContext();
         if (context.Database.EnsureCreated())
         {
@@ -22,12 +24,14 @@ public class SGESqlite
                 command.ExecuteNonQuery();
             }
 
+            creada = true;
             Console.WriteLine("Se creó base de datos"); 
         }
         else
         {
             Console.WriteLine("No se creó base de datos");
         }
+        return creada;
     
     }
 

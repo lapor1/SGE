@@ -23,6 +23,12 @@ builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
 
 builder.Services.AddTransient<CasoDeUsoListarTramites>();
+builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
+
+builder.Services.AddScoped<EspecificacionCambioDeEstado>();
+builder.Services.AddScoped<TramiteValidador>();
+
+builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacionProvisorio>();
 builder.Services.AddScoped<ITramiteRepositorio, RepositorioTramiteSQL>();
 
 var app = builder.Build();
@@ -39,10 +45,9 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-SGESqlite.Inicializar();
-
-SGESqlite.AgregarUnosTramitesYExpedientes();
-
-SGESqlite.CrearAdmin();
+if (SGESqlite.Inicializar()) {
+    SGESqlite.AgregarUnosTramitesYExpedientes();
+    SGESqlite.CrearAdmin();
+}
 
 app.Run();

@@ -1,0 +1,26 @@
+﻿@page "/nuevoTramite"
+@rendermode InteractiveServer
+@inject CasoDeUsoTramiteAlta tramiteAlta
+
+<h3>Nuevo Tramite</h3>
+
+@code {
+    
+    private Tramite t = new Tramite();
+    
+
+    protected override void OnInitialized()
+    {
+        
+        t.Id = 2;
+        t.IdExpediente = 3;
+        t.TipoTramite = EtiquetaTramite.Resolucion;
+        t.Contenido = "asdfgh";
+        t.FechaHoraCreacion = DateTime.Now;
+        t.FechaHoraModificacion = DateTime.Now;
+        t.IdUsuarioUM = 1;
+        
+        tramiteAlta.Ejecutar(t, 1);
+    }
+    
+}

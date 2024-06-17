@@ -6,6 +6,8 @@
 
     - Hacer una tabla en SQL con permisos de cada usuario?
 
+    - SGESqlite hacer Console.WriteLine fuera?
+
 ---------------------------------------------------------------------------------------------------------
 
 * Hacer 

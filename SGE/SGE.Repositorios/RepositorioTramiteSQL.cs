@@ -22,7 +22,7 @@ public class RepositorioTramiteSQL : ITramiteRepositorio
             n.IdUsuarioUM = tramite.IdUsuarioUM;
         }
 
-        context.Add(n);
+        context.Tramites.Add(n);
         context.SaveChanges();
     }
 
