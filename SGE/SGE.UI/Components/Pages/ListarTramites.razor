@@ -1,0 +1,47 @@
+﻿@page "/listarTramites"
+@rendermode InteractiveServer
+@inject SGE.Aplicacion.CasosDeUso.CasoDeUsoListarTramites listarTramites
+@inject CasoDeUsoListarTramites listarTramites
+
+
+<h3>Listado de Tramites</h3>
+
+<table class="table">
+   <thead>
+       <tr>
+           <th>ID</th>
+           <th>ID Tramites</th>
+           <th>Tipo de tramite</th>
+           <th>Contenido</th>
+           <th>Fecha y hora de creacion</th>
+           <th>Fecha y hora de modificacion</th>
+           <!-- <th>Id del usuario</th> -->
+       </tr>
+   </thead>
+    <tbody>
+       @foreach (var ex in lista)
+       {
+            <tr>
+               <td>@ex.IdTramite</td>
+               <td>@ex.IdExpediente</td>
+               <td>@ex.TipoTramite</td>
+               <td>@ex.Contenido</td>
+               <td>@ex.FechaHoraCreacion</td>
+               <td>@ex.FechaHoraModificacion</td>
+               <!-- <td> ex.IdUsuarioUM</td> -->
+           </tr>
+       }
+   </tbody>
+</table>
+
+@code {
+    List<Tramite> lista = new List<Tramite>();
+
+    protected override void OnInitialized()
+    {
+        if (listarTramites != null)
+        {
+            lista = listarTramites.Ejecutar();
+        }
+    }
+}

@@ -1,6 +1,6 @@
 using SGE.UI.Components;
 
-// Directivas
+// Directivas de Aplicacion
 using SGE.Aplicacion.CasosDeUso;
 using SGE.Aplicacion.Entidades;
 using SGE.Aplicacion.Enumerativos;
@@ -8,6 +8,8 @@ using SGE.Aplicacion.Interfaces;
 using SGE.Aplicacion.Excepciones;
 using SGE.Aplicacion.Validadores;
 using SGE.Aplicacion.Servicios;
+
+// Directivas de Repositorio
 using SGE.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,9 @@ builder.Services.AddRazorComponents()
 // Agregamos servicios (casos de uso, repositorios, servicios)
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
+
+builder.Services.AddTransient<CasoDeUsoListarTramites>();
+builder.Services.AddScoped<ITramiteRepositorio, RepositorioTramiteSQL>();
 
 var app = builder.Build();
 
