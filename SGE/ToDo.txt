@@ -1,140 +1,131 @@
 - Dudas
 
-    [ ] Y si no se encuentra id Expediente al agregar un Tramite? -> tirar excepcion?
+    - Y si no se encuentra id Expediente al agregar un Tramite? -> tirar excepcion?
 
-- Hacer
+    - Como se aqgrega permisos el usuario? -> solo por admin?
 
+    - Hacer una tabla en SQL con permisos de cada usuario?
 
-* Gestión de Usuarios:
+---------------------------------------------------------------------------------------------------------
 
-    ● Desarrollar la funcionalidad necesaria para la gestión de usuarios. Cada usuario
-    debe tener nombre, apellido, correo electrónico, contraseña y una lista de permisos.
+* Hacer 
 
-        [X] Crear una entidad Usuario con esos campos
-            
-
-    ● Los usuarios pueden tener múltiples permisos. Sólo el Administrador tendrá los
-    permisos necesarios para listar, dar de baja y modificar cualquier usuario o sus
-    permisos.
-
-    ● El primer usuario que se registre en el sistema será el Administrador, quien contará
-    con todos los permisos del sistema, incluyendo la capacidad exclusiva para realizar
-    las tareas mencionadas sobre otros usuarios.
-
-        [ ]
-
-    ● Definir los repositorios y casos de uso que se consideren necesarios
-
-        [-] Crear repositorio de Usuarios (provisional o esperar a crear la bd)
-
-        [x] Caso de uso: 
-            [x] Alta
-            [x] Baja
-            [x] Modificacion
-            [x] Consulta
-            [?] Listado
-
-        [ ] Clases abstractas mejor??
-
-* Servicio de Autorización:
-
-    ● Desarrollar el servicio de autorización ServicioAutorizacion que implemente la
-    interfaz IServicioAutorizacion, reemplazando al servicio de autorización provisorio
-    de la entrega inicial
-    
-    ● Este servicio debe verificar realmente si el usuario tiene el permiso requerido.
-
-        [ ] Eliminar ServicioAutorizacionProvisorio
+    [ ] IdTramite e IdExpediente como Id Primario 
+        - Cambiar los nombre en cada archivo que utilice estos atributos a "Id"
+        - Hacer que sean clave primaria
         
-        [ ] Crear ServicioAutorizacion
-            [ ] verificar permisos de usuario
+    [ ] Entender Listas en SQL, como hacer una lista 
 
-* Persistencia de Datos:
+    [ ] Crear al usuario Admin con todos los permisos
+        (al crear la base de datos)
 
-    ● En el proyecto SGE.Repositorios, emplear Entity Framework Core para persistir
-    datos en una base de datos SQLite, siguiendo la metodología “code first”.
+    [ ] Servico de Autorizacion 
+        [ ] Reemplazar ServicioAutorizacionProvisorio por ServicioAutorizacion
+        [ ] Hacer funcionalidad de verificar si el usuario tiene el permiso requerido
 
-        [x]
+* Mostrar en Blazor
 
-* Interfaz de Usuario:
+    - Tramites 
+
+        [ ] Listar Tramites
+            [ ] botones de modificacion (segun los permisos del usuario)
+                [ ] te lleva a otro Page para modificarlo (?)
+                [ ] cartel con confirmacion de modificacion
+                [ ] cartel con informacion de si se modificó correctamente y error en caso contrario
+            [ ] botones de eliminacion (segun los permisos del usuario)
+                [ ] cartel con confirmacion de eliminacion
+                [ ] cartel con informacion de si se eliminó correctamente y error en caso contrario
+        
+        [ ] Agregar Un Tramite (segun los permisos del usuario)
+            [ ] Formulario de agregar un tramite
+            [ ] cartel con confirmacion de agregacion
+            [ ] cartel con informacion si se agregó correctamente y el error en caso contrario
+        
+        [ ] Modificar Un Tramite (segun los permisos del usuario)
+            [ ] Formulario con cartel de busqueda de Tramite por Id (y por otro campo?)
+            [ ] Formulario de modificacion de ese tramite
+            [ ] cartel con confirmacion de moficacion
+            [ ] cartel con informacion si se modificó correctamente y el error en caso contrario
+
+        [ ] Eliminacion Tramite  (segun los permisos del usuario)
+            [ ] Formulario con cartel de busqueda de Tramite por Id (y por otro campo?)
+            [ ] cartel con confirmacion de eliminacion
+            [ ] cartel con informacion de si se eliminó correctamente y error en caso contrario
+
+    - Expedientes 
+
+        [ ] Listar Expedientes
+            [ ] botones de modificacion (segun los permisos del usuario)
+                [ ] te lleva a otro Page para modificarlo (?)
+                [ ] cartel con confirmacion de modificacion
+                [ ] cartel con informacion de si se modificó correctamente y error en caso contrario
+            [ ] botones de eliminacion (segun los permisos del usuario)
+                [ ] cartel con confirmacion de eliminacion
+                [ ] cartel con informacion de si se eliminó correctamente y error en caso contrario
+        
+        [ ] Agregar Un Expediente (segun los permisos del usuario)
+            [ ] Formulario de agregar un tramite
+            [ ] cartel con confirmacion de agregacion
+            [ ] cartel con informacion si se agregó correctamente y el error en caso contrario
+        
+        [ ] Modificar Un Expediente (segun los permisos del usuario)
+            [ ] Formulario con cartel de busqueda de Expediente por Id (y por otro campo?)
+            [ ] Formulario de modificacion de ese tramite
+            [ ] cartel con confirmacion de moficacion
+            [ ] cartel con informacion si se modificó correctamente y el error en caso contrario
+
+        [ ] Eliminacion Expediente  (segun los permisos del usuario)
+            [ ] Formulario con cartel de busqueda de Expediente por Id (y por otro campo?)
+            [ ] cartel con confirmacion de eliminacion
+            [ ] cartel con informacion de si se eliminó correctamente y error en caso contrario
     
-    ● Descartar el proyecto SGE.Consola de la primera entrega.
+    - Sesion
 
-        [-] Copiar lineas importantes en un archivo auxiliar
-        [ ] Eliminar SGE.Consola 
 
-    ● Desarrollar una nueva interfaz de usuario en un proyecto llamado SGE.UI utilizando
-    Blazor. Diseñar libremente esta interfaz de manera que toda la funcionalidad
-    desarrollada en la primera entrega sea accesible desde esta interfaz, agregando la
-    gestión de usuarios requerida.
+* Flujo de Gestion
 
-        [x] Crear SGE.UI con Blazor
-        [ ] ...
+    [ ] Registro de sesion Usuario
+        [ ] Formulario de ingreso de datos en blazor
+        [ ] Dar de alta Usuario en BD
+        [ ] Si los datos son erroneos informar en la app
+        [ ] crear hash
 
-* Flujo de Gestión:
+    [ ] Inicion de sesion Usuario
+        [ ] Formulario de ingreso de datos en blazor
+        [ ] Consultar en la BD de usuarios
+        [ ] Informar si no lo encuentra
+        [ ] verificar hash
+        [ ] Informar si es correcta la contraseña
+            (informar una unica vez que no coincide el usuario o la contraseña)
 
-    ● Al iniciar la aplicación, se presentará una pantalla de bienvenida que permitirá a los
-    usuarios iniciar sesión o registrarse.
+    [ ] Modificar Datos Usuario 
+        [ ] una vez iniciado sesion puede cambiar datos 
+        [ ] Formulario de cambio de datos 
+        [ ] Modificar en la BD 
+        [ ] Informar si se modifico correctamente
 
-    ● En caso de registro, se proporcionará un formulario para ingresar los datos
-    personales y establecer una contraseña.
+    [ ] Funcion de hash para las contraseñas completa
 
-    ● Los usuarios tendrán la libertad de modificar sus datos personales y contraseña en
-    cualquier momento.
+* Permisos de Usuario 
 
-    ● Por simplicidad no se implementará ningún mecanismo de recuperación de
-    contraseña. En caso de olvido de contraseña, el usuario deberá contactar al
-    Administrador para restablecerla.
+    [ ] Inicialmente Usuarios con permisos de Lectura (menos admin)
 
-    ● Las contraseñas no se almacenarán directamente en la base de datos; en su lugar,
-    se utilizará una función de hash para mayor seguridad.
 
-* Almacenamiento del hash
-   
-    ● El hash de la contraseña debe almacenarse en la base de datos, nunca la
-    contraseña en sí. Para verificar la identidad del usuario al iniciar sesión, se vuelve a
-    calcular el hash de la contraseña ingresada y se compara con el hash almacenado.
-    Si los hashes coinciden, el usuario ha ingresado la contraseña correcta y se le
-    permite acceder al sistema.
+* Acceso Administrativo
 
-*  Permisos de Usuario:
-    
-    ● Los usuarios nuevos contarán inicialmente solo con permisos de lectura.
+    [ ] Hacer un menu de gestion de usuarios visible solo para el Admin
+        [ ] Mostrar lista de Usuarios (menos el admin?)
+        [ ] Con botones de eliminacion, modificacion, agregacion? (CasoDeUsoUsuarios)
 
-    ● Solo el Administrador podrá asignar permisos adicionales.
+* Esquema de Permisos
 
-* Acceso Administrativo:
+Enestaentrega,seconsiderarálaposibilidaddequeunusuariotengapermisopara
+eliminarexpedientesperonoparaeliminartrámitesindividuales.Aleliminarun
+expediente, todoslostrámitesasociadosseeliminaránautomáticamente, inclusosi
+elusuarionotieneelpermisoparadardebajatrámites(permisoTramiteBaja)
 
-    ● El menú de gestión de usuarios será visible exclusivamente para el Administrador tras
-    iniciar sesión con sus credenciales.
-
-* Esquema de Permisos:
-
-    Mantener el mismo esquema de permisos definido en la primera entrega,con algunas
-    modificaciones:
-
-        ● En esta entrega,se considerará la posibilidad de que un usuario tenga permiso para
-        eliminar expedientes pero no para eliminar trámites individuales.Al eliminar un
-        expediente, todos los trámites asociados se eliminarán automáticamente, incluso si
-        el usuario no tiene el permiso para dar debaja trámites (permisoTramiteBaja).
-
-        ● De manera similar,unusuario puede tener permiso para modificar trámites pero no
-        para modificar expedientes.Los cambios automáticos en el estado del expediente al
-        modificar,eliminar o agregar un trámite se realizarán de la misma manera, incluso si
-        el usuario no tiene permisos para modificar expedientes (permisoExpedienteModificacion).
-
-* NOTA:
-
-    ● Es conveniente establecer la propiedad journal_mode de la base de datos sqlite en DELETE.
-    Se puede establecer por código de la siguiente manera:
-
-        context.Database.EnsureCreated();
-        var connection = context.Database.GetDbConnection();
-        connection.Open();
-        using (var command = connection.CreateCommand())
-        {
-            command.CommandText = "PRAGMA journal_mode=DELETE;";
-            command.ExecuteNonQuery();
-        }
-
-        [x]
+Demanerasimilar,unusuariopuedetenerpermisoparamodificartrámitesperono
+paramodificarexpedientes.Loscambiosautomáticosenelestadodelexpedienteal
+modificar,eliminaroagregaruntrámiteserealizarándelamismamanera, inclusosi
+elusuarionotienepermisosparamodificarexpedientes(permiso
+ExpedienteModificacion).

@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// Agregamos servicios (casos de uso)
+// Agregamos servicios (casos de uso, repositorios, servicios)
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
 
@@ -34,18 +34,9 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-
-// Como quedarian los repositorios si es una unica BD ??
-
-// 4 tablas : usuarios, tramites, expedientes, permisos
-
-// warnings 
-
-// Donde deberia hacer esto?
+//SGESqlite.Inicializar();
 
 /**********************************************************************
-SGESqlite.Inicializar();
-
 using (var context = new SGEContext())
 {
     Console.WriteLine("-- Tabla Tramites --");
@@ -60,7 +51,6 @@ using (var context = new SGEContext())
         Console.WriteLine($"{ex.IdExpediente} {ex.Caratula}");
     }
 }
-
 /**********************************************************************
 var listExpediente = new CasoDeUsoListarExpedientes(new RepositorioExpedienteTXT());
 
