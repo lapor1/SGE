@@ -33,6 +33,9 @@ builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorId>();
 builder.Services.AddTransient<CasoDeUsoListarTramites>();
 
 // Casos De Uso Usuarios
+builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
+builder.Services.AddTransient<CasoDeUsoUsuarioModificacion>();
+builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
 // Servicios

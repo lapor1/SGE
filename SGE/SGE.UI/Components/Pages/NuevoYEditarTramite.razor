@@ -5,22 +5,29 @@
 @inject CasoDeUsoTramiteAlta tramiteAlta
 @inject NavigationManager Navegador
 
-@if (_esNuevoTramie)
+@if (false)
 {
-    <h3>Agregando un nuevo Cliente</h3>
+    @if (_esNuevoTramie)
+    {
+        <h3>Agregando un nuevo Tramite</h3>
+    }
+    else
+    {
+        <h3>Modificando al Tramite "@t.Id"</h3>
+    }
+
+    <input placeholder="Expediente Asociado" @bind="t.IdExpediente" class="form-control">
+
+    <input placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control">
+
+    <input placeholder="Contenido" @bind="t.Contenido" class="form-control">
+
+    <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 }
-else
+else 
 {
-    <h3>Modificando al Cliente "@t.Id"</h3>
+    <h3>Usted no tiene permisos</h3>
 }
-
-<input placeholder="Expediente Asociado" @bind="t.IdExpediente" class="form-control">
-
-<input placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control">
-
-<input placeholder="Contenido" @bind="t.Contenido" class="form-control">
-
-<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
 @code {
     Tramite t = new Tramite();
@@ -52,4 +59,5 @@ else
         t = new Tramite();
         Navegador.NavigateTo("listarTramites");
     }
+
 }

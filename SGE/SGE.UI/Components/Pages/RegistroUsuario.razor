@@ -1,0 +1,30 @@
+﻿@page "/registro"
+@rendermode InteractiveServer
+@inject CasoDeUsoUsuarioAlta usuarioAlta
+@inject NavigationManager Navegador
+
+
+<h3>Registrando Usuario</h3>
+
+
+<input placeholder="Nombre" @bind="u.Nombre" class="form-control">
+
+<input placeholder="Apellido" @bind="u.Apellido" class="form-control">
+
+<input placeholder="Correo Electrónico" @bind="u.CorreoElectrónico" class="form-control">
+
+<input placeholder="Contraseña" @bind="u.Contraseña" class="form-control">
+
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
+@code {
+    Usuario u = new Usuario();
+
+    void Aceptar()
+    {  
+        
+        usuarioAlta.Ejecutar(u);
+        //u = new Usuario();
+        Navegador.NavigateTo("{u.Id}");
+    }
+}
