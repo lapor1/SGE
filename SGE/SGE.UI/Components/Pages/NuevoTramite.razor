@@ -1,70 +1,29 @@
 ﻿@page "/nuevoTramite"
 @rendermode InteractiveServer
+@inject NavigationManager Navegador;
 @inject CasoDeUsoTramiteAlta tramiteAlta
 
 <h3>Nuevo Tramite</h3>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
+<label for="inputEmail4" class="form-label">Expediente Asociado</label>
+<input placeholder="Expediente Asociado" @bind="t.IdExpediente" class="form-control">
 
-            <div class="mb-3">
-                <label for="expediente" class="form-label">A que expediente pertenece el tramite?</label>
-                <select class="form-select" id="expediente" aria-label="Expediente">
-                    <option selected>Seleccione un expediente</option>
-                    <option value="1">Expediente 1</option>
-                    <option value="2">Expediente 2</option>
-                    <option value="3">Expediente 3</option>
-                </select>
-            </div>
+<label for="inputEmail4" class="form-label">Tipo De Tramite</label>
+<input placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control">
 
-            <div class="mb-3">
-                <label for="tramiteContenido" class="form-label">Contenido del Tramite</label>
-                <textarea class="form-control" id="tramiteContenido" rows="3"></textarea>
-            </div>
+<label for="inputEmail4" class="form-label">Contenido</label>
+<input placeholder="Contenido" @bind="t.Contenido" class="form-control">
 
-            <div class="mb-3">
-                <label for="tramiteEtiqueta" class="form-label">Etiqueta del tramite</label>
-                <select id="tramiteEtiqueta" class="form-select">
-                    <option selected>Seleccione una etiqueta</option>
-                    <option value="1">Etiqueta 1</option>
-                    <option value="2">Etiqueta 2</option>
-                    <option value="3">Etiqueta 3</option>
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="fechaHoraCreacion" class="form-label">Fecha y Hora de Creación</label>
-                <input type="datetime-local" class="form-control" id="fechaHoraCreacion" />
-            </div>
-
-            <div class="mb-3">
-                <label for="fechaHoraModificacion" class="form-label">Fecha y Hora de Modificación</label>
-                <input type="datetime-local" class="form-control" id="fechaHoraModificacion" />
-            </div>
-            
-        </div>
-    </div>
-</div>
+<button class="btn btn-primary" @onclick="Agregar">Aceptar</button>
 
 
 @code {
-    
     private Tramite t = new Tramite();
-
-/*
-    protected override void OnInitialized()
+ 
+    private void Agregar()
     {
-        
-        t.Id = 2;
-        t.IdExpediente = 3;
-        t.TipoTramite = EtiquetaTramite.Resolucion;
-        t.Contenido = "asdfgh";
-        t.FechaHoraCreacion = DateTime.Now;
-        t.FechaHoraModificacion = DateTime.Now;
-        t.IdUsuarioUM = 1;
-        
         tramiteAlta.Ejecutar(t, 1);
+        t = new Tramite();
+        Navegador.NavigateTo("listarTramites");
     }
-    */ 
 }

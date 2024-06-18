@@ -11,6 +11,7 @@ using SGE.Aplicacion.Servicios;
 
 // Directivas de Repositorio
 using SGE.Repositorios;
+using SGE.UI.Components.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,9 +57,64 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
+var servicio = new ServicioAutorizacionProvisorio();
+var especificacion = new EspecificacionCambioDeEstado();
+ITramiteRepositorio repoT = new RepositorioTramiteSQL();
+IExpedienteRepositorio repoE = new RepositorioExpedienteSQL();
+var validadorTramite = new TramiteValidador();
+var validadorExpediente = new ExpedienteValidador();
+
+var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
+var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
+var listExpediente = new CasoDeUsoListarExpedientes(repoE);
+
+    
 if (SGESqlite.Inicializar()) {
-    SGESqlite.AgregarUnosTramitesYExpedientes();
+    //SGESqlite.AgregarUnosTramitesYExpedientes();
     SGESqlite.CrearAdmin();
+
+    Random random = new Random();
+    int E = 10;
+    int T = 20;
+    
+    for(int i = 0; i < E; i++) {
+        try 
+        {
+            altaExpediente.Ejecutar(
+                new Expediente(){ 
+                    Caratula = $"caratula{i}",
+                    ExpedienteEstado = (EstadoExpediente) (i % 5),
+                },
+                1
+            );
+            Console.WriteLine("Se agrego un expediente");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    for(int i = 0; i < T; i++) {
+        try
+        {
+            altaTramite.Ejecutar(
+                new Tramite(){ 
+                    IdExpediente = i% E,
+                    Contenido = $"contenido{i}",
+                    TipoTramite = (EtiquetaTramite) (i % 6),
+                    IdUsuarioUM = 1,
+                },
+                1
+            );
+            Console.WriteLine("Se agrego un tramite");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
 }
 
 app.Run();
