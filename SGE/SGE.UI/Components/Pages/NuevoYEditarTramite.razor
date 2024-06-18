@@ -1,0 +1,55 @@
+﻿@page "/tramite/{Id:int?}"
+@rendermode InteractiveServer
+@inject CasoDeUsoTramiteConsultaPorId consultarTramite
+@inject CasoDeUsoTramiteModificacion modificarTramite
+@inject CasoDeUsoTramiteAlta tramiteAlta
+@inject NavigationManager Navegador
+
+@if (_esNuevoTramie)
+{
+    <h3>Agregando un nuevo Cliente</h3>
+}
+else
+{
+    <h3>Modificando al Cliente "@t.Id"</h3>
+}
+
+<input placeholder="Expediente Asociado" @bind="t.IdExpediente" class="form-control">
+
+<input placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control">
+
+<input placeholder="Contenido" @bind="t.Contenido" class="form-control">
+
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
+@code {
+    Tramite t = new Tramite();
+    [Parameter] public int? Id {get; set; }
+    bool _esNuevoTramie = true;
+    protected override void OnParametersSet()
+    {
+        if(Id != null)
+        {
+           var t_hallado = consultarTramite.Ejecutar(Id.Value);
+           if (t_hallado != null)
+           {
+               t = t_hallado;
+               _esNuevoTramie = false;
+           }
+        }
+    }
+
+    void Aceptar()
+    {
+        if (_esNuevoTramie)
+        {
+            tramiteAlta.Ejecutar(t, 1);
+        }
+        else
+        {
+            modificarTramite.Ejecutar(t, 1);
+        }
+        t = new Tramite();
+        Navegador.NavigateTo("listarTramites");
+    }
+}

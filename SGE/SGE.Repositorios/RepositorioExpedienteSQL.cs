@@ -13,17 +13,7 @@ public class RepositorioExpedienteSQL : IExpedienteRepositorio
     {
         using (var DB = new SGEContext())
         { 
-            Expediente e = new Expediente();
-            
-            e.Id = expediente.Id;
-            e.Caratula = expediente.Caratula;
-            e.FechaHoraCreacion = expediente.FechaHoraCreacion;
-            e.FechaHoraModificacion = expediente.FechaHoraModificacion;
-            e.IdUsuarioUM = expediente.IdUsuarioUM;
-            e.ExpedienteEstado = expediente.ExpedienteEstado;
-            
-
-            DB.Expedientes.Add(e);
+            DB.Expedientes.Add(expediente);
             DB.SaveChanges();
         }
 
@@ -57,15 +47,7 @@ public class RepositorioExpedienteSQL : IExpedienteRepositorio
             if (e != null)
             {
                 DB.Expedientes.Remove(e);
-
-                e.Id = expediente.Id;
-                e.Caratula = expediente.Caratula;
-                e.FechaHoraCreacion = expediente.FechaHoraCreacion;
-                e.FechaHoraModificacion = expediente.FechaHoraModificacion;
-                e.IdUsuarioUM = expediente.IdUsuarioUM;
-                e.ExpedienteEstado = expediente.ExpedienteEstado;
-
-                DB.Expedientes.Add(e);
+                DB.Expedientes.Add(expediente);
 
                 DB.SaveChanges(true);
 

@@ -1,10 +1,9 @@
 ﻿@page "/listarTramites"
 @rendermode InteractiveServer
-@inject IJSRuntime JsRuntime;
 @inject CasoDeUsoListarTramites listarTramites
+@inject IJSRuntime JsRuntime;
 @inject CasoDeUsoTramiteBaja tramiteBaja
-
-<h3>Listado de Tramites</h3>
+@inject NavigationManager Navegador
 
 <table class="table">
    <thead>
@@ -15,8 +14,7 @@
            <th>Contenido</th>
            <th>FyH creacion</th>
            <th>FyH modificacion</th>
-           <th>Editar</th>
-           <th>Eliminar</th>
+           <th>Accion</th>
        </tr>
    </thead>
     <tbody>
@@ -30,10 +28,9 @@
                 <td>@t.FechaHoraCreacion</td>
                 <td>@t.FechaHoraModificacion</td>
                 <td>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
                         Editar
-                    </button></td>
-                <td>
+                    </button>
                     <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
                         Eliminar
                     </button>
@@ -45,20 +42,16 @@
 
 @code {
     List<Tramite> lista = new List<Tramite>();
-
     protected override void OnInitialized()
     {
-        if (listarTramites != null)
-        {
+        //if (listarTramites != null)
+        //{
             lista = listarTramites.Ejecutar();
-        }
+        //}
     }
-
-/*
+    /*
     DialogoConfirmacion dialogo = null!;
-
     Tramite? tramiteAEliminar = null;
-
     private void ConfirmarEliminacion(Tramite t)
     {
         tramiteAEliminar = t;
@@ -80,4 +73,9 @@
         tramiteBaja.Ejecutar(t.Id, 1);
         lista = listarTramites.Ejecutar();
     }
+    void ModificarTramite(Tramite t)
+    {
+        Navegador.NavigateTo($"tramite/{t.Id}");
+    }
+
 }

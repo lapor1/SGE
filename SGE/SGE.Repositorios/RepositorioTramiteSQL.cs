@@ -40,23 +40,11 @@ public class RepositorioTramiteSQL : ITramiteRepositorio
         using (var DB = new SGEContext())
         { 
             var t = DB.Tramites.Find(tramite.Id);
-
             if (t != null)
             {
                 DB.Tramites.Remove(t);
-
-                t.Id = tramite.Id;
-                t.IdExpediente = tramite.IdExpediente;
-                t.TipoTramite = tramite.TipoTramite;
-                t.Contenido = tramite.Contenido;
-                t.FechaHoraCreacion = tramite.FechaHoraCreacion;
-                t.FechaHoraModificacion = tramite.FechaHoraModificacion;
-                t.IdUsuarioUM = tramite.IdUsuarioUM;
-
-                DB.Tramites.Add(t);
-
-                DB.SaveChanges(true);
-
+                DB.Tramites.Add(tramite);
+                DB.SaveChanges();
                 return true;
             }
             return false;

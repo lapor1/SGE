@@ -27,8 +27,10 @@ builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
 
 // Casos De Uso Tramite
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
-builder.Services.AddTransient<CasoDeUsoListarTramites>();
 builder.Services.AddTransient<CasoDeUsoTramiteBaja>();
+builder.Services.AddTransient<CasoDeUsoTramiteModificacion>();
+builder.Services.AddTransient<CasoDeUsoTramiteConsultaPorId>();
+builder.Services.AddTransient<CasoDeUsoListarTramites>();
 
 // Casos De Uso Usuarios
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
