@@ -1,0 +1,59 @@
+@page "/nuevoUsuario"
+@rendermode InteractiveServer
+
+<h3>Registro para Usuario Nuevo</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Nombre</label>
+                <input type="email" class="form-control" id="inputEmail4">
+            </div>
+
+           <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Apellido</label>
+                <input type="email" class="form-control" id="inputEmail4">
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Correo Electronico</label>
+                <input type="email" class="form-control" id="inputEmail4">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" 
+                    placeholder="Introduce tu contraseña" required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <div class="form-text">
+                    La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula y un número.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@code {
+    
+    private Expediente ex = new Expediente();
+
+/*
+    protected override void OnInitialized()
+    {
+        
+        ex.Id = 2;
+        ex.IdExpediente = 3;
+        ex.TipoTramite = EtiquetaTramite.Resolucion;
+        ex.Contenido = "asdfgh";
+        ex.FechaHoraCreacion = DateTime.Now;
+        ex.FechaHoraModificacion = DateTime.Now;
+        ex.IdUsuarioUM = 1;
+        
+        tramiteAlta.Ejecutar(t, 1);
+    }
+    */ 
+}

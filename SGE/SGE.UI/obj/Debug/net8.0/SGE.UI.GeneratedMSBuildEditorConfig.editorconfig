@@ -9,59 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SGE.UI
 build_property.RootNamespace = SGE.UI
-build_property.ProjectDir = D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\
+build_property.ProjectDir = C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI
+build_property.MSBuildProjectDirectory = C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/App.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/Error.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/Home.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/ListarExpedientes.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/ListarExpedientes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YXJFeHBlZGllbnRlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/ListarTramites.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/ListarTramites.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YXJUcmFtaXRlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/ListarUsuarios.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/ListarUsuarios.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YXJVc3Vhcmlvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/NuevoTramite.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/NuevoExpediente.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOdWV2b0V4cGVkaWVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/NuevoTramite.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOdWV2b1RyYW1pdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Routes.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Pages/NuevoUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOdWV2b1VzdWFyaW8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/_Imports.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/DialogoConfirmacion.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/DialogoConfirmacion.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEaWFsb2dvQ29uZmlybWFjaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-uz9ff9pls7
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/MainLayout.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-k716zha75e
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenu.razor]
+[C:/Users/pjcor/OneDrive/Escritorio/Csharp otra y otra vez/SGE/SGE/SGE.UI/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-067s78a2ky

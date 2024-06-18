@@ -42,6 +42,9 @@ public class SGESqlite
         context.Expedientes.Add(new Expediente() {Id = 6, Caratula = "qwerertyty", FechaHoraCreacion = DateTime.Now});
 
         context.Tramites.Add(new Tramite() {Id = 1, Contenido = "qwerertyty", FechaHoraCreacion = DateTime.Now});
+        context.Tramites.Add(new Tramite() {Id = 2, Contenido = "Megadeath", FechaHoraCreacion = DateTime.Now});
+        context.Tramites.Add(new Tramite() {Id = 3, Contenido = "poasfpasf", FechaHoraCreacion = DateTime.Now});
+        context.Tramites.Add(new Tramite() {Id = 4, Contenido = "mcsnvoan", FechaHoraCreacion = DateTime.Now});
 
         context.SaveChanges();
 
