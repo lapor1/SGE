@@ -5,8 +5,9 @@
 @inject CasoDeUsoTramiteAlta tramiteAlta
 @inject NavigationManager Navegador
 @inject Logger log
+@inject IServicioAutorizacion ServicioAutorizacion
 
-@if (!SoloLectura)
+@if (log.Logueado)
 {
     @if (_esNuevoTramie)
     {
@@ -27,15 +28,15 @@
 }
 else 
 {
-    <h3>Usted no tiene permisos</h3>
+    <h3>No se ha logueado</h3>
 }
 
 @code {
-    [Parameter]
-    public bool SoloLectura { get; set; } = false;
+    //[Parameter] public bool SoloLectura { get; set; } = false;
     Tramite t = new Tramite();
     [Parameter] public int? Id {get; set; }
-    [Parameter] public int IdUsuario {get; set; } = 1;
+    
+    //[Parameter] public int IdUsuario {get; set; } = 1;
     bool _esNuevoTramie = true;
     protected override void OnParametersSet()
     {
@@ -49,21 +50,44 @@ else
            }
         }
     }
-
+/*
     protected override void OnInitialized()
     {
         IdUsuario = log.IdUsuario;
     }
-
+*/
     void Aceptar()
     {
         if (_esNuevoTramie)
         {
-            tramiteAlta.Ejecutar(t, IdUsuario);
+            /*
+            if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteAlta) ){
+                tramiteAlta.Ejecutar(t, log.IdUsuario);
+            }
+            else 
+            {
+                Console.WriteLine("No posse el permiso para agregar un Tramite");
+            }*/
+            
+            try 
+            {
+                tramiteAlta.Ejecutar(t, log.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
         else
         {
-            modificarTramite.Ejecutar(t, IdUsuario);
+            try 
+            {
+                modificarTramite.Ejecutar(t, log.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
         t = new Tramite();
         Navegador.NavigateTo($"listarTramites");

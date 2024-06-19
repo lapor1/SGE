@@ -1,27 +1,40 @@
-﻿@page "/{IdUsuario:int?}"
+﻿@page "/{id:int?}"
 @rendermode InteractiveServer
 @inject NavigationManager Navegador
 @inject Logger log
 
-@if(visual)
+@if(Logueado)
 {
-    <Login/>
+    <h3> Se ha logueado el usuario @log.Nombre (con id = @log.IdUsuario) </h3>
+
+    <button class="btn btn-primary" @onclick="Salir">Salir</button>
 }
 else{
-    <h3> Se ha logueado el usuario @log.IdUsuario </h3>
+    <Login/>
 }
 
 @code {
-    bool visual = true;
+    bool Logueado = false;
 
-    [Parameter] public int? IdUsuario {get; set; }
+    [Parameter] public int? id {get; set;}
 
     protected override void OnParametersSet()
     {
-        if (IdUsuario != null)
+        if (log.Logueado)
         {
-            visual = false;
+            Logueado = true;
         }
     }
 
+    void Salir()
+    {
+        Logueado = false;
+
+        log.IdUsuario = 0; 
+        log.Nombre = ""; 
+        log.Logueado = false;
+        log.SoloLectura = true; 
+        
+        Navegador.NavigateTo("/login");
+    }
 }

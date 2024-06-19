@@ -4,48 +4,58 @@
 @inject IJSRuntime JsRuntime;
 @inject CasoDeUsoTramiteBaja tramiteBaja
 @inject NavigationManager Navegador
+@inject Logger log
+@inject IServicioAutorizacion ServicioAutorizacion
 
-@if (!SoloLectura)
+@if(log.Logueado)
 {
     <table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Id Exp Asociado</th>
-            <th>Tipo de tramite</th>
-            <th>Contenido</th>
-            <th>FyH creacion</th>
-            <th>FyH modificacion</th>
-            <th>Accion</th>
-        </tr>
-    </thead>
-        <tbody>
-        @foreach (var t in lista)
-        {
-                <tr>
-                    <td>@t.Id</td>
-                    <td>@t.IdExpediente</td>
-                    <td>@t.TipoTramite</td>
-                    <td>@t.Contenido</td>
-                    <td>@t.FechaHoraCreacion</td>
-                    <td>@t.FechaHoraModificacion</td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
-                            Editar
-                        </button>
-                        <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
-                            Eliminar
-                        </button>
-                    </td>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id Exp Asociado</th>
+                <th>Tipo de tramite</th>
+                <th>Contenido</th>
+                <th>FyH creacion</th>
+                <th>FyH modificacion</th>
+                <th>Accion</th>
             </tr>
-        }
-    </tbody>
+        </thead>
+            <tbody>
+            @foreach (var t in lista)
+            {
+                    <tr>
+                        <td>@t.Id</td>
+                        <td>@t.IdExpediente</td>
+                        <td>@t.TipoTramite</td>
+                        <td>@t.Contenido</td>
+                        <td>@t.FechaHoraCreacion</td>
+                        <td>@t.FechaHoraModificacion</td>
+                        
+                            <td>
+                                <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
+                                    Editar
+                                </button>
+                                <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
+                                    Eliminar
+                                </button>
+                            </td>
+                                
+                </tr>
+            }
+        </tbody>
     </table>
+
+    <button class="btn btn-danger" @onclick="()=>AgregarTramite()">
+        Nuevo
+    </button>
 }
-else 
+else
 {
-    <h3>Usted no tiene permisos</h3>
+    <h3>No se ha logueado</h3>
 }
+
+
 
 @code {
     [Parameter]
@@ -79,12 +89,35 @@ else
     */
     private void ConfirmarEliminacion(Tramite t)
     {
-        tramiteBaja.Ejecutar(t.Id, 1);
-        lista = listarTramites.Ejecutar();
-    }
-    void ModificarTramite(Tramite t)
-    {
-        Navegador.NavigateTo($"tramite/{t.Id}");
+        if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteBaja) ){
+            tramiteBaja.Ejecutar(t.Id, 1);
+            lista = listarTramites.Ejecutar();
+        }
+        else 
+        {
+            Console.WriteLine("No posse el permiso para dar de baja un Tramite");
+        }
     }
 
+    void ModificarTramite(Tramite t)
+    {
+        if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteModificacion) ){
+            Navegador.NavigateTo($"tramite/{t.Id}");
+        }
+        else 
+        {
+            Console.WriteLine("No posse el permiso para modificar un Tramite");
+        }
+    }
+
+    void AgregarTramite()
+    {
+        if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteAlta) ){
+            Navegador.NavigateTo("tramite");
+        }
+        else 
+        {
+            Console.WriteLine("No posse el permiso para agregar un Tramite");
+        }
+    }
 }
