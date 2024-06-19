@@ -18,6 +18,8 @@
         </div>
 
          
+        @if(visible)
+        {
 
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="listarExpedientes">
@@ -63,7 +65,7 @@
                 </NavLink>
             </div>
         
-        
+        }
         
 
     </nav>
@@ -72,8 +74,10 @@
 @code {
     bool visible = false;
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
-        //visible = (log.IdUsuario == 1);
+        if (log.IdUsuario == 1){
+            visible = true;
+        }
     }
 }
