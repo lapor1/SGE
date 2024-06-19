@@ -3,6 +3,9 @@
 using SGE.Aplicacion.Entidades;
 using SGE.Aplicacion.Enumerativos;
 
+using System.Security.Cryptography;
+using System.Text;
+
 namespace SGE.Repositorios;
 
 public class SGESqlite
@@ -52,6 +55,18 @@ public class SGESqlite
         
     }
 
+    private static string GetSHA256Hash(string input)
+    {
+        using SHA256 sha256 = SHA256.Create();
+        byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+        StringBuilder result = new StringBuilder();
+        foreach (byte b in bytes)
+        {
+            result.Append(b.ToString("x2"));
+        }
+        return result.ToString();
+    }
+
     public static void CrearAdmin()
     {
         using var context = new SGEContext();
@@ -63,14 +78,18 @@ public class SGESqlite
             permisosAdmin.Add(p);
         }
 
+        string hashedPassword = GetSHA256Hash("1234");
+
         Usuario admin = new Usuario() {
             Id = 1,
             Nombre = "Admin",
             Apellido = "Admin",
             CorreoElectrónico = "Admin@gmail.com",
-            Contraseña = "1234",
+            Contraseña = hashedPassword,
             ListaPermisos = permisosAdmin
         };
+
+         Console.WriteLine($"Password Hash: {hashedPassword}");
 
         context.Usuarios.Add(admin);
         context.SaveChanges();

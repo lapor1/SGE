@@ -11,25 +11,74 @@
 {
     @if (_esNuevoTramie)
     {
-        <h3>Agregando un nuevo Tramite</h3>
+        <h3 class="text-primary">Agregando un nuevo Tramite</h3>
     }
     else
     {
-        <h3>Modificando al Tramite "@t.Id"</h3>
+        <h3 class="text-primary">Modificando al Tramite "@t.Id"</h3>
     }
 
-    <input placeholder="Expediente Asociado" @bind="t.IdExpediente" class="form-control">
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="expediente" class="form-label">Expediente Asociado</label>
+                <input id="expediente" placeholder="Expediente Asociado" @bind="t.IdExpediente" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="tipoTramite" class="form-label">Tipo De Tramite</label>
+                <input id="tipoTramite" placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control" />
+            </div>
+        </div>
 
-    <input placeholder="Tipo De Tramite" @bind="t.TipoTramite" class="form-control">
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="contenido" class="form-label">Contenido</label>
+                <textarea id="contenido" placeholder="Contenido" @bind="t.Contenido" class="form-control" rows="4"></textarea>
+            </div>
+        </div>
 
-    <input placeholder="Contenido" @bind="t.Contenido" class="form-control">
-
-    <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+            </div>
+        </div>
+    </div>
 }
 else 
 {
-    <h3>No se ha logueado</h3>
+    <h3 class="text-danger text-center">Usted no esta logueado</h3>
 }
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-label {
+        font-weight: bold;
+    }
+    .form-control {
+        box-shadow: none;
+        border-radius: 4px;
+    }
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .text-danger {
+        font-weight: bold;
+    }
+</style>
 
 @code {
     //[Parameter] public bool SoloLectura { get; set; } = false;
@@ -59,16 +108,7 @@ else
     void Aceptar()
     {
         if (_esNuevoTramie)
-        {
-            /*
-            if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteAlta) ){
-                tramiteAlta.Ejecutar(t, log.IdUsuario);
-            }
-            else 
-            {
-                Console.WriteLine("No posse el permiso para agregar un Tramite");
-            }*/
-            
+        {   
             try 
             {
                 tramiteAlta.Ejecutar(t, log.IdUsuario);
