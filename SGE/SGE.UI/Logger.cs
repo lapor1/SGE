@@ -3,4 +3,5 @@
 public class Logger
 {
     public int IdUsuario { get; set; } = 0;
+    public bool SoloLectura { get; set; } = true;
 }

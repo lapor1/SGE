@@ -72,12 +72,16 @@
 </div>
  
 @code {
-    bool visible = false;
+    
+    bool visible = true;
 
-    protected override void OnParametersSet()
+/*
+    protected override void OnAfterRender()
     {
+        visible = false;
         if (log.IdUsuario == 1){
-            visible = true;
+            visible = false;
         }
     }
+        */
 }
