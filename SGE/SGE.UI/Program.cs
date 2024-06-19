@@ -42,12 +42,12 @@ builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
 // Servicios
+builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
 builder.Services.AddScoped<TramiteValidador>();
-builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacionProvisorio>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();
 
 builder.Services.AddSingleton<Logger>();
-//builder.Services.AddSingleton<ILogger, Logger>();
+//builder.Services.AddTransient<ServicioAutentificacion>();
 
 // Repositorios
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();

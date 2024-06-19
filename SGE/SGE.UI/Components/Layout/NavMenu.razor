@@ -11,6 +11,7 @@
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
+
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
@@ -18,51 +19,19 @@
         </div>
 
          
-        @if(visible)
+        @if(Logueado)
         {
 
             <div class="nav-item px-3">
-                <NavLink class="nav-link" href="listarExpedientes">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Expedientes
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
                 <NavLink class="nav-link" href="listarTramites">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Tramites
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="listarUsuarios">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Usuarios
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="nuevoExpediente">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Nuevo Expediente
-                </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="nuevoUsuario">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Nuevo Usuario
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Lista de Tramites
                 </NavLink>
             </div>
 
             <div class="nav-item px-3">
             <NavLink class="nav-link" href="tramite">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-                Agregar Tramite
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Agregar Tramite
             </NavLink>
-            </div>
-
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="usuario">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-                    Agregar Usuario
-                </NavLink>
             </div>
         
         }
@@ -72,12 +41,15 @@
 </div>
  
 @code {
-    bool visible = false;
+    bool Logueado = true;
+
+    [Parameter] public int? id {get; set;}
 
     protected override void OnParametersSet()
     {
-        if (log.IdUsuario == 1){
-            visible = true;
+        if (log.Logueado)
+        {
+            Logueado = true;
         }
     }
 }
