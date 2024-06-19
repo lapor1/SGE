@@ -3,9 +3,7 @@
 @inject CasoDeUsoUsuarioAlta usuarioAlta
 @inject NavigationManager Navegador
 
-
 <h3>Registrando Usuario</h3>
-
 
 <input placeholder="Nombre" @bind="u.Nombre" class="form-control">
 
@@ -22,7 +20,6 @@
 
     void Aceptar()
     {  
-        
         usuarioAlta.Ejecutar(u);
         //u = new Usuario();
         Navegador.NavigateTo("{u.Id}");

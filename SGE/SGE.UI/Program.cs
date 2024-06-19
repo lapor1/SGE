@@ -13,6 +13,8 @@ using SGE.Aplicacion.Servicios;
 using SGE.Repositorios;
 using SGE.UI.Components.Pages;
 
+using SGE.UI;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,6 +22,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 // ------------------ Agregamos servicios (casos de uso, repositorios, autentificacion, validacion) ------------------
+
 
 // Casos De Uso Expedientes
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
@@ -42,6 +45,9 @@ builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 builder.Services.AddScoped<TramiteValidador>();
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacionProvisorio>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();
+
+builder.Services.AddSingleton<Logger>();
+//builder.Services.AddSingleton<ILogger, Logger>();
 
 // Repositorios
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();

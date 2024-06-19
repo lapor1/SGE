@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@rendermode InteractiveServer
+@inject Logger log
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">SGE.UI</a>
     </div>
@@ -14,7 +17,7 @@
             </NavLink>
         </div>
 
-        @if(visible){
+         
 
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="listarExpedientes">
@@ -60,13 +63,17 @@
                 </NavLink>
             </div>
         
-        }
+        
         
 
     </nav>
 </div>
-
+ 
 @code {
-    [Parameter]
-    public bool visible { get; set; }
+    bool visible = false;
+
+    protected override void OnInitialized()
+    {
+        //visible = (log.IdUsuario == 1);
+    }
 }

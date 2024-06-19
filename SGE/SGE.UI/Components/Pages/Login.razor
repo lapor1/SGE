@@ -2,7 +2,7 @@
 @rendermode InteractiveServer
 @inject NavigationManager Navegador
 @inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
-
+@inject Logger log
 
 <h1>Inicio sesion</h1>
 
@@ -11,7 +11,6 @@
 
 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
 
-
 @code {
     Usuario u = new Usuario();
     void Aceptar()
@@ -19,11 +18,14 @@
         Usuario? uR = consultarUsuario.Ejecutar(u.Id);
         if(uR != null)
         {
-            Navegador.NavigateTo("listarExpedientes/{u.Id}");
+            // Chequear contraseña y todo eso
+
+            log.IdUsuario = u.Id;
+
+            Navegador.NavigateTo($"/{u.Id}");
         }
         else
         {
-            //Navegador.NavigateTo("listarTramites/{u.Id}");
         }
     }
 }

@@ -1,7 +1,27 @@
 ﻿@page "/{IdUsuario:int?}"
+@rendermode InteractiveServer
+@inject NavigationManager Navegador
+@inject Logger log
 
-<Login/>
+@if(visual)
+{
+    <Login/>
+}
+else{
+    <h3> Se ha logueado el usuario @log.IdUsuario </h3>
+}
 
 @code {
+    bool visual = true;
+
     [Parameter] public int? IdUsuario {get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (IdUsuario != null)
+        {
+            visual = false;
+        }
+    }
+
 }
