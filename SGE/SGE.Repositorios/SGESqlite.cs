@@ -55,7 +55,7 @@ public class SGESqlite
         
     }
 
-    private static string GetSHA256Hash(string input)
+    public static string GetSHA256Hash(string input)
     {
         using SHA256 sha256 = SHA256.Create();
         byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));

@@ -4,8 +4,7 @@
 @inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
 @inject Logger log
 
-<html lang="es">
-<head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
@@ -72,8 +71,8 @@
             background-color: #0056b3; /* Color de fondo más oscuro */
         }
     </style>
-</head>
-<body>
+
+
     <!-- Contenedor principal para centrar el formulario -->
     <div class="main-container">
         <!-- Contenedor del formulario de inicio de sesión -->
@@ -88,8 +87,7 @@
             <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
         </div>
     </div>
-</body>
-</html>
+
 
 @code {
     Usuario u = new Usuario();
@@ -110,10 +108,10 @@
                 if(u.Id == 1)
                 {
                     log.SoloLectura = false;
-                    Console.WriteLine("Usuario loggeado con permisos de lectura y escritura");
+                    Console.WriteLine("Usuario logueado con permisos de lectura y escritura");
                 }
                 else{
-                    Console.WriteLine("Usuario loggeado con permisos de solo lectura");
+                    Console.WriteLine("Usuario logueado con permisos de solo lectura");
                 }
 
                 u = new Usuario();

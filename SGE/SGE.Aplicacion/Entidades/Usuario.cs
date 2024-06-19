@@ -11,10 +11,10 @@ public class Usuario
     public string? Nombre { get; set; }
     public string? Apellido { get; set; }
     public string? CorreoElectrónico { get; set; }
-    public string? Contraseña;
+    public string? Contraseña { get; set; }
     public List<Permiso> ListaPermisos { get; set; } = new List<Permiso>();
 
-     public void SetPassword(string password)
+    public void SetPassword(string password)
     {
         Contraseña = GetSHA256Hash(password);
     }
