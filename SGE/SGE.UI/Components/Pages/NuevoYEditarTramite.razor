@@ -60,7 +60,7 @@ else
             modificarTramite.Ejecutar(t, IdUsuario);
         }
         t = new Tramite();
-        Navegador.NavigateTo("listarTramites");
+        Navegador.NavigateTo("listarTramites/{u.Id}");
     }
 
 }

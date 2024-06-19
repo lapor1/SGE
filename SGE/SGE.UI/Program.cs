@@ -19,7 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// ------------------ Agregamos servicios (casos de uso, repositorios, servicios)
+// ------------------ Agregamos servicios (casos de uso, repositorios, autentificacion, validacion) ------------------
 
 // Casos De Uso Expedientes
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();

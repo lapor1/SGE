@@ -1,41 +1,29 @@
 ﻿@page "/login"
+@rendermode InteractiveServer
 @inject NavigationManager Navegador
 @inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
 
-@if(!encontrado){    
-    <h1>Inicio sesion</h1>
 
-    <input placeholder="Id" @bind="u.Id" class="form-control">
-    <input placeholder="Contraseña" @bind="u.Contraseña" class="form-control">
+<h1>Inicio sesion</h1>
 
-    <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
-}
-else 
-{
-    
-}
+<input placeholder="Id" @bind="u.Id" class="form-control">
+<input placeholder="Contraseña" @bind="u.Contraseña" class="form-control">
+
+<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
 
 @code {
     Usuario u = new Usuario();
-
-    [Parameter]
-    public bool encontrado { get; set; } = false;
-
     void Aceptar()
     {  
-        encontrado = true;
-        //Navegador.NavigateTo("listarTramites");
-        /*
-        Usuario? uEncontrado = new Usuario();
-        uEncontrado = consultarUsuario.Ejecutar(u.Id);
-
-        if(uEncontrado != null){
-            encontrado = true;
+        Usuario? uR = consultarUsuario.Ejecutar(u.Id);
+        if(uR != null)
+        {
+            Navegador.NavigateTo("listarExpedientes/{u.Id}");
         }
         else
         {
-
+            //Navegador.NavigateTo("listarTramites/{u.Id}");
         }
-        */
     }
 }

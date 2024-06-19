@@ -1,4 +1,4 @@
-﻿@page "/listarExpedientes"
+﻿@page "/listarExpedientes/{IdUsuario:int?}"
 @rendermode InteractiveServer
 @inject CasoDeUsoListarExpedientes listarExpedientes
 @inject CasoDeUsoExpedienteBaja expedienteBaja
@@ -31,6 +31,8 @@
 
 @code {
     List<Expediente> lista = new List<Expediente>();
+
+    [Parameter] public int? IdUsuario {get; set; }
 
     protected override void OnInitialized()
     {
