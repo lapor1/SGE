@@ -51,6 +51,7 @@ else
     [Parameter]
     public bool SoloLectura { get; set; } = false;
     List<Tramite> lista = new List<Tramite>();
+        
     protected override void OnInitialized()
     {
         //if (listarTramites != null)
@@ -58,6 +59,7 @@ else
             lista = listarTramites.Ejecutar();
         //}
     }
+
     /*
     DialogoConfirmacion dialogo = null!;
     Tramite? tramiteAEliminar = null;
@@ -77,11 +79,13 @@ else
         }
     }
     */
+
     private void ConfirmarEliminacion(Tramite t)
     {
         tramiteBaja.Ejecutar(t.Id, 1);
         lista = listarTramites.Ejecutar();
     }
+
     void ModificarTramite(Tramite t)
     {
         Navegador.NavigateTo($"tramite/{t.Id}");

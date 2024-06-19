@@ -4,27 +4,90 @@
 @inject NavigationManager Navegador
 
 
-<h3>Registrando Usuario</h3>
-
-
-<input placeholder="Nombre" @bind="u.Nombre" class="form-control">
-
-<input placeholder="Apellido" @bind="u.Apellido" class="form-control">
-
-<input placeholder="Correo Electrónico" @bind="u.CorreoElectrónico" class="form-control">
-
-<input placeholder="Contraseña" @bind="u.Contraseña" class="form-control">
-
-<button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        /* Estilo general del cuerpo para centrar el formulario */
+        <!-- body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Altura completa de la ventana */
+            background-color: #f0f2f5; /* Fondo suave */
+            font-family: Arial, sans-serif; /* Fuente sencilla y clara */
+            display: flex;
+            justify-content: center; /* Centrar el formulario horizontalmente */
+            align-items: center; /* Centrar el formulario verticalmente */
+        } -->
+        /* Contenedor del formulario de registro */
+        .registro-container {
+            background: white; /* Fondo blanco */
+            padding: 2rem; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 350px; /* Ancho fijo del contenedor */
+            text-align: center; /* Centrar el contenido del formulario */
+        }
+        /* Estilo del título del formulario */
+        .registro-container h3 {
+            margin-bottom: 1.5rem; /* Espacio debajo del título */
+            color: #333; /* Color del texto */
+        }
+        /* Estilo de los campos de entrada */
+        .form-control {
+            width: 100%; /* Ancho completo del contenedor padre */
+            padding: 0.75rem; /* Espaciado interno */
+            margin-bottom: 1rem; /* Espaciado inferior */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 5px; /* Bordes redondeados */
+            box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+            font-size: 1rem; /* Tamaño de la fuente */
+        }
+        /* Estilo del botón */
+        .btn-primary {
+            background-color: #007bff; /* Color de fondo azul */
+            color: white; /* Color del texto */
+            padding: 0.75rem; /* Espaciado interno */
+            border: none; /* Sin bordes */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar por el botón */
+            width: 100%; /* Ancho completo del contenedor padre */
+            font-size: 1rem; /* Tamaño de la fuente */
+            transition: background-color 0.3s; /* Transición suave para el cambio de color */
+        }
+        /* Estilo del botón al pasar el ratón */
+        .btn-primary:hover {
+            background-color: #0056b3; /* Color de fondo más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal del formulario de registro -->
+    <div class="registro-container">
+        <!-- Título del formulario -->
+        <h3>Registrando Usuario</h3>
+        <!-- Campo de entrada para el Nombre del usuario -->
+        <input placeholder="Nombre" @bind="u.Nombre" class="form-control">
+        <!-- Campo de entrada para el Apellido del usuario -->
+        <input placeholder="Apellido" @bind="u.Apellido" class="form-control">
+        <!-- Campo de entrada para el Correo Electrónico del usuario -->
+        <input type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectrónico" class="form-control">
+        <!-- Campo de entrada para la Contraseña del usuario -->
+        <input type="password" placeholder="Contraseña" @bind="u.Contraseña" class="form-control">
+        <!-- Botón para enviar el formulario -->
+        <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+    </div>
+</body>
+</html>
 
 @code {
     Usuario u = new Usuario();
 
     void Aceptar()
-    {  
-        
+    {
         usuarioAlta.Ejecutar(u);
-        //u = new Usuario();
-        Navegador.NavigateTo("{u.Id}");
+        Navegador.NavigateTo($"{u.Id}");
     }
 }

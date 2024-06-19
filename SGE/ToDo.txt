@@ -22,7 +22,7 @@
 
     [x] Crear al usuario Admin con todos los permisos
         (al crear la base de datos)
-        [ ] hash a la contraseña de admin
+        [x] hash a la contraseña de admin
 
     [x] Servico de Autorizacion 
         [ ] Reemplazar ServicioAutorizacionProvisorio por ServicioAutorizacion
