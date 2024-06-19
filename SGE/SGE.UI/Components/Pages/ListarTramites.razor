@@ -5,42 +5,51 @@
 @inject CasoDeUsoTramiteBaja tramiteBaja
 @inject NavigationManager Navegador
 
-<table class="table">
-   <thead>
-       <tr>
-           <th>Id</th>
-           <th>Id Exp Asociado</th>
-           <th>Tipo de tramite</th>
-           <th>Contenido</th>
-           <th>FyH creacion</th>
-           <th>FyH modificacion</th>
-           <th>Accion</th>
-       </tr>
-   </thead>
-    <tbody>
-       @foreach (var t in lista)
-       {
-            <tr>
-                <td>@t.Id</td>
-                <td>@t.IdExpediente</td>
-                <td>@t.TipoTramite</td>
-                <td>@t.Contenido</td>
-                <td>@t.FechaHoraCreacion</td>
-                <td>@t.FechaHoraModificacion</td>
-                <td>
-                    <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
-                        Editar
-                    </button>
-                    <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
-                        Eliminar
-                    </button>
-                </td>
-           </tr>
-       }
-   </tbody>
-</table>
+@if (!SoloLectura)
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id Exp Asociado</th>
+            <th>Tipo de tramite</th>
+            <th>Contenido</th>
+            <th>FyH creacion</th>
+            <th>FyH modificacion</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+        <tbody>
+        @foreach (var t in lista)
+        {
+                <tr>
+                    <td>@t.Id</td>
+                    <td>@t.IdExpediente</td>
+                    <td>@t.TipoTramite</td>
+                    <td>@t.Contenido</td>
+                    <td>@t.FechaHoraCreacion</td>
+                    <td>@t.FechaHoraModificacion</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
+                            Editar
+                        </button>
+                        <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
+                            Eliminar
+                        </button>
+                    </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+}
+else 
+{
+    <h3>Usted no tiene permisos</h3>
+}
 
 @code {
+    [Parameter]
+    public bool SoloLectura { get; set; } = false;
     List<Tramite> lista = new List<Tramite>();
     protected override void OnInitialized()
     {

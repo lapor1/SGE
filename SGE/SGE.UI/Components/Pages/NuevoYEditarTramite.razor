@@ -5,7 +5,7 @@
 @inject CasoDeUsoTramiteAlta tramiteAlta
 @inject NavigationManager Navegador
 
-@if (false)
+@if (!SoloLectura)
 {
     @if (_esNuevoTramie)
     {
@@ -30,8 +30,11 @@ else
 }
 
 @code {
+    [Parameter]
+    public bool SoloLectura { get; set; } = false;
     Tramite t = new Tramite();
     [Parameter] public int? Id {get; set; }
+    [Parameter] public int IdUsuario {get; set; } = 1;
     bool _esNuevoTramie = true;
     protected override void OnParametersSet()
     {
@@ -50,11 +53,11 @@ else
     {
         if (_esNuevoTramie)
         {
-            tramiteAlta.Ejecutar(t, 1);
+            tramiteAlta.Ejecutar(t, IdUsuario);
         }
         else
         {
-            modificarTramite.Ejecutar(t, 1);
+            modificarTramite.Ejecutar(t, IdUsuario);
         }
         t = new Tramite();
         Navegador.NavigateTo("listarTramites");

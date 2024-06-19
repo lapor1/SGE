@@ -14,50 +14,59 @@
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="listarExpedientes">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Expedientes
+        @if(visible){
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="listarExpedientes">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Expedientes
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="listarTramites">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Tramites
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="listarUsuarios">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Usuarios
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="nuevoExpediente">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Nuevo Expediente
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="nuevoUsuario">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Nuevo Usuario
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+            <NavLink class="nav-link" href="tramite">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
+                Agregar Tramite
             </NavLink>
-        </div>
+            </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="listarTramites">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Tramites
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="listarUsuarios">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Usuarios
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="nuevoExpediente">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Nuevo Expediente
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="nuevoUsuario">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Nuevo Usuario
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-           <NavLink class="nav-link" href="tramite">
-               <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-               Agregar Tramite
-           </NavLink>
-       </div>
-
-       <div class="nav-item px-3">
-           <NavLink class="nav-link" href="usuario">
-               <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-               Agregar Usuario
-           </NavLink>
-       </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="usuario">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
+                    Agregar Usuario
+                </NavLink>
+            </div>
+        
+        }
+        
 
     </nav>
 </div>
 
+@code {
+    [Parameter]
+    public bool visible { get; set; }
+}
