@@ -19,7 +19,7 @@
         Usuario? uR = consultarUsuario.Ejecutar(u.Id);
         if(uR != null)
         {
-            Navegador.NavigateTo("listarExpedientes/{u.Id}");
+            Navegador.NavigateTo($"listarExpedientes/{u.Id}");
         }
         else
         {
