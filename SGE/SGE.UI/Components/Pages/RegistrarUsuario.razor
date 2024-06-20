@@ -84,6 +84,7 @@
 
     void Aceptar()
     {
+        u.Contraseña = GetSHA256Hash(u.Contraseña);
         usuarioAlta.Ejecutar(u);
         Navegador.NavigateTo("login");
     }

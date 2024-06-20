@@ -96,8 +96,10 @@
         Usuario? uR = consultarUsuario.Ejecutar(u.Id);
         if(uR != null)
         {
-            //if(uR.Contraseña == u.Contraseña)
-            //{
+
+            
+            if(uR.Contraseña == GetSHA256Hash(u.Contraseña))
+            {
                 log.IdUsuario = u.Id;
                 log.Nombre = uR.Nombre;
                 log.Logueado = true;
@@ -117,11 +119,11 @@
                 u = new Usuario();
 
                 Navegador.NavigateTo($"/{u.Id}");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Contraseña incorrecta");
-            //}
+            }
+            else
+            {
+                Console.WriteLine("Contraseña incorrecta");
+            }
         }
         else
         {
