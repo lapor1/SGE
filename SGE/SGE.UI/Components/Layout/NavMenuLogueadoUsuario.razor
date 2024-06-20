@@ -1,5 +1,4 @@
 ﻿@rendermode InteractiveServer
-@inject Logger log
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -7,12 +6,8 @@
     </div>
 </div>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
-
-        Home
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
@@ -20,7 +15,9 @@
             </NavLink>
         </div>
 
-        Tramites
+        <h5>
+            Gestion Tramites
+        </h5>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="listarTramites">
@@ -30,11 +27,13 @@
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="tramite">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Agregar Tramite
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Nuevo Tramite
             </NavLink>
         </div>
 
-        Expedientes
+        <h5>
+            Gestion Expedientes
+        </h5>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="listarExpedientes">
@@ -44,24 +43,16 @@
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="expediente">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Agregar Expediente
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Nuevo Expediente
             </NavLink>
         </div>
         
-
     </nav>
 </div>
- 
-@code {
-    bool Logueado = true;
 
-    [Parameter] public int? id {get; set;}
-
-    protected override void OnParametersSet()
-    {
-        if (log.Logueado)
-        {
-            Logueado = true;
-        }
+<style>
+    h5 {
+        padding: 20px;
+        color: #d7d7d7;
     }
-}
+</style>

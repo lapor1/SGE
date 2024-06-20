@@ -127,4 +127,6 @@ C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Deb
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.pdb
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\SGE.UI.genruntimeconfig.cache
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\ref\SGE.UI.dll
-D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenuInicio.razor.rz.scp.css
+D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenuLogueadoUsuario.razor.rz.scp.css
+D:\Datos backUp\Facultad\2024 I\Net - Taller de Lenguaje dotNet\tp1 SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenuLogueadoAdmin.razor.rz.scp.css

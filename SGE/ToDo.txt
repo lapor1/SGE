@@ -6,8 +6,9 @@
 
 * Hacer 
 
-    [ ] ILogger
-    [ ] Logger en Aplicacion
+    [ ] Logger en Aplicacion + ILogger
+
+    [ ] Limpiar SGESqlite (con el tema del admin y del hasheo)
 
     [ ] El primer usuario que se registre en el sistema será el Administrador
 

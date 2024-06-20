@@ -22,14 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenuLogueadoAdmin.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudUxvZ3VlYWRvQWRtaW4ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenuLogueadoUsuario.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudUxvZ3VlYWRvVXN1YXJpby5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,6 +78,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-k716zha75e
 
-[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenuInicio.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudUluaWNpby5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-9sscvrpkuq
+[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-067s78a2ky
+
+[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenuLogueadoAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudUxvZ3VlYWRvQWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-wx9q24d4h2
+
+[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Layout/NavMenuLogueadoUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudUxvZ3VlYWRvVXN1YXJpby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-narvyb73pq
