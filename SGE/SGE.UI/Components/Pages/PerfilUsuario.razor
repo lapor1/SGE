@@ -1,5 +1,4 @@
-﻿@page "/perfilusuario"
-@rendermode InteractiveServer
+﻿@rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 @inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
 @inject Logger log
@@ -59,7 +58,7 @@ else
             }
             modificarUsuario.Ejecutar(u);
         }
-        NavigationManager.NavigateTo($"perfilusuario");
+        NavigationManager.NavigateTo("");
         u = new Usuario();
     }
 }

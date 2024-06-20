@@ -3,14 +3,18 @@
 @inject NavigationManager Navegador
 @inject Logger log
 
+<h1> Bienvenido al Sistema de Gestion de Expedeintes (Grupo 19)</h1>
+
 @if(log.Logueado)
 {
     <h3> Se ha logueado el usuario @log.Nombre (con id = @log.IdUsuario) </h3>
 
     <button class="btn btn-primary" @onclick="Salir">Salir</button>
+
+    <PerfilUsuario/>
 }
 else{
-    <Login/>
+    <h3> Usted No esta logueado </h3>
 }
 
 @code {

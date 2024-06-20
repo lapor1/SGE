@@ -1,8 +1,23 @@
 ﻿@inherits LayoutComponentBase
+@inject Logger log
 
 <div class="page">
+
+
     <div class="sidebar">
-        <NavMenu/>
+        @if(log.Logueado) {
+            @if(log.IdUsuario == 1)
+            {
+                <NavMenuLogueadoAdmin/>
+            }
+            else
+            {
+                <NavMenuLogueadoUsuario/>
+            }
+        }
+        else {
+            <NavMenuInicio/>
+        }
     </div>
 
     <main>

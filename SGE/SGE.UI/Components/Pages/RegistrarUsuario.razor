@@ -94,7 +94,8 @@ else
         {
             u.Contraseña = servicioHash.HashPassword(u.Contraseña);
             usuarioAlta.Ejecutar(u);
-            Navegador.NavigateTo("login");
+            Console.WriteLine("Usuario registrado exitoso");
+            Navegador.NavigateTo("");
         }
         else 
         {

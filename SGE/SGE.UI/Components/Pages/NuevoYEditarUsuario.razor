@@ -169,16 +169,15 @@ else
 
     void ActualizarPermiso(Permiso p, ChangeEventArgs e)
     {
-        bool Check = (bool) e.Value;
-        if(Check){
-            //isCkecked[i] = true;
-            u.ListaPermisos.Add(p);
-        }
-        else
+        if(e.Value != null)
         {
-            //isCkecked[i] = false;
-            u.ListaPermisos.Remove(p);
+            if((bool) e.Value){
+                u.ListaPermisos.Add(p);
+            }
+            else
+            {
+                u.ListaPermisos.Remove(p);
+            }
         }
-
     }
 }
