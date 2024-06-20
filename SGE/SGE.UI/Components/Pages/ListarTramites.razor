@@ -60,31 +60,9 @@ else
 @code {
     List<Tramite> lista = new List<Tramite>();
     protected override void OnInitialized()
-    {
-        //if (listarTramites != null)
-        //{
-            lista = listarTramites.Ejecutar();
-        //}
+    {     
+        lista = listarTramites.Ejecutar();      
     }
-    /*
-    DialogoConfirmacion dialogo = null!;
-    Tramite? tramiteAEliminar = null;
-    private void ConfirmarEliminacion(Tramite t)
-    {
-        tramiteAEliminar = t;
-        dialogo.Mensaje = $"¿Desea eliminar al cliente {t.Id} {t.TipoTramite} {t.Contenido}?";
-        dialogo.Mostrar();
-    }
-
-    private void Eliminar()
-    {
-        if(tramiteAEliminar != null)
-        {
-            tramiteBaja.Ejecutar(t.Id, 1);
-            lista = listarTramites.Ejecutar();
-        }
-    }
-    */
     private void ConfirmarEliminacion(Tramite t)
     {
         if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteBaja) ){
@@ -118,4 +96,23 @@ else
             Console.WriteLine("No posee el permiso para agregar un Tramite");
         }
     }
+    /* ------------------------------------- Intentamos hacer un dialogo de confirmacion como en la teroria, pero no sabemos pq no funciona asi que lo postergamos
+    DialogoConfirmacion dialogo = null!;
+    Tramite? tramiteAEliminar = null;
+    private void ConfirmarEliminacion(Tramite t)
+    {
+        tramiteAEliminar = t;
+        dialogo.Mensaje = $"¿Desea eliminar al cliente {t.Id} {t.TipoTramite} {t.Contenido}?";
+        dialogo.Mostrar();
+    }
+
+    private void Eliminar()
+    {
+        if(tramiteAEliminar != null)
+        {
+            tramiteBaja.Ejecutar(t.Id, 1);
+            lista = listarTramites.Ejecutar();
+        }
+    }
+    */
 }

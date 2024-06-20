@@ -147,23 +147,31 @@ else
 
     void Aceptar()
     {
-        if(u.Contraseña != null)
+        if (_esNuevoUsuario)
         {
-            u.Contraseña = servicioHash.HashPassword(u.Contraseña);
-            if (_esNuevoUsuario)
+            if(u.Contraseña != null)
             {
+                u.Contraseña = servicioHash.HashPassword(u.Contraseña);
                 usuarioAlta.Ejecutar(u);
+
+                u = new Usuario();
+                Navegador.NavigateTo("listarUsuarios");
             }
             else
             {
-                modificarUsuario.Ejecutar(u);
+                Console.WriteLine("Contraseña vacia");
             }
-            u = new Usuario();
-            Navegador.NavigateTo("listarUsuarios");
         }
         else
         {
-            Console.WriteLine("Contraseña vacia");
+            if(u.Contraseña != null)    //si no cambió la contraseña, no la vuelve a hashear
+            {
+                u.Contraseña = servicioHash.HashPassword(u.Contraseña);
+            }
+            modificarUsuario.Ejecutar(u);
+
+            u = new Usuario();
+            Navegador.NavigateTo("listarUsuarios");
         }
     }
 
@@ -179,5 +187,6 @@ else
                 u.ListaPermisos.Remove(p);
             }
         }
+
     }
 }

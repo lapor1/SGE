@@ -17,7 +17,9 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>CorreoE</th>
-                <th>Contraseña</th>
+                <!--  
+                    <th>Contraseña</th>
+                -->
                 <th>Permisos</th>
                 @if(log.IdUsuario == 1)
                 {
@@ -32,8 +34,10 @@
                     <td>@u.Id</td>
                     <td>@u.Nombre</td>
                     <td>@u.Apellido</td>
-                    <td>@u.CorreoElectronico</td>  
-                    <td>@u.Contraseña</td>  
+                    <td>@u.CorreoElectronico</td> 
+                    <!--  
+                        <td>@u.Contraseña</td>  
+                    -->
                     <td>
                         @foreach (var p in u.ListaPermisos)        
                         {

@@ -1,9 +1,9 @@
-﻿@page "/{id:int?}"
+﻿@page "/"
 @rendermode InteractiveServer
 @inject NavigationManager Navegador
 @inject Logger log
 
-<h1> Bienvenido al Sistema de Gestion de Expedeintes (Grupo 19)</h1>
+<h1> Bienvenido al Sistema de Gestion de Expedeintes</h1>
 
 @if(log.Logueado)
 {
@@ -18,22 +18,8 @@ else{
 }
 
 @code {
-    //bool Logueado = false;
-
-    [Parameter] public int? id {get; set;}
-/*
-    protected override void OnParametersSet()
-    {
-        if (log.Logueado)
-        {
-            Logueado = true;
-        }
-    }
-*/
     void Salir()
     {
-        //Logueado = false;
-
         log.IdUsuario = 0; 
         log.Nombre = ""; 
         log.Logueado = false;
