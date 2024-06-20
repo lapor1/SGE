@@ -40,6 +40,40 @@
             </div>
         </div>
 
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ExpedienteAlta" checked="@isCkecked[0]" @onchange="(e) => ActualizarPermiso(Permiso.ExpedienteAlta, e)">
+                    Expediente Alta
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ExpedienteBaja" checked="@isCkecked[1]" @onchange="(e) => ActualizarPermiso(Permiso.ExpedienteBaja, e)">
+                    Expediente Baja
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ExpedienteModificacion" checked="@isCkecked[2]" @onchange="(e) => ActualizarPermiso(Permiso.ExpedienteModificacion, e)">
+                    Expediente Modificacion
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="TramiteAlta" checked="@isCkecked[3]" @onchange="(e) => ActualizarPermiso(Permiso.TramiteAlta, e)">
+                    Tramite Alta
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="TramiteBaja" checked="@isCkecked[4]" @onchange="(e) => ActualizarPermiso(Permiso.TramiteBaja, e)">
+                    Tramite Baja
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="TramiteModificacion" checked="@isCkecked[5]" @onchange="(e) => ActualizarPermiso(Permiso.TramiteModificacion, e)">
+                    Tramite Modificacion
+            </div>
+
+
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
@@ -81,8 +115,12 @@ else
 
 @code {
     Usuario u = new Usuario();
+
+    bool[] isCkecked = new bool[]{false, false, false, false, false, false};
+
     [Parameter] public int? Id {get; set; }
     bool _esNuevoUsuario = true;
+
     protected override void OnParametersSet()
     {
         if(Id != null)
@@ -92,6 +130,13 @@ else
            {
                u = u_hallado;
                _esNuevoUsuario = false;
+
+               isCkecked[0] = u.ListaPermisos.Contains(Permiso.ExpedienteAlta);
+               isCkecked[1] = u.ListaPermisos.Contains(Permiso.ExpedienteBaja);
+               isCkecked[2] = u.ListaPermisos.Contains(Permiso.ExpedienteModificacion);
+               isCkecked[3] = u.ListaPermisos.Contains(Permiso.TramiteAlta);
+               isCkecked[4] = u.ListaPermisos.Contains(Permiso.TramiteBaja);
+               isCkecked[5] = u.ListaPermisos.Contains(Permiso.TramiteModificacion);
            }
         }
     }
@@ -108,5 +153,20 @@ else
         }
         u = new Usuario();
         Navegador.NavigateTo("listarUsuarios");
+    }
+
+    void ActualizarPermiso(Permiso p, ChangeEventArgs e)
+    {
+        bool Check = (bool) e.Value;
+        if(Check){
+            //isCkecked[i] = true;
+            u.ListaPermisos.Add(p);
+        }
+        else
+        {
+            //isCkecked[i] = false;
+            u.ListaPermisos.Remove(p);
+        }
+
     }
 }
