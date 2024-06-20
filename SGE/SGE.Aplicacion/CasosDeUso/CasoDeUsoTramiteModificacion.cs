@@ -34,7 +34,7 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repoT, IServicioAu
                     throw new RepositorioException( "El tramite no se puede modificar porque no existe en el repositorio" );
                 }
                 else{    
-                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, especificacion, autorizacion);
+                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
                     cambioEsatodoAutomatico.Ejecutar( tramite.Id );
 
                     if ( expediente != null )

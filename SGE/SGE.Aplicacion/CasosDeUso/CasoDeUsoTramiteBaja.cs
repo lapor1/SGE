@@ -28,7 +28,7 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IServicioAutorizaci
             else {
                 if(tramite != null){
                     // Modifica el estado del expediente asociado
-                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, especificacion, autorizacion);
+                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
                     cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
 
                     Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );

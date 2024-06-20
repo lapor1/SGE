@@ -7,13 +7,13 @@ using SGE.Aplicacion.Validadores;
 
 namespace SGE.Aplicacion.Servicios;
 
-public class ServicioActualizarEstado(IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, IServicioAutorizacion autorizacion)
+public class ServicioActualizarEstado(IExpedienteRepositorio repoE, ITramiteRepositorio repoT, EspecificacionCambioDeEstado especificacion, IServicioAutorizacion autorizacion)
 {
     public void Ejecutar(int idExpediente)
     {
 
         var excepcion = new RepositorioException();
-        var consultarPorIdTramite = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoE);
+        var consultarPorIdTramite = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
 
         List<Tramite> tramites = consultarPorIdTramite.Ejecutar(idExpediente);
 

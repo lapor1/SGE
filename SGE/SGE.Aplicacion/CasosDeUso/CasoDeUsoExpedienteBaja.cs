@@ -17,7 +17,6 @@ public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepos
             // Elimina el expediente del repositorio y guarda si fue encontrado y eliminado correctamente
             bool encontrado = repoE.EliminarExpedienteBaja( idExpediente );
             
-            
             // Verifica si se encontró y eliminó el expediente correctamente
             //exception.BajaExpediente(encontrado);
             if (!encontrado) {
@@ -25,13 +24,10 @@ public class CasoDeUsoExpedienteBaja(IExpedienteRepositorio repoE, ITramiteRepos
             }
             else {
                 // Crea una instancia del caso de uso CasoDeUsoExpedienteConsultaTodosTramitesAscociados
-                var consultarTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoE);
-
-                // Ejecuta el caso de uso para obtener la lista de trámites asociados al expediente
-                List<Tramite> listaTramite = consultarTramitesAsociados.Ejecutar( idExpediente );
+                var consultarTramitesAsociados = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
 
                 // Elimina cada trámite asociado al expediente
-                foreach (Tramite tr in listaTramite)
+                foreach (Tramite tr in consultarTramitesAsociados.Ejecutar( idExpediente ))
                 {
                     repoT.EliminarTramiteBaja(tr.Id);
                 }

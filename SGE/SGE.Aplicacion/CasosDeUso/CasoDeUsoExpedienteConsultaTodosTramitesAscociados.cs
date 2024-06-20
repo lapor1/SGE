@@ -3,15 +3,23 @@ using SGE.Aplicacion.Entidades;
 
 namespace SGE.Aplicacion.CasosDeUso;
 
-public class CasoDeUsoExpedienteConsultaTodosTramitesAscociados(IExpedienteRepositorio repoE)
+public class CasoDeUsoExpedienteConsultaTodosTramitesAscociados(ITramiteRepositorio repoT)
 {
     public List<Tramite> Ejecutar(int idExpediente)
     {
-        Expediente? expediente = repoE.GetExpediente( idExpediente );
+    
+        List<Tramite> TramitesAsociados = new List<Tramite>();
 
-        if ( expediente != null )
-            //if (expediente.ListaTramites != null)       
-                return expediente.ListaTramites;
-        return new List<Tramite>(); //lista vacia     
+        var listarTramites = new CasoDeUsoListarTramites(repoT);
+        
+        foreach (var trmite in listarTramites.Ejecutar())
+        {
+            if (trmite.IdExpediente == idExpediente)
+            {
+                TramitesAsociados.Add(trmite);
+            }
+        }
+
+        return TramitesAsociados;    
     }
 }
