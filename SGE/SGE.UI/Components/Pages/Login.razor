@@ -62,6 +62,11 @@
         <input type="password" placeholder="Contraseña" @bind="_contraseña" class="form-control">
 
         <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="error-message">@ErrorMessage</div>
+        }
     </div>
 </div>
 
@@ -70,6 +75,7 @@
     //Usuario u = new Usuario();
     string? _email;
     string? _contraseña;
+    string? ErrorMessage;
 
     void Aceptar()
     {  
@@ -105,5 +111,6 @@
         }
 
         Console.WriteLine("Email o contraseña incorrecta");
+        ErrorMessage = "Email o contraseña incorrecta";
     }
 }
