@@ -48,6 +48,8 @@
     <button class="btn btn-danger" @onclick="()=>AgregarExpediente()">
         Nuevo
     </button>
+
+    <h2 class="text-danger text-center">@mensaje</h2>
 }
 else
 {
@@ -56,12 +58,10 @@ else
 
 @code {
     List<Expediente> lista = new List<Expediente>();
+    string mensaje = "";
     protected override void OnInitialized()
     {
-        //if (listarTramites != null)
-        //{
             lista = listarExpediente.Ejecutar();
-        //}
     }
     
     private void ConfirmarEliminacion(Expediente e)
@@ -72,6 +72,7 @@ else
         }
         else 
         {
+            mensaje = "No posee el permiso para dar de baja un Expediente";
             Console.WriteLine("No posse el permiso para dar de baja un Expediente");
         }
     }
@@ -79,10 +80,12 @@ else
     void ModificarExpediente(Expediente e)
     {
         if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.ExpedienteModificacion) ){
+            mensaje = "";
             Navegador.NavigateTo($"expediente/{e.Id}");
         }
         else 
         {
+            mensaje = "No posee el permiso para modificar un Expediente";
             Console.WriteLine("No posse el permiso para modificar un Expediente");
         }
     }
@@ -90,10 +93,12 @@ else
     void AgregarExpediente()
     {
         if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.ExpedienteAlta) ){
+            mensaje = "";
             Navegador.NavigateTo("expediente");
         }
         else 
         {
+             mensaje = "No posee el permiso para agregar un Expediente";
             Console.WriteLine("No posse el permiso para agregar un Expediente");
         }
     }
