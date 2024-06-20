@@ -36,7 +36,14 @@
                 <input id="correo" type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectronico" class="form-control" />
             </div>
             <div class="col-md-6">
-                <label for="contraseña" class="form-label">Contraseña</label>
+                @if(_esNuevoUsuario)
+                {
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                }
+                else
+                {
+                    <label for="contraseña" class="form-label">Contraseña (no poner nada si no quiere cambiar)</label>
+                }
                 <input id="contraseña" type="password" placeholder="Contraseña" @bind="u.Contraseña" class="form-control" />
             </div>
         </div>
@@ -81,10 +88,12 @@
             </div>
         </div>
     </div>
+
+    <h6 class="text-danger text-center">@mensaje</h6>
 }
 else 
 {
-    <h3 class="text-danger text-center">Usted no esta logueado o no puede acceder</h3>
+    <MensajeNoLogueado/>
 }
 
 <style>
@@ -116,6 +125,8 @@ else
 
 @code {
     Usuario u = new Usuario();
+
+    string mensaje = "";
 
     bool[] isCkecked = new bool[]{false, false, false, false, false, false};
 
@@ -155,11 +166,13 @@ else
                 usuarioAlta.Ejecutar(u);
 
                 u = new Usuario();
+                mensaje = "";
                 Navegador.NavigateTo("listarUsuarios");
             }
             else
             {
-                Console.WriteLine("Contraseña vacia");
+                mensaje = "Contraseña vacia";
+                Console.WriteLine(mensaje);
             }
         }
         else
@@ -171,6 +184,7 @@ else
             modificarUsuario.Ejecutar(u);
 
             u = new Usuario();
+            mensaje = "";
             Navegador.NavigateTo("listarUsuarios");
         }
     }

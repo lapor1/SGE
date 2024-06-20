@@ -49,16 +49,19 @@
     <button class="btn btn-danger" @onclick="()=>AgregarTramite()">
         Nuevo
     </button>
+
+    <h2 class="text-danger text-center">@mensaje</h2>
 }
 else
 {
-    <h3>No se ha logueado</h3>
+    <MensajeNoLogueado/>
 }
 
 
 
 @code {
     List<Tramite> lista = new List<Tramite>();
+    string mensaje = "";
     protected override void OnInitialized()
     {     
         lista = listarTramites.Ejecutar();      
@@ -71,29 +74,34 @@ else
         }
         else 
         {
-            Console.WriteLine("No posee el permiso para dar de baja un Tramite");
+            mensaje = "No posee el permiso para dar de baja un Tramite";
+            Console.WriteLine(mensaje);
         }
     }
 
     void ModificarTramite(Tramite t)
     {
         if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteModificacion) ){
+            mensaje = "";
             Navegador.NavigateTo($"tramite/{t.Id}");
         }
         else 
         {
-            Console.WriteLine("No posee el permiso para modificar un Tramite");
+            mensaje = "No posee el permiso para modificar un Tramite";
+            Console.WriteLine(mensaje);
         }
     }
 
     void AgregarTramite()
     {
         if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteAlta) ){
+            mensaje = "";
             Navegador.NavigateTo("tramite");
         }
         else 
         {
-            Console.WriteLine("No posee el permiso para agregar un Tramite");
+            mensaje = "No posee el permiso para agregar un Tramite";
+            Console.WriteLine(mensaje);
         }
     }
     /* ------------------------------------- Intentamos hacer un dialogo de confirmacion como en la teroria, pero no sabemos pq no funciona asi que lo postergamos

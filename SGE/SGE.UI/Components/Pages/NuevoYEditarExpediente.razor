@@ -35,10 +35,12 @@
             </div>
         </div>
     </div>
+
+    <h6 class="text-danger text-center">@mensaje</h6>
 }
 else 
 {
-    <h3 class="text-danger text-center">Usted no esta logueado</h3>
+    <MensajeNoLogueado/>
 }
 
 <style>
@@ -77,6 +79,8 @@ else
     Expediente e = new Expediente();
     [Parameter] public int? Id {get; set; }
     
+    string mensaje = "";
+
     //[Parameter] public int IdUsuario {get; set; } = 1;
     bool _esNuevoExpediente = true;
     protected override void OnParametersSet()
@@ -94,14 +98,17 @@ else
 
     void Aceptar()
     {
+        bool exitoso = false;
         if (_esNuevoExpediente)
         {   
             try 
             {
                 expedienteAlta.Ejecutar(e, log.IdUsuario);
+                exitoso = true;
             }
             catch (Exception ex)
             {
+                mensaje = ex.ToString();
                 Console.WriteLine(ex);
             }
         }
@@ -110,14 +117,20 @@ else
             try 
             {
                 modificarExpediente.Ejecutar(e, log.IdUsuario);
+                exitoso = true;
             }
             catch (Exception ex)
             {
+                mensaje = ex.ToString();
                 Console.WriteLine(ex);
             }
         }
-        e = new Expediente();
-        Navegador.NavigateTo($"listarExpedientes");
+        if(exitoso)
+        {
+            mensaje = "";
+            e = new Expediente();
+            Navegador.NavigateTo($"listarExpedientes");
+        }
     }
 
 }

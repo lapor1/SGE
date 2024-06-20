@@ -7,69 +7,80 @@
 @inject Logger log
 @inject IServicioHash servicioHash
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inicio de Sesión</title>
-<style>
-    .main-container {
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-        width: 100%;
-        height: 100%; 
-    }
-    .login-container {
-        background: white; 
-        padding: 2rem;
-        border-radius: 10px; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        text-align: center; 
-    }
-    .login-container h1 {
-        margin-bottom: 1.5rem; 
-        color: #333; 
-    }
-    .form-control {
-        width: 100%; 
-        padding: 0.75rem; 
-        margin-bottom: 1rem; 
-        border: 1px solid #ccc; 
-        border-radius: 5px; 
-        box-sizing: border-box;
-        font-size: 1rem; 
-    }
-    .btn-primary {
-        background-color: #007bff; 
-        color: white; 
-        padding: 0.75rem; 
-        border: none; 
-        border-radius: 5px; 
-        cursor: pointer;
-        width: 100%;
-        font-size: 1rem;
-        transition: background-color 0.3s;
-    }
-    .btn-primary:hover {
-        background-color: #0056b3; 
-    }
-</style>
+@if(!log.Logueado)
+{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <style>
+        .main-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            width: 100%;
+            height: 100%; 
+        }
+        .login-container {
+            background: white; 
+            padding: 2rem;
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center; 
+        }
+        .login-container h1 {
+            margin-bottom: 1.5rem; 
+            color: #333; 
+        }
+        .form-control {
+            width: 100%; 
+            padding: 0.75rem; 
+            margin-bottom: 1rem; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box;
+            font-size: 1rem; 
+        }
+        .btn-primary {
+            background-color: #007bff; 
+            color: white; 
+            padding: 0.75rem; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; 
+        }
+    </style>
 
-<div class="main-container">
-    <div class="login-container">
-        <h3>Inicio de Sesión</h3>
-        <input placeholder="Email" @bind="_email" class="form-control">
-        <input type="password" placeholder="Contraseña" @bind="_contraseña" class="form-control">
+    <div class="main-container">
+        <div class="login-container">
+            <h3>Inicio de Sesión</h3>
+            <input placeholder="Email" @bind="_email" class="form-control">
+            <input type="password" placeholder="Contraseña" @bind="_contraseña" class="form-control">
 
-        <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+            <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+        
+        </div>
     </div>
-</div>
 
+    <h5 class="text-danger text-center">@mensaje</h5>
+}
+else 
+{
+    <h3>Usted ya está logueado </h3>
+}
 
 @code {
     //Usuario u = new Usuario();
     string? _email;
     string? _contraseña;
+
+    string mensaje = "";
 
     void Aceptar()
     {  
@@ -99,11 +110,13 @@
 
                     _email = null;
                     _contraseña = null;
+                    mensaje = "";
                     Navegador.NavigateTo("");
                 }
             }
         }
-
-        Console.WriteLine("Email o contraseña incorrecta");
+        
+        mensaje = "Email o contraseña incorrecta";
+        Console.WriteLine(mensaje);
     }
 }

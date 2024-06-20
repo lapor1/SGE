@@ -43,10 +43,12 @@
             </div>
         </div>
     </div>
+
+    <h6 class="text-danger text-center">@mensaje</h6>
 }
 else 
 {
-    <h3 class="text-danger text-center">Usted no esta logueado</h3>
+    <MensajeNoLogueado/>
 }
 
 <style>
@@ -83,6 +85,7 @@ else
 @code {
     //[Parameter] public bool SoloLectura { get; set; } = false;
     Tramite t = new Tramite();
+    string mensaje = "";
     [Parameter] public int? Id {get; set; }
     
     //[Parameter] public int IdUsuario {get; set; } = 1;
@@ -107,14 +110,17 @@ else
 */
     void Aceptar()
     {
+        bool exitoso = false;
         if (_esNuevoTramie)
         {   
             try 
             {
                 tramiteAlta.Ejecutar(t, log.IdUsuario);
+                exitoso = true;
             }
             catch (Exception ex)
             {
+                mensaje = ex.ToString();
                 Console.WriteLine(ex);
             }
         }
@@ -123,14 +129,20 @@ else
             try 
             {
                 modificarTramite.Ejecutar(t, log.IdUsuario);
+                exitoso = true;
             }
             catch (Exception ex)
             {
+                mensaje = ex.ToString();
                 Console.WriteLine(ex);
             }
         }
-        t = new Tramite();
-        Navegador.NavigateTo($"listarTramites");
+        if(exitoso)
+        {
+            mensaje = "";
+            t = new Tramite();
+            Navegador.NavigateTo($"listarTramites");
+        }
     }
 
 }

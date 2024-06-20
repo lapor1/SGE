@@ -1,6 +1,8 @@
-﻿namespace SGE.UI;
+﻿using SGE.Aplicacion.Interfaces;
 
-public class Logger
+namespace SGE.Aplicacion.Entidades;
+
+public class Logger : ILogger
 {
     public int IdUsuario { get; set; } = 0;
     public string? Nombre { get; set; } = "";

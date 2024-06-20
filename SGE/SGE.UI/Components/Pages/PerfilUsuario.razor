@@ -1,64 +1,80 @@
-﻿@rendermode InteractiveServer
+﻿@page "/perfilUsuario"
+@rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 @inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
 @inject Logger log
 @inject CasoDeUsoUsuarioModificacion modificarUsuario
 @inject IServicioHash servicioHash
 
-<h3>Perfil de Usuario</h3>
+<h3 class="text-primary">Perfil de Usuario</h3>
 
 @if (log.Logueado)
 {
-
-    @if (u != null)
-    {
-        <div>
-            <input placeholder="Nombre" @bind="u.Nombre" class="form-control">
-            <input placeholder="Apellido" @bind="u.Apellido" class="form-control">
-            <input type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectronico" class="form-control">
-            <input type="password" placeholder="Contraseña" @bind="ContraseñaNueva" class="form-control">
-
-            <h4>Permisos:</h4>
-            <ul>
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+            <div class="form-group mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input id="nombre" placeholder="Nombre" @bind="u.Nombre" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input id="apellido" placeholder="Apellido" @bind="u.Apellido" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <input id="correo" type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectronico" class="form-control">
+            </div>
+            <!--
+            <div class="form-group mb-3">
+                <label for="contrasena" class="form-label">Contraseña (no poner nada si no quiere cambiar)</label>
+                <input id="contrasena" type="password" placeholder="Contraseña" @bind="ContraseñaNueva" class="form-control">
+            </div>
+            -->
+            <h4 class="mt-4">Permisos:</h4>
+            <ul class="list-group list-group-flush">
                 @foreach (var permiso in u.ListaPermisos)
                 {
-                    <li>@permiso</li>
+                    <li class="list-group-item">@permiso</li>
                 }
             </ul>
         </div>
-
-        <button @onclick="EditarUsuario">Editar</button>
-    }
+        <div class="card-footer text-center">
+            <button @onclick="EditarUsuario" class="btn btn-primary">Confirmar</button>
+        </div>
+    </div>
 }
 else 
 {
-    <h3 class="text-danger text-center">Usted no esta logueado</h3>
+    <MensajeNoLogueado/>
 }
 
 @code 
 {
     Usuario u = new Usuario();
-    string? ContraseñaNueva;
+    //string? ContraseñaNueva;
     protected override void OnInitialized()
     {
-        var uE = consultarUsuario.Ejecutar(log.IdUsuario);
-        if(uE != null){
-            u = uE;
-            ContraseñaNueva = u.Contraseña;
+        var _usuarioEcontrado = consultarUsuario.Ejecutar(log.IdUsuario);
+        if(_usuarioEcontrado != null){
+            u = _usuarioEcontrado;
+            //ContraseñaNueva = u.Contraseña;
         }
     }
 
     void EditarUsuario()
     {
-        if(ContraseñaNueva != null)
+        /*
+        if(!string.IsNullOrEmpty(ContraseñaNueva))
         {
-            if(ContraseñaNueva != u.Contraseña)
-            {
-                 u.Contraseña = servicioHash.HashPassword(ContraseñaNueva);
-            }
-            modificarUsuario.Ejecutar(u);
+            u.Contraseña = servicioHash.HashPassword(ContraseñaNueva);   
         }
-        NavigationManager.NavigateTo("");
+        */
+        modificarUsuario.Ejecutar(u);
+
+        log.Nombre = u.Nombre;
+        log.IdUsuario = u.Id;
+        
         u = new Usuario();
+        NavigationManager.NavigateTo("");
     }
 }

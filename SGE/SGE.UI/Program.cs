@@ -75,21 +75,18 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
-
-var servicio = new ServicioAutorizacionProvisorio();
-var especificacion = new EspecificacionCambioDeEstado();
-ITramiteRepositorio repoT = new RepositorioTramiteSQL();
-IExpedienteRepositorio repoE = new RepositorioExpedienteSQL();
-var validadorTramite = new TramiteValidador();
-var validadorExpediente = new ExpedienteValidador();
-
-var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
-var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
-var listExpediente = new CasoDeUsoListarExpedientes(repoE);
-
     
 if (SGESqlite.Inicializar()) {
-    //SGESqlite.AgregarUnosTramitesYExpedientes();
+
+    var servicio = new ServicioAutorizacion(new RepositorioUsuarioSQL());
+    var especificacion = new EspecificacionCambioDeEstado();
+    ITramiteRepositorio repoT = new RepositorioTramiteSQL();
+    IExpedienteRepositorio repoE = new RepositorioExpedienteSQL();
+    var validadorTramite = new TramiteValidador();
+    var validadorExpediente = new ExpedienteValidador();
+    var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
+    var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
+
     SGESqlite.CrearAdmin();
 
     Random random = new Random();
@@ -133,7 +130,6 @@ if (SGESqlite.Inicializar()) {
             Console.WriteLine(ex.Message);
         }
     }
-
 }
 
 app.Run();

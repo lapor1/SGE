@@ -3,19 +3,67 @@
 @inject NavigationManager Navegador
 @inject Logger log
 
-<h1> Bienvenido al Sistema de Gestion de Expedeintes</h1>
-
 @if(log.Logueado)
 {
-    <h3> Se ha logueado el usuario @log.Nombre (con id = @log.IdUsuario) </h3>
+    <div class="container">
+        <h3> ¡Bienvenido usuario: @log.Nombre al sistema SGE! </h3>
 
-    <button class="btn btn-primary" @onclick="Salir">Salir</button>
+        <div class="card-footer text-center">
+            <p> Para editar el perfil pulse el boron Editar </p>
+            <button @onclick="EditarPerfil" class="btn btn-primary">Editar</button>
+        </div>
 
-    <PerfilUsuario/>
+        <div class="card-footer text-center">
+            <p> Para cerrar sesion pulse el boton Salir </p>
+            <button @onclick="Salir" class="btn btn-primary">Salir</button>
+        </div>
+    </div>
 }
 else{
-    <h3> Usted No esta logueado </h3>
+    <div class="container">
+        <h1>¡Bienvenido al Sistema de Gestión de Expedientes!</h1>
+        <p>Gestiona tus documentos de manera eficiente y segura.</p>
+        <p>Para ingresar presione en la barra lateral el boton Login</p>
+        <p>En caso de ser un usuario nuevo debera registrarse, puede hacerlo con el boton Registrarse</p>
+        <p>Usted no se encuentra Logueado en el sistema</p>
+    </div>
 }
+
+<style>
+    .container {
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        box-shadow: 8px 8px 20px #d1d1d1, -8px -8px 20px #ffffff;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.5rem;
+        color: #4a4a4a;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        font-size: 1.2rem;
+        color: #616161;
+        margin-bottom: 1rem;
+    }
+    .button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        box-shadow: 3px 3px 10px #b8b8b8, -3px -3px 10px #ffffff;
+        transition: background-color 0.3s ease;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+</style>
 
 @code {
     void Salir()
@@ -26,5 +74,10 @@ else{
         log.PermisoLectura = false; 
         
         Navegador.NavigateTo("/login");
+    }
+
+    void EditarPerfil()
+    {
+        Navegador.NavigateTo("/perfilUsuario");
     }
 }
