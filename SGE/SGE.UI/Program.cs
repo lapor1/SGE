@@ -15,13 +15,15 @@ using SGE.UI.Components.Pages;
 
 using SGE.UI;
 
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// ------------------ Agregamos servicios (casos de uso, repositorios, autentificacion, validacion) ------------------
+// ------------------ Contenedor de Inyección de Dependencias (casos de uso, repositorios, autentificacion, validacion) ------------------
 
 // Casos De Uso Expedientes
 builder.Services.AddTransient<CasoDeUsoExpedienteAlta>();
@@ -51,8 +53,8 @@ builder.Services.AddScoped<TramiteValidador>();
 builder.Services.AddScoped<ExpedienteValidador>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();
 
+// Loggers
 builder.Services.AddSingleton<Logger>();
-//builder.Services.AddTransient<ServicioAutentificacion>();
 
 // Repositorios
 builder.Services.AddScoped<IExpedienteRepositorio, RepositorioExpedienteSQL>();
