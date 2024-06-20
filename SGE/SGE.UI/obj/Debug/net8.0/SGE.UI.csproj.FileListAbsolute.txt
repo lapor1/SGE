@@ -118,7 +118,6 @@ C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Deb
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SGE.UI.props
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SGE.UI.props
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\DialogoConfirmacion.razor.rz.scp.css
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\pjcor\OneDrive\Escritorio\Csharp otra y otra vez\SGE\SGE\SGE.UI\obj\Debug\net8.0\scopedcss\bundle\SGE.UI.styles.css

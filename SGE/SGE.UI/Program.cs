@@ -27,6 +27,9 @@ builder.Services.AddRazorComponents()
 // Casos De Uso Expedientes
 builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
 builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
+builder.Services.AddTransient<CasoDeUsoExpedienteModificacion>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConsultaPorId>();
+builder.Services.AddTransient<CasoDeUsoListarExpediente>();
 
 // Casos De Uso Tramite
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
