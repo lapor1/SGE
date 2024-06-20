@@ -1,0 +1,102 @@
+@page "/listarExpedientes"
+@rendermode InteractiveServer
+@inject CasoDeUsoListarExpedientes listarExpediente
+@inject IJSRuntime JsRuntime;
+@inject CasoDeUsoExpedienteBaja expedienteBaja
+@inject NavigationManager Navegador
+@inject Logger log
+@inject IServicioAutorizacion ServicioAutorizacion
+
+@if(log.Logueado)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Caratula</th>
+                <th>FyH creacion</th>
+                <th>FyH modificacion</th>
+                <th>Id de usuario</th>
+                <td>Estado del Expediente</td>
+                <th>Accion</th>
+            </tr>
+        </thead>
+            <tbody>
+            @foreach (var e in lista)
+            {
+                    <tr>
+                        <td>@e.Id</td>
+                        <td>@e.Caratula</td>
+                        <td>@e.FechaHoraCreacion</td>
+                        <td>@e.FechaHoraModificacion</td>
+                        <td>@e.IdUsuarioUM</td>
+                        <td>@e.ExpedienteEstado</td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="()=>ModificarExpediente(e)">
+                                    Editar
+                                </button>
+                                <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(e)">
+                                    Eliminar
+                                </button>
+                            </td>
+                                
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-danger" @onclick="()=>AgregarExpediente()">
+        Nuevo
+    </button>
+}
+else
+{
+    <h3>No se ha logueado</h3>
+}
+
+@code {
+    [Parameter]
+    public bool SoloLectura { get; set; } = false;
+    List<Expediente> lista = new List<Expediente>();
+    protected override void OnInitialized()
+    {
+        //if (listarTramites != null)
+        //{
+            lista = listarExpediente.Ejecutar();
+        //}
+    }
+    
+    private void ConfirmarEliminacion(Expediente e)
+    {
+        if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.ExpedienteBaja) ){
+            expedienteBaja.Ejecutar(e.Id, log.IdUsuario);
+            lista = listarExpediente.Ejecutar();
+        }
+        else 
+        {
+            Console.WriteLine("No posse el permiso para dar de baja un Expediente");
+        }
+    }
+
+    void ModificarExpediente(Expediente e)
+    {
+        if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.ExpedienteModificacion) ){
+            Navegador.NavigateTo($"expediente/{e.Id}");
+        }
+        else 
+        {
+            Console.WriteLine("No posse el permiso para modificar un Expediente");
+        }
+    }
+
+    void AgregarExpediente()
+    {
+        if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.ExpedienteAlta) ){
+            Navegador.NavigateTo("expediente");
+        }
+        else 
+        {
+            Console.WriteLine("No posse el permiso para agregar un Expediente");
+        }
+    }
+}

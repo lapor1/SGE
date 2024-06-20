@@ -23,10 +23,12 @@ builder.Services.AddRazorComponents()
 
 // ------------------ Agregamos servicios (casos de uso, repositorios, autentificacion, validacion) ------------------
 
-
 // Casos De Uso Expedientes
-builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
+builder.Services.AddTransient<CasoDeUsoExpedienteAlta>();
 builder.Services.AddTransient<CasoDeUsoExpedienteBaja>();
+builder.Services.AddTransient<CasoDeUsoExpedienteModificacion>();
+builder.Services.AddTransient<CasoDeUsoExpedienteConsultaPorId>();
+builder.Services.AddTransient<CasoDeUsoListarExpedientes>();
 
 // Casos De Uso Tramite
 builder.Services.AddTransient<CasoDeUsoTramiteAlta>();
@@ -37,13 +39,15 @@ builder.Services.AddTransient<CasoDeUsoListarTramites>();
 
 // Casos De Uso Usuarios
 builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
+//builder.Services.AddTransient<CasoDeUsoUsuarioBaja>();
 builder.Services.AddTransient<CasoDeUsoUsuarioModificacion>();
 builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
-builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
+//builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
 // Servicios
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
 builder.Services.AddScoped<TramiteValidador>();
+builder.Services.AddScoped<ExpedienteValidador>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();
 
 builder.Services.AddSingleton<Logger>();

@@ -90,7 +90,7 @@ else
     private void ConfirmarEliminacion(Tramite t)
     {
         if( ServicioAutorizacion.PoseeElPermiso(log.IdUsuario, Permiso.TramiteBaja) ){
-            tramiteBaja.Ejecutar(t.Id, 1);
+            tramiteBaja.Ejecutar(t.Id, log.IdUsuario);
             lista = listarTramites.Ejecutar();
         }
         else 

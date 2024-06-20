@@ -1,0 +1,123 @@
+@page "/expediente/{Id:int?}"
+@rendermode InteractiveServer
+@inject CasoDeUsoExpedienteConsultaPorId consultarExpediente
+@inject CasoDeUsoExpedienteModificacion modificarExpediente
+@inject CasoDeUsoExpedienteAlta expedienteAlta
+@inject NavigationManager Navegador
+@inject Logger log
+
+@if (log.Logueado)
+{
+    @if (_esNuevoExpediente)
+    {
+        <h3 class="text-primary">Agregando un nuevo Expediente</h3>
+    }
+    else
+    {
+        <h3 class="text-primary">Modificando al Expediente "@e.Id"</h3>
+    }
+
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="expediente" class="form-label">Caratula</label>
+                <input id="expediente" placeholder="Caratula" @bind="e.Caratula" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label for="tipoTramite" class="form-label">Estado del expediente</label>
+                <input id="tipoTramite" placeholder="Estado del expediente" @bind="e.ExpedienteEstado" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
+            </div>
+        </div>
+    </div>
+}
+else 
+{
+    <h3 class="text-danger text-center">Usted no esta logueado</h3>
+}
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-label {
+        font-weight: bold;
+    }
+    .form-control {
+        box-shadow: none;
+        border-radius: 4px;
+    }
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .text-danger {
+        font-weight: bold;
+    }
+</style>
+
+@code {
+    //[Parameter] public bool SoloLectura { get; set; } = false;
+    Expediente e = new Expediente();
+    [Parameter] public int? Id {get; set; }
+    
+    //[Parameter] public int IdUsuario {get; set; } = 1;
+    bool _esNuevoExpediente = true;
+    protected override void OnParametersSet()
+    {
+        if(Id != null)
+        {
+           var e_hallado = consultarExpediente.Ejecutar(Id.Value);
+           if (e_hallado != null)
+           {
+               e = e_hallado;
+               _esNuevoExpediente = false;
+           }
+        }
+    }
+
+    void Aceptar()
+    {
+        if (_esNuevoExpediente)
+        {   
+            try 
+            {
+                expedienteAlta.Ejecutar(e, log.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        else
+        {
+            try 
+            {
+                modificarExpediente.Ejecutar(e, log.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        e = new Expediente();
+        Navegador.NavigateTo($"listarExpedientes");
+    }
+
+}

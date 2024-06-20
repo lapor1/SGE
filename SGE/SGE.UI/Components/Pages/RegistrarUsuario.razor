@@ -2,9 +2,10 @@
 @rendermode InteractiveServer
 @inject CasoDeUsoUsuarioAlta usuarioAlta
 @inject NavigationManager Navegador
+@inject Logger log
 
-
-
+@if(!log.Logueado)
+{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
@@ -77,14 +78,14 @@
         <!-- Botón para enviar el formulario -->
         <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
     </div>
-
+}
 
 @code {
     Usuario u = new Usuario();
 
     void Aceptar()
     {
-        u.Contraseña = GetSHA256Hash(u.Contraseña);
+        //u.Contraseña = GetSHA256Hash(u.Contraseña);
         usuarioAlta.Ejecutar(u);
         Navegador.NavigateTo("login");
     }

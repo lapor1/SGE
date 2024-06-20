@@ -3,7 +3,7 @@
 @inject NavigationManager Navegador
 @inject Logger log
 
-@if(Logueado)
+@if(log.Logueado)
 {
     <h3> Se ha logueado el usuario @log.Nombre (con id = @log.IdUsuario) </h3>
 
@@ -14,10 +14,10 @@ else{
 }
 
 @code {
-    bool Logueado = false;
+    //bool Logueado = false;
 
     [Parameter] public int? id {get; set;}
-
+/*
     protected override void OnParametersSet()
     {
         if (log.Logueado)
@@ -25,10 +25,10 @@ else{
             Logueado = true;
         }
     }
-
+*/
     void Salir()
     {
-        Logueado = false;
+        //Logueado = false;
 
         log.IdUsuario = 0; 
         log.Nombre = ""; 
