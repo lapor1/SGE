@@ -76,4 +76,19 @@ public class RepositorioUsuarioSQL : IUsuarioRepositorio
             return DB.Usuarios.Find(id);  
         }
     }
+
+    public Usuario? GetUsuarioPorEmail(string Email)
+    {
+        using (var DB = new SGEContext())
+        { 
+            foreach(var u in DB.Usuarios)
+            {
+                if(u.CorreoElectronico == Email)
+                {
+                    return u;
+                }
+            }
+        }
+        return null;
+    }
 }

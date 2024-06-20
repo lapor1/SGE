@@ -2,6 +2,8 @@
 @rendermode InteractiveServer
 @inject NavigationManager Navegador
 @inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
+@inject CasoDeUsoUsuarioConsultaPorEmail consultarUsuarioEmail
+
 @inject Logger log
 @inject IServicioHash servicioHash
 
@@ -75,9 +77,8 @@
 <div class="main-container">
     <div class="login-container">
         <h3>Inicio de Sesión</h3>
-        <input placeholder="Id" @bind="u.Id" class="form-control">
-        <input placeholder="Email" @bind="u.CorreoElectronico" class="form-control">
-        <input type="password" placeholder="Contraseña" @bind="u.Contraseña" class="form-control">
+        <input placeholder="Email" @bind="_email" class="form-control">
+        <input type="password" placeholder="Contraseña" @bind="_contraseña" class="form-control">
 
         <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
     </div>
@@ -85,50 +86,43 @@
 
 
 @code {
-    Usuario u = new Usuario();
+    //Usuario u = new Usuario();
+    string? _email;
+    string? _contraseña;
+
     void Aceptar()
     {  
-        Usuario? uR = consultarUsuario.Ejecutar(u.Id);
-        if(uR != null)
+        Usuario? _usuarioEncontrado = consultarUsuarioEmail.Ejecutar(_email);
+
+        if(_usuarioEncontrado != null)
         {
-            if(u.Contraseña != null)
+            if(_contraseña != null)
             {
-                if(uR.Contraseña == servicioHash.HashPassword(u.Contraseña))
+                // Checkeo de contraseña
+                if(_usuarioEncontrado.Contraseña == servicioHash.HashPassword(_contraseña))
                 {
-                    log.IdUsuario = u.Id;
-                    log.Nombre = uR.Nombre;
+                    // Actualizo al usuario Logueado
+                    log.IdUsuario = _usuarioEncontrado.Id;
+                    log.Nombre = _usuarioEncontrado.Nombre;
                     log.Logueado = true;
 
-                    //autorizacion.IsLoggedIn = true;
-                    
-                    // Pone al Admin con permisos de escritura
-                    if(u.Id == 1)
+                    if(_usuarioEncontrado.Id == 1)  //deberia hacer un servicio??
                     {
-                        log.SoloLectura = false;
+                        log.PermisoLectura = true;
                         Console.WriteLine("Usuario logueado con permisos de lectura y escritura");
                     }
                     else{
+                        log.PermisoLectura = false;
                         Console.WriteLine("Usuario logueado con permisos de solo lectura");
                     }
 
-                    u = new Usuario();
+                    _email = null;
+                    _contraseña = null;
+                    Navegador.NavigateTo($"/{_usuarioEncontrado.Id}");
+                }
+            }
+        }
 
-                    Navegador.NavigateTo($"/{u.Id}");
-                }
-                else
-                {
-                    Console.WriteLine("Contraseña incorrecta");
-                }
-            }
-            else 
-            {
-                Console.WriteLine("Contraseña vacia");
-            }
-            
-        }
-        else
-        {
-            Console.WriteLine("Usuario no encontrado");
-        }
+        Console.WriteLine("Email o contraseña incorrecta");
     }
 }

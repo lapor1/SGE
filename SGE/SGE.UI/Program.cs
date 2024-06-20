@@ -44,6 +44,7 @@ builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
 builder.Services.AddTransient<CasoDeUsoUsuarioBaja>();
 builder.Services.AddTransient<CasoDeUsoUsuarioModificacion>();
 builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
+builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorEmail>();
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
 // Servicios

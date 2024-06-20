@@ -9,5 +9,6 @@ public interface IUsuarioRepositorio
     public bool EliminarUsuarioBaja(int idUsuario);
     bool ModificarUsuario(Usuario usuario);
     public Usuario? GetUsuario(int id);
+    public Usuario? GetUsuarioPorEmail(string Email);
     List<Usuario> ListarUsuarios();
 }
