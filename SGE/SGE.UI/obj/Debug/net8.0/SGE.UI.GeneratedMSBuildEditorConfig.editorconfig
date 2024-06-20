@@ -58,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOdWV2b1lFZGl0YXJVc3VhcmlvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/PerfilUsuario.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXJmaWxVc3VhcmlvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Datos backUp/Facultad/2024 I/Net - Taller de Lenguaje dotNet/tp1 SGE/SGE/SGE.UI/Components/Pages/RegistrarUsuario.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RyYXJVc3VhcmlvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

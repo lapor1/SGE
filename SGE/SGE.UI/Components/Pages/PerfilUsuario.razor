@@ -1,0 +1,65 @@
+﻿@page "/perfilusuario"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject CasoDeUsoUsuarioConsultaPorId consultarUsuario
+@inject Logger log
+@inject CasoDeUsoUsuarioModificacion modificarUsuario
+@inject IServicioHash servicioHash
+
+<h3>Perfil de Usuario</h3>
+
+@if (log.Logueado)
+{
+
+    @if (u != null)
+    {
+        <div>
+            <input placeholder="Nombre" @bind="u.Nombre" class="form-control">
+            <input placeholder="Apellido" @bind="u.Apellido" class="form-control">
+            <input type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectronico" class="form-control">
+            <input type="password" placeholder="Contraseña" @bind="ContraseñaNueva" class="form-control">
+
+            <h4>Permisos:</h4>
+            <ul>
+                @foreach (var permiso in u.ListaPermisos)
+                {
+                    <li>@permiso</li>
+                }
+            </ul>
+        </div>
+
+        <button @onclick="EditarUsuario">Editar</button>
+    }
+}
+else 
+{
+    <h3 class="text-danger text-center">Usted no esta logueado</h3>
+}
+
+@code 
+{
+    Usuario u = new Usuario();
+    string? ContraseñaNueva;
+    protected override void OnInitialized()
+    {
+        var uE = consultarUsuario.Ejecutar(log.IdUsuario);
+        if(uE != null){
+            u = uE;
+            ContraseñaNueva = u.Contraseña;
+        }
+    }
+
+    void EditarUsuario()
+    {
+        if(ContraseñaNueva != null)
+        {
+            if(ContraseñaNueva != u.Contraseña)
+            {
+                 u.Contraseña = servicioHash.HashPassword(ContraseñaNueva);
+            }
+            modificarUsuario.Ejecutar(u);
+        }
+        NavigationManager.NavigateTo($"perfilusuario");
+        u = new Usuario();
+    }
+}

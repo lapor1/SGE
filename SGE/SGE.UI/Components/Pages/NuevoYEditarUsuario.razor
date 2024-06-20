@@ -120,6 +120,7 @@ else
     bool[] isCkecked = new bool[]{false, false, false, false, false, false};
 
     [Parameter] public int? Id {get; set; }
+    [Parameter] public bool? puede {get; set; }
     bool _esNuevoUsuario = true;
 
     protected override void OnParametersSet()
