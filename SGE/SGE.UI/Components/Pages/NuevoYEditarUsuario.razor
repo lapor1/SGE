@@ -5,6 +5,7 @@
 @inject CasoDeUsoUsuarioAlta usuarioAlta
 @inject NavigationManager Navegador
 @inject Logger log
+@inject IServicioHash servicioHash
 
 @if (log.Logueado && (log.IdUsuario == 1))
 {
@@ -131,6 +132,8 @@ else
                u = u_hallado;
                _esNuevoUsuario = false;
 
+               u.Contraseña = null;
+
                isCkecked[0] = u.ListaPermisos.Contains(Permiso.ExpedienteAlta);
                isCkecked[1] = u.ListaPermisos.Contains(Permiso.ExpedienteBaja);
                isCkecked[2] = u.ListaPermisos.Contains(Permiso.ExpedienteModificacion);
@@ -143,16 +146,24 @@ else
 
     void Aceptar()
     {
-        if (_esNuevoUsuario)
+        if(u.Contraseña != null)
         {
-            usuarioAlta.Ejecutar(u);
+            u.Contraseña = servicioHash.HashPassword(u.Contraseña);
+            if (_esNuevoUsuario)
+            {
+                usuarioAlta.Ejecutar(u);
+            }
+            else
+            {
+                modificarUsuario.Ejecutar(u);
+            }
+            u = new Usuario();
+            Navegador.NavigateTo("listarUsuarios");
         }
         else
         {
-            modificarUsuario.Ejecutar(u);
+            Console.WriteLine("Contraseña vacia");
         }
-        u = new Usuario();
-        Navegador.NavigateTo("listarUsuarios");
     }
 
     void ActualizarPermiso(Permiso p, ChangeEventArgs e)

@@ -46,6 +46,7 @@ builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
 // Servicios
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
+builder.Services.AddScoped<IServicioHash, ServicioHash>();
 builder.Services.AddScoped<TramiteValidador>();
 builder.Services.AddScoped<ExpedienteValidador>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();

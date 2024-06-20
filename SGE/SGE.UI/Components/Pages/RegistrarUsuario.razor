@@ -3,6 +3,7 @@
 @inject CasoDeUsoUsuarioAlta usuarioAlta
 @inject NavigationManager Navegador
 @inject Logger log
+@inject IServicioHash servicioHash
 
 @if(!log.Logueado)
 {
@@ -85,8 +86,15 @@
 
     void Aceptar()
     {
-        //u.Contraseña = GetSHA256Hash(u.Contraseña);
-        usuarioAlta.Ejecutar(u);
-        Navegador.NavigateTo("login");
+        if(u.Contraseña != null)
+        {
+            u.Contraseña = servicioHash.HashPassword(u.Contraseña);
+            usuarioAlta.Ejecutar(u);
+            Navegador.NavigateTo("login");
+        }
+        else 
+        {
+            Console.WriteLine("Contraseña vacia");
+        }
     }
 }
