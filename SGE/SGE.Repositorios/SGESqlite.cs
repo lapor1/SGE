@@ -84,7 +84,7 @@ public class SGESqlite
             Id = 1,
             Nombre = "Admin",
             Apellido = "Admin",
-            CorreoElectrónico = "Admin@gmail.com",
+            CorreoElectronico = "Admin@gmail.com",
             Contraseña = hashedPassword,
             ListaPermisos = permisosAdmin
         };

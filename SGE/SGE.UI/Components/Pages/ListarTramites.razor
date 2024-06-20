@@ -32,14 +32,14 @@
                         <td>@t.FechaHoraCreacion</td>
                         <td>@t.FechaHoraModificacion</td>
                         
-                            <td>
-                                <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
-                                    Editar
-                                </button>
-                                <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
-                                    Eliminar
-                                </button>
-                            </td>
+                        <td>
+                            <button class="btn btn-primary" @onclick="()=>ModificarTramite(t)">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(t)">
+                                Eliminar
+                            </button>
+                        </td>
                                 
                 </tr>
             }
@@ -58,8 +58,6 @@ else
 
 
 @code {
-    [Parameter]
-    public bool SoloLectura { get; set; } = false;
     List<Tramite> lista = new List<Tramite>();
     protected override void OnInitialized()
     {
@@ -95,7 +93,7 @@ else
         }
         else 
         {
-            Console.WriteLine("No posse el permiso para dar de baja un Tramite");
+            Console.WriteLine("No posee el permiso para dar de baja un Tramite");
         }
     }
 
@@ -106,7 +104,7 @@ else
         }
         else 
         {
-            Console.WriteLine("No posse el permiso para modificar un Tramite");
+            Console.WriteLine("No posee el permiso para modificar un Tramite");
         }
     }
 
@@ -117,7 +115,7 @@ else
         }
         else 
         {
-            Console.WriteLine("No posse el permiso para agregar un Tramite");
+            Console.WriteLine("No posee el permiso para agregar un Tramite");
         }
     }
 }

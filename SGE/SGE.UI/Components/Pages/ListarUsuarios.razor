@@ -1,0 +1,86 @@
+﻿@page "/listarUsuarios"
+@rendermode InteractiveServer
+@inject IJSRuntime JsRuntime;
+@inject NavigationManager Navegador
+@inject Logger log
+@inject CasoDeUsoListarUsuarios listarUsuarios
+@inject CasoDeUsoUsuarioBaja usuarioBaja
+@inject CasoDeUsoUsuarioModificacion usuarioModificacion
+
+@if(log.Logueado)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>CorreoE</th>
+                <th>Contraseña</th>
+                <th>Permisos</th>
+                @if(log.IdUsuario == 1)
+                {
+                    <th>Accion</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in lista)
+            {
+                    <tr>
+                        <td>@u.Id</td>
+                        <td>@u.Nombre</td>
+                        <td>@u.Apellido</td>
+                        <td>@u.CorreoElectronico</td>  
+                        <td>@u.Contraseña</td>  
+                        <td>
+                            @foreach (var p in u.ListaPermisos)        
+                            {
+                                <ul>
+                                    @p
+                                </ul>
+                            }
+                        </td>
+                        @if(log.IdUsuario == 1)
+                        {
+                            <td>
+                                <button class="btn btn-danger" @onclick="()=>Editar(u)">
+                                    Editar
+                                </button>
+                                <button class="btn btn-danger" @onclick="()=>Eliminar(u)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        }          
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h3>No se ha logueado</h3>
+}
+
+@code
+{
+    List<Usuario> lista = new List<Usuario>();
+    
+    protected override void OnInitialized()
+    {
+            lista = listarUsuarios.Ejecutar();
+    }
+
+    void Eliminar(Usuario u)
+    {
+        usuarioBaja.Ejecutar(u.Id);
+        lista = listarUsuarios.Ejecutar();
+    }
+
+    void Editar(Usuario u)
+    {
+        usuarioModificacion.Ejecutar(u);
+        Navegador.NavigateTo($"usuario/{u.Id}");
+    }
+}

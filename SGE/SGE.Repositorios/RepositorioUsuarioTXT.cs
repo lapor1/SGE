@@ -14,7 +14,7 @@ public class RepositorioUsuarioTXT
         sw.WriteLine(usuario.Id);
         sw.WriteLine(usuario.Nombre);
         sw.WriteLine(usuario.Apellido);
-        sw.WriteLine(usuario.CorreoElectrónico);
+        sw.WriteLine(usuario.CorreoElectronico);
         sw.WriteLine(usuario.Contraseña);
         sw.WriteLine(usuario.ListaPermisos.Count);
         foreach (var p in usuario.ListaPermisos)
@@ -50,7 +50,7 @@ public class RepositorioUsuarioTXT
             if (listaUsuarios[i].Id == usuario.Id) {
                 listaUsuarios[i].Nombre = usuario.Nombre;
                 listaUsuarios[i].Apellido = usuario.Apellido;
-                listaUsuarios[i].CorreoElectrónico = usuario.CorreoElectrónico;
+                listaUsuarios[i].CorreoElectronico = usuario.CorreoElectronico;
                 listaUsuarios[i].Contraseña = usuario.Contraseña;
                 listaUsuarios[i].ListaPermisos = usuario.ListaPermisos;
                 encontrado = true;
@@ -83,7 +83,7 @@ public class RepositorioUsuarioTXT
             sw.WriteLine(listaUsuarios[i].Id);
             sw.WriteLine(listaUsuarios[i].Nombre);
             sw.WriteLine(listaUsuarios[i].Apellido);
-            sw.WriteLine(listaUsuarios[i].CorreoElectrónico);
+            sw.WriteLine(listaUsuarios[i].CorreoElectronico);
             sw.WriteLine(listaUsuarios[i].Contraseña);
             sw.WriteLine(listaUsuarios[i].ListaPermisos.Count);
             foreach (var p in listaUsuarios[i].ListaPermisos)
@@ -113,7 +113,7 @@ public class RepositorioUsuarioTXT
         usuario.Id = int.Parse(sr.ReadLine() ?? "");
         usuario.Nombre = sr.ReadLine() ?? "";
         usuario.Apellido = sr.ReadLine() ?? "";
-        usuario.CorreoElectrónico = sr.ReadLine() ?? "";
+        usuario.CorreoElectronico = sr.ReadLine() ?? "";
         usuario.Contraseña = sr.ReadLine() ?? "";
         int count = int.Parse(sr.ReadLine() ?? "");
         for(int i = 0; i < count; i++)

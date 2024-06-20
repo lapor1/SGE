@@ -39,10 +39,10 @@ builder.Services.AddTransient<CasoDeUsoListarTramites>();
 
 // Casos De Uso Usuarios
 builder.Services.AddTransient<CasoDeUsoUsuarioAlta>();
-//builder.Services.AddTransient<CasoDeUsoUsuarioBaja>();
+builder.Services.AddTransient<CasoDeUsoUsuarioBaja>();
 builder.Services.AddTransient<CasoDeUsoUsuarioModificacion>();
 builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
-//builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
+builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
 // Servicios
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();

@@ -6,7 +6,7 @@
 @inject NavigationManager Navegador
 @inject Logger log
 
-@if (log.Logueado)
+@if (log.Logueado && (log.IdUsuario == 1))
 {
     @if (_esNuevoUsuario)
     {
@@ -32,7 +32,7 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="correo" class="form-label">Correo Electrónico</label>
-                <input id="correo" type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectrónico" class="form-control" />
+                <input id="correo" type="email" placeholder="Correo Electrónico" @bind="u.CorreoElectronico" class="form-control" />
             </div>
             <div class="col-md-6">
                 <label for="contraseña" class="form-label">Contraseña</label>
@@ -49,7 +49,7 @@
 }
 else 
 {
-    <h3 class="text-danger text-center">Usted no esta logueado</h3>
+    <h3 class="text-danger text-center">Usted no esta logueado o no puede acceder</h3>
 }
 
 <style>

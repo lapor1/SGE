@@ -24,21 +24,21 @@
             <tbody>
             @foreach (var e in lista)
             {
-                    <tr>
-                        <td>@e.Id</td>
-                        <td>@e.Caratula</td>
-                        <td>@e.FechaHoraCreacion</td>
-                        <td>@e.FechaHoraModificacion</td>
-                        <td>@e.IdUsuarioUM</td>
-                        <td>@e.ExpedienteEstado</td>
-                            <td>
-                                <button class="btn btn-primary" @onclick="()=>ModificarExpediente(e)">
-                                    Editar
-                                </button>
-                                <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(e)">
-                                    Eliminar
-                                </button>
-                            </td>
+                <tr>
+                    <td>@e.Id</td>
+                    <td>@e.Caratula</td>
+                    <td>@e.FechaHoraCreacion</td>
+                    <td>@e.FechaHoraModificacion</td>
+                    <td>@e.IdUsuarioUM</td>
+                    <td>@e.ExpedienteEstado</td>
+                        <td>
+                            <button class="btn btn-primary" @onclick="()=>ModificarExpediente(e)">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(e)">
+                                Eliminar
+                            </button>
+                        </td>
                                 
                 </tr>
             }
@@ -55,8 +55,6 @@ else
 }
 
 @code {
-    [Parameter]
-    public bool SoloLectura { get; set; } = false;
     List<Expediente> lista = new List<Expediente>();
     protected override void OnInitialized()
     {
