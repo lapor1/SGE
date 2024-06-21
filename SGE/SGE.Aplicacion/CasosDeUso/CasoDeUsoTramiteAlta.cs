@@ -7,7 +7,7 @@ using SGE.Aplicacion.Validadores;
 
 namespace SGE.Aplicacion.CasosDeUso;
 
-public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, TramiteValidador validador)
+public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, TramiteValidador validador, ExpedienteValidador validadorE)
 {
     private static int id = 0;  // buscar en el repositorio el id maximo
 
@@ -45,13 +45,16 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
 
                 repoT.AgregarTramiteAlta( tramite ); // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
 
-                Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
+                var casoDeUsoExpedienteConsultaPorId =  new CasoDeUsoExpedienteConsultaPorId(repoE);
+                var casoDeUsoExpedienteModificacion =  new CasoDeUsoExpedienteModificacion(repoE, autorizacion, validadorE);
+
+                Expediente? expediente = casoDeUsoExpedienteConsultaPorId.Ejecutar( tramite.IdExpediente );
                 if ( expediente != null ){
-                    //if ( expediente.ListaTramites != null )
-                        expediente.ListaTramites.Add(tramite);
+                     expediente.ListaTramites.Add(tramite.Id);
+                     casoDeUsoExpedienteModificacion.Ejecutar(expediente, 1);
                 }
                 else {
-                    //throw new Exception( "No existe expediente" );
+                    throw new Exception( "No se encontró expediente para ascociar el tramite" );
                 }
             }
             else

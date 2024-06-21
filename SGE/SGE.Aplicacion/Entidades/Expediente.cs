@@ -14,7 +14,7 @@ public class Expediente
     public int IdUsuarioUM {get; set;}
     public EstadoExpediente ExpedienteEstado {get; set;}
 
-    public List<Tramite> ListaTramites {get; set;} = new List<Tramite>();
+    public List<int> ListaTramites {get; set;} = new List<int>();
 
     public override string ToString() => $"Expediente = {Id}\nCaratula = {Caratula}\nEstado del Expediente = {ExpedienteEstado}\nFecha y hora creacion = {FechaHoraCreacion:dd/MM/yy HH:mm}\nFecha y hora modificacion = {FechaHoraModificacion:dd/MM/yy HH:mm}\nId Usuario = {IdUsuarioUM}\n";
 }

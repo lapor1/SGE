@@ -23,7 +23,7 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IServicioAutorizaci
             //excepcion.BajaTramite(encontrado);
 
             if (!encontrado) {
-                throw new RepositorioException("El tramite no se puede eliminar porque no existe en el respositorio");
+                throw new RepositorioException("El tramite no se puede modificar porque no existe en el respositorio");
             }
             else {
                 if(tramite != null){
@@ -33,8 +33,7 @@ public class CasoDeUsoTramiteBaja(ITramiteRepositorio repoT, IServicioAutorizaci
 
                     Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
                     if ( expediente != null ){
-                        //if ( expediente.ListaTramites != null )
-                            expediente.ListaTramites.Remove(tramite);
+                        expediente.ListaTramites.Remove(tramite.Id);
                     }
                 }
             }

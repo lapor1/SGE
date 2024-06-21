@@ -17,6 +17,7 @@
                 <th>FyH creacion</th>
                 <th>FyH modificacion</th>
                 <th>Id de usuario</th>
+                <th>Tramites asociados</th>
                 <td>Estado del Expediente</td>
                 <th>Accion</th>
             </tr>
@@ -30,6 +31,14 @@
                     <td>@e.FechaHoraCreacion</td>
                     <td>@e.FechaHoraModificacion</td>
                     <td>@e.IdUsuarioUM</td>
+                    <td>
+                        @foreach (var idT in e.ListaTramites)
+                        {
+                            <ul>
+                            @idT
+                            </ul>
+                        }
+                    </td>
                     <td>@e.ExpedienteEstado</td>
                         <td>
                             <button class="btn btn-primary" @onclick="()=>ModificarExpediente(e)">

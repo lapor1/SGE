@@ -11,36 +11,55 @@ public class ServicioActualizarEstado(IExpedienteRepositorio repoE, ITramiteRepo
 {
     public void Ejecutar(int idExpediente)
     {
-
+/*
         var excepcion = new RepositorioException();
         var consultarPorIdTramite = new CasoDeUsoExpedienteConsultaTodosTramitesAscociados(repoT);
 
-        List<Tramite> tramites = consultarPorIdTramite.Ejecutar(idExpediente);
+        List<Tramite> tramitesAsociados = consultarPorIdTramite.Ejecutar(idExpediente);
 
-        if(tramites.Count > 0)
+        if(tramitesAsociados.Count > 0)
         {
-            Tramite ultumoTramite = tramites[tramites.Count - 1]; // recupera ultimo tramite
+            Tramite ultimoTramite = tramitesAsociados[0]; // recupera ultimo tramite agrgago (el ultimo de la lista)
 
-            //Verifica que cambio debe hacer segun el tipo de tramite     
-            EstadoExpediente? nuevoEstado;
-            especificacion.Ejecutar(ultumoTramite.TipoTramite, out nuevoEstado);
-
-            if(nuevoEstado != null)
+            foreach (Tramite tAux in tramitesAsociados)
             {
-                //Busca el expedeinte asociado del ultimo tramite
-                var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE);
-                Expediente? expediente = consultarPorIdExpediente.Ejecutar(ultumoTramite.IdExpediente);
-
-                if(expediente != null){
-                    // Realiza en cambio
-                    var modificacion = new CasoDeUsoExpedienteModificacion(repoE, autorizacion, new ExpedienteValidador());
-                    expediente.ExpedienteEstado = (EstadoExpediente) nuevoEstado;
-                    modificacion.Ejecutar( (Expediente) expediente, 1);
-                    // ¿ El cambio siempre se hace con el usuario 1 ya que tiene permiso ? ¿ o deberia ser el usuario del ultimo tramite ?
-
+                if(tAux.FechaHoraModificacion > ultimoTramite.FechaHoraModificacion)
+                {
+                    ultimoTramite = tAux;
                 }
             }
+*/
+        var consultarPorIdExpediente = new CasoDeUsoExpedienteConsultaPorId(repoE);
+        Expediente? expediente = consultarPorIdExpediente.Ejecutar(idExpediente);
+        
+        if(expediente != null){
+
+            var consultarPorIdTramite = new CasoDeUsoTramiteConsultaPorId(repoT);
+
+            if(expediente.ListaTramites.Count > 0){
+
+                Tramite? ultimoTramite = consultarPorIdTramite.Ejecutar(expediente.ListaTramites[expediente.ListaTramites.Count - 1]);
+
+                if(ultimoTramite != null){
+
+                    //Verifica que cambio debe hacer segun el tipo de tramite     
+                    EstadoExpediente? nuevoEstado;
+                    especificacion.Ejecutar(ultimoTramite.TipoTramite, out nuevoEstado);
+
+                    if(nuevoEstado != null)
+                    {   
+
+                        // Realiza en cambio
+                        var modificacion = new CasoDeUsoExpedienteModificacion(repoE, autorizacion, new ExpedienteValidador());
+                        expediente.ExpedienteEstado = (EstadoExpediente) nuevoEstado;
+                        modificacion.Ejecutar( (Expediente) expediente, 1);
+                    }
+                }
+            }
+
         }
+
+        //}
 
     }
 }

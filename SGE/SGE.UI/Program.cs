@@ -81,7 +81,7 @@ app.MapRazorComponents<App>()
     
 if (SGESqlite.Inicializar()) {
 
-    /************************* Inicializa Admin y algunos Tramites y Expedientes a la base de datos para hacer pruebas *************************/
+    /************************* Inicializa Admin y algunos Tramites y Expedientes a la base de datos para hacer pruebas *************************
 
     IUsuarioRepositorio repoU = new RepositorioUsuarioSQL();
     ITramiteRepositorio repoT = new RepositorioTramiteSQL();

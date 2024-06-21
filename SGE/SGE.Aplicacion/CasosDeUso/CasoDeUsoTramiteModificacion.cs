@@ -25,7 +25,7 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repoT, IServicioAu
                 Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
                 if ( expediente != null )
                     //if ( expediente.ListaTramites != null )
-                        expediente.ListaTramites.Remove(tramite);
+                        expediente.ListaTramites.Remove(tramite.Id);
 
                 // Intenta modificar el trámite en el repositorio y guarda si fue encontrado y modificado correctamente
                 bool encontrado = repoT.ModificarTramite( tramite );
@@ -38,8 +38,7 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repoT, IServicioAu
                     cambioEsatodoAutomatico.Ejecutar( tramite.Id );
 
                     if ( expediente != null )
-                        //if ( expediente.ListaTramites != null )
-                            expediente.ListaTramites.Add(tramite);
+                            expediente.ListaTramites.Add(tramite.Id);
 
                 }
             }
