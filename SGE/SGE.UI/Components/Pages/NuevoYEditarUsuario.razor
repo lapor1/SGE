@@ -160,14 +160,24 @@ else
     {
         if (_esNuevoUsuario)
         {
-            if(u.Contraseña != null)
+            if(!string.IsNullOrEmpty(u.Contraseña))
             {
                 u.Contraseña = servicioHash.HashPassword(u.Contraseña);
-                usuarioAlta.Ejecutar(u);
 
-                u = new Usuario();
-                mensaje = "";
-                Navegador.NavigateTo("listarUsuarios");
+                try
+                {
+                    usuarioAlta.Ejecutar(u);
+                    u = new Usuario();
+                    mensaje = "";
+                    Navegador.NavigateTo("listarUsuarios");
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                    Console.WriteLine(ex);
+                    u.Contraseña = "";
+                }
+
             }
             else
             {
@@ -177,15 +187,23 @@ else
         }
         else
         {
-            if(u.Contraseña != null)    //si no cambió la contraseña, no la vuelve a hashear
+            if(!string.IsNullOrEmpty(u.Contraseña))    //si no cambió la contraseña, no la vuelve a hashear
             {
                 u.Contraseña = servicioHash.HashPassword(u.Contraseña);
             }
-            modificarUsuario.Ejecutar(u);
+            try
+            {
+                modificarUsuario.Ejecutar(u);
+                u = new Usuario();
+                mensaje = "";
+                Navegador.NavigateTo("listarUsuarios");
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                Console.WriteLine(ex);
+            }
 
-            u = new Usuario();
-            mensaje = "";
-            Navegador.NavigateTo("listarUsuarios");
         }
     }
 

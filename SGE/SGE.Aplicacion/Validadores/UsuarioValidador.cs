@@ -17,6 +17,16 @@ public class UsuarioValidador
         {
             throw new Exception("Contraseña vacia");
         }
+
+        if (string.IsNullOrEmpty(usuario.Nombre))
+        {
+            throw new Exception("Nombre vacio");
+        }
+
+        if (string.IsNullOrEmpty(usuario.Apellido))
+        {
+            throw new Exception("Apellido vacio");
+        }
         return (mensajeError == "");
     }
 }

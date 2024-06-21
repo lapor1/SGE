@@ -85,38 +85,33 @@ else
 
     void Aceptar()
     {
-        if(!string.IsNullOrEmpty(u.Contraseña))
+        try 
         {
-            if(!string.IsNullOrEmpty(u.CorreoElectronico))
-            {
+            if(!string.IsNullOrEmpty(u.Contraseña)){
                 u.Contraseña = servicioHash.HashPassword(u.Contraseña);
-
-                // Si no existe el admin en la DB, el primero que se registra será el admin
-                if(listarUsuarios.Ejecutar().Count() == 0)
-                {
-                    crearAdmin.Ejecutar(u);
-                }
-                else
-                {
-                    usuarioAlta.Ejecutar(u);
-                }
-
-                Console.WriteLine("Usuario registrado exitoso");
-
-                u = new Usuario();
-                mensaje = "";
-                Navegador.NavigateTo("login");
+            }
+            
+            // Si no existe el admin en la DB, el primero que se registra será el admin
+            if(listarUsuarios.Ejecutar().Count() == 0)
+            {
+                crearAdmin.Ejecutar(u);
             }
             else
             {
-                mensaje = "Email vacio";
-                Console.WriteLine(mensaje);
+                usuarioAlta.Ejecutar(u);
             }
+            Console.WriteLine("Usuario registrado exitoso");
+
+            u = new Usuario();
+            mensaje = "";
+            Navegador.NavigateTo("login");
+
         }
-        else 
+        catch (Exception ex)
         {
-            mensaje = "Contraseña vacia";
-            Console.WriteLine(mensaje);
+            mensaje = ex.Message;
+            Console.WriteLine(ex);
+            u.Contraseña = "";
         }
     }
 }
