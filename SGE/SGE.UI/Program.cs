@@ -53,6 +53,7 @@ builder.Services.AddTransient<CasoDeUsoCrearAdmin>();
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
 builder.Services.AddScoped<IServicioHash, ServicioHash>();
 builder.Services.AddScoped<TramiteValidador>();
+builder.Services.AddScoped<UsuarioValidador>();
 builder.Services.AddScoped<ExpedienteValidador>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();
 
