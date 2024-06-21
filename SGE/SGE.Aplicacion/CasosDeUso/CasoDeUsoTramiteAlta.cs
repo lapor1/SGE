@@ -7,7 +7,7 @@ using SGE.Aplicacion.Validadores;
 
 namespace SGE.Aplicacion.CasosDeUso;
 
-public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, TramiteValidador validador, ExpedienteValidador validadorE)
+public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizacion autorizacion, IExpedienteRepositorio repoE, EspecificacionCambioDeEstado especificacion, TramiteValidador validador)
 {
     private static int id = 0;  // buscar en el repositorio el id maximo
 
@@ -43,13 +43,14 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
 
                 repoT.AgregarTramiteAlta( tramite ); // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
 
-                var casoDeUsoExpedienteConsultaPorId =  new CasoDeUsoExpedienteConsultaPorId(repoE);
-                var casoDeUsoExpedienteModificacion =  new CasoDeUsoExpedienteModificacion(repoE, autorizacion, validadorE);
+                //var casoDeUsoExpedienteConsultaPorId =  new CasoDeUsoExpedienteConsultaPorId(repoE);
 
-                Expediente? expediente = casoDeUsoExpedienteConsultaPorId.Ejecutar( tramite.IdExpediente );
+                Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
+
                 if ( expediente != null ){
                      expediente.ListaTramites.Add(tramite.Id);
-                     casoDeUsoExpedienteModificacion.Ejecutar(expediente, 1);
+                     //casoDeUsoExpedienteModificacion.Ejecutar(expediente, 1);
+                    repoE.ModificarExpediente(expediente);
                 
                     var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
                     cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);

@@ -39,12 +39,13 @@
                 @if(_esNuevoUsuario)
                 {
                     <label for="contraseña" class="form-label">Contraseña</label>
+                    <input id="contraseña" type="password" placeholder="Contraseña" @bind="u.Contraseña" class="form-control" />
                 }
                 else
                 {
                     <label for="contraseña" class="form-label">Contraseña (no poner nada si no quiere cambiar)</label>
+                    <input id="contraseña" type="password" placeholder="Contraseña" @bind="ContraseñaNueva" class="form-control" />
                 }
-                <input id="contraseña" type="password" placeholder="Contraseña" @bind="u.Contraseña" class="form-control" />
             </div>
         </div>
 
@@ -127,6 +128,7 @@ else
     Usuario u = new Usuario();
 
     string mensaje = "";
+    string? ContraseñaNueva;
 
     bool[] isCkecked = new bool[]{false, false, false, false, false, false};
 
@@ -143,8 +145,6 @@ else
            {
                u = u_hallado;
                _esNuevoUsuario = false;
-
-               u.Contraseña = null;
 
                isCkecked[0] = u.ListaPermisos.Contains(Permiso.ExpedienteAlta);
                isCkecked[1] = u.ListaPermisos.Contains(Permiso.ExpedienteBaja);
@@ -187,15 +187,16 @@ else
         }
         else
         {
-            if(!string.IsNullOrEmpty(u.Contraseña))    //si no cambió la contraseña, no la vuelve a hashear
+            if(!string.IsNullOrEmpty(ContraseñaNueva))    //si no cambió la contraseña, no la vuelve a hashear
             {
-                u.Contraseña = servicioHash.HashPassword(u.Contraseña);
+                u.Contraseña = servicioHash.HashPassword(ContraseñaNueva);
             }
             try
             {
                 modificarUsuario.Ejecutar(u);
                 u = new Usuario();
                 mensaje = "";
+                ContraseñaNueva = null;
                 Navegador.NavigateTo("listarUsuarios");
             }
             catch (Exception ex)
