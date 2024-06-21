@@ -23,9 +23,6 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repoT, IServicioAu
                 tramite.IdUsuarioUM = idUsuario;
 
                 Expediente? expediente = repoE.GetExpediente( tramite.IdExpediente );
-                if ( expediente != null )
-                    //if ( expediente.ListaTramites != null )
-                        expediente.ListaTramites.Remove(tramite.Id);
 
                 // Intenta modificar el trámite en el repositorio y guarda si fue encontrado y modificado correctamente
                 bool encontrado = repoT.ModificarTramite( tramite );
@@ -34,12 +31,20 @@ public class CasoDeUsoTramiteModificacion(ITramiteRepositorio repoT, IServicioAu
                     throw new RepositorioException( "El tramite no se puede modificar porque no existe en el repositorio" );
                 }
                 else{    
-                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
-                    cambioEsatodoAutomatico.Ejecutar( tramite.Id );
-
                     if ( expediente != null )
-                            expediente.ListaTramites.Add(tramite.Id);
+                    {
+                        expediente.ListaTramites.Remove(tramite.Id);
+                        expediente.ListaTramites.Add(tramite.Id);
 
+                        repoE.ModificarExpediente(expediente);
+
+                        var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
+                        cambioEsatodoAutomatico.Ejecutar( tramite.IdExpediente );
+                    }
+                    else
+                    {
+                        throw new RepositorioException( "no encuentra expediente asociado" );
+                    }
                 }
             }
             else {

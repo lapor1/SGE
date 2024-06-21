@@ -40,8 +40,6 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
                 tramite.FechaHoraCreacion = DateTime.Now;  // Establece la fecha y hora de creación del trámite como la fecha y hora actuales
                 tramite.FechaHoraModificacion = DateTime.Now; // Establece la fecha y hora de modificación del trámite como la fecha y hora actuales
 
-                var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
-                cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
 
                 repoT.AgregarTramiteAlta( tramite ); // Agrega el trámite al repositorio llamando al método AgregarTramiteAlta
 
@@ -52,6 +50,9 @@ public class CasoDeUsoTramiteAlta(ITramiteRepositorio repoT, IServicioAutorizaci
                 if ( expediente != null ){
                      expediente.ListaTramites.Add(tramite.Id);
                      casoDeUsoExpedienteModificacion.Ejecutar(expediente, 1);
+                
+                    var cambioEsatodoAutomatico = new ServicioActualizarEstado(repoE, repoT, especificacion, autorizacion);
+                    cambioEsatodoAutomatico.Ejecutar(tramite.IdExpediente);
                 }
                 else {
                     throw new Exception( "No se encontró expediente para ascociar el tramite" );
