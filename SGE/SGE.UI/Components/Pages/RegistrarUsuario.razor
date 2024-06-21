@@ -4,6 +4,8 @@
 @inject NavigationManager Navegador
 @inject Logger log
 @inject IServicioHash servicioHash
+@inject CasoDeUsoListarUsuarios listarUsuarios
+@inject CasoDeUsoCrearAdmin crearAdmin
 
 @if(!log.Logueado)
 {
@@ -69,27 +71,52 @@
         <!-- Botón para enviar el formulario -->
         <button class="btn btn-primary" @onclick="Aceptar">Aceptar</button>
     </div>
+
+    <h6 class="text-danger text-center">@mensaje</h6>
 }
 else
 {
-    <h3>Usted ya está registrado </h3>
+    <h3>Usted ya está registrado</h3>
 }
 
 @code {
     Usuario u = new Usuario();
+    string mensaje = "";
 
     void Aceptar()
     {
-        if(u.Contraseña != null)
+        if(!string.IsNullOrEmpty(u.Contraseña))
         {
-            u.Contraseña = servicioHash.HashPassword(u.Contraseña);
-            usuarioAlta.Ejecutar(u);
-            Console.WriteLine("Usuario registrado exitoso");
-            Navegador.NavigateTo("");
+            if(!string.IsNullOrEmpty(u.CorreoElectronico))
+            {
+                u.Contraseña = servicioHash.HashPassword(u.Contraseña);
+
+                // Si no existe el admin en la DB, el primero que se registra será el admin
+                if(listarUsuarios.Ejecutar().Count() == 0)
+                {
+                    crearAdmin.Ejecutar(u);
+                }
+                else
+                {
+                    usuarioAlta.Ejecutar(u);
+                }
+
+                Console.WriteLine("Usuario registrado exitoso");
+
+                u = new Usuario();
+                mensaje = "";
+                Navegador.NavigateTo("login");
+            }
+            else
+            {
+                mensaje = "Email vacio";
+                Console.WriteLine(mensaje);
+            }
         }
         else 
         {
-            Console.WriteLine("Contraseña vacia");
+            mensaje = "Contraseña vacia";
+            Console.WriteLine(mensaje);
         }
     }
 }

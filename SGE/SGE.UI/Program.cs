@@ -47,6 +47,8 @@ builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorId>();
 builder.Services.AddTransient<CasoDeUsoUsuarioConsultaPorEmail>();
 builder.Services.AddTransient<CasoDeUsoListarUsuarios>();
 
+builder.Services.AddTransient<CasoDeUsoCrearAdmin>();
+
 // Servicios
 builder.Services.AddScoped<IServicioAutorizacion, ServicioAutorizacion>();
 builder.Services.AddScoped<IServicioHash, ServicioHash>();
@@ -54,7 +56,7 @@ builder.Services.AddScoped<TramiteValidador>();
 builder.Services.AddScoped<ExpedienteValidador>();
 builder.Services.AddScoped<EspecificacionCambioDeEstado>();
 
-// Loggers
+// Logger
 builder.Services.AddSingleton<Logger>();
 
 // Repositorios
@@ -78,16 +80,22 @@ app.MapRazorComponents<App>()
     
 if (SGESqlite.Inicializar()) {
 
-    var servicio = new ServicioAutorizacion(new RepositorioUsuarioSQL());
-    var especificacion = new EspecificacionCambioDeEstado();
+    /************************* Inicializa Admin y algunos Tramites y Expedientes a la base de datos para hacer pruebas *************************
+
+    IUsuarioRepositorio repoU = new RepositorioUsuarioSQL();
     ITramiteRepositorio repoT = new RepositorioTramiteSQL();
     IExpedienteRepositorio repoE = new RepositorioExpedienteSQL();
+    var servicio = new ServicioAutorizacion(repoU);
+    var especificacion = new EspecificacionCambioDeEstado();
     var validadorTramite = new TramiteValidador();
     var validadorExpediente = new ExpedienteValidador();
     var altaTramite = new CasoDeUsoTramiteAlta(repoT, servicio, repoE, especificacion, validadorTramite);
     var altaExpediente = new CasoDeUsoExpedienteAlta(repoE, servicio, validadorExpediente);
+    var crearAdmin = new CasoDeUsoCrearAdmin(repoU);
 
-    SGESqlite.CrearAdmin();
+    // Me crea un Admin dafaul con Email: Admin@gmail.com y contraseña: 1234
+    // Pero se puede comentar y ver que el primer usuario creado lo pone como admin
+    crearAdmin.Ejecutar(null);  
 
     Random random = new Random();
     int E = 10;
@@ -130,6 +138,8 @@ if (SGESqlite.Inicializar()) {
             Console.WriteLine(ex.Message);
         }
     }
+
+    /*******************************************************************************************************************************/
 }
 
 app.Run();
